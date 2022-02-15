@@ -9,7 +9,6 @@ export const ComingSoonStyle = styled.main`
   @supports (-webkit-touch-callout: none) {
     min-height: -webkit-fill-available;
   }
-  
 
   header {
     height: 80px;
