@@ -36,13 +36,16 @@ const ComingSoon = () => {
       <footer>
         <ul>
           <li>
-            <a href="">
-              <Icon name="fb" />
+            <a
+              href="https://discord.com/invite/racingsocialclubnft"
+              target="_blank"
+            >
+              <Icon name="discord" />
             </a>
           </li>
           <li>
             <a
-              href="https://www.instagram.com/racingsocial_nft/"
+              href="https://www.instagram.com/racingsocial_nft"
               target="_blank"
             >
               <Icon name="instagram" />
