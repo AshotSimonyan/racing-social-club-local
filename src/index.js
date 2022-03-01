@@ -1,17 +1,20 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import "./index.css"
 import App from "./App"
 import reportWebVitals from "./reportWebVitals"
 import { ThemeProvider } from "styled-components"
-import { GlobalStyle } from "./styles/GlobalStyles"
 import { theme } from "./styles/theme"
+import { GlobalStyle } from "./styles/GlobalStyles"
+import { ParallaxProvider } from "react-scroll-parallax"
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <GlobalStyle />
-    <App />
-  </ThemeProvider>,
+    <ParallaxProvider scrollAxis="horizontal">
+      <GlobalStyle />
+      <App />
+    </ParallaxProvider>
+  </ThemeProvider>
+  ,
   document.getElementById("root")
 )
 
