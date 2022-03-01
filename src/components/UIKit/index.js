@@ -1,5 +1,0 @@
-export { Button } from "./Button/Button"
-export { Input } from "./Input/Input"
-export { Textarea } from "./Input/Textarea"
-export { Icon } from "./Icons/Icon"
-export { Carousel } from "./Carousel/Carousel"
