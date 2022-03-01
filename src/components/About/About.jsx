@@ -1,0 +1,101 @@
+import { AboutStyle } from "./About.style"
+import { forwardRef, useEffect, useRef, useState } from "react"
+import { Fade } from "react-awesome-reveal"
+import RunningText from "../UIKit/RunningText/RunningText"
+import { Parallax } from "react-scroll-parallax"
+
+
+const About = forwardRef(({ onScreen }, ref) => {
+  const [start, setStart] = useState(false)
+
+
+
+  useEffect(() => {
+    if (onScreen) {
+      setStart(true)
+    }
+  }, [onScreen])
+
+  function setOffsetYMax(windowWidth) {
+    return windowWidth <= 480 ? 0 : 10;
+  }
+
+  function setOffsetYMin(windowWidth) {
+    return windowWidth <= 480 ? 0 : -120;
+  }
+
+  return (
+    <AboutStyle ref={ref} startAnim={start}>
+      <RunningText image='/assets/about/running' withFlag/>
+      <div className="content-wrapper">
+        <div className="content-1">
+          <div className="img-wrapper">
+            <picture>
+              <source srcSet='/assets/about/about1.webp' type="image/webp" />
+              <img src='/assets/about/about1.png' alt="racing" />
+            </picture>
+          </div>
+        </div>
+        <div className="content-2">
+          <Fade
+            triggerOnce
+            cascade
+            direction={"right"}
+            fraction={0}
+            duration={1000}
+            delay={3800}
+          >
+
+            <Parallax
+              translateX={[-75, 0]}
+              onEnter={(e) => console.log(e)}
+            >
+              <h1>7,878 Unique</h1>
+            </Parallax>
+            <Parallax
+              translateX={[-50, 0]}
+              onEnter={(e) => console.log(e)}
+            >
+              <h1 >Racers are</h1>
+            </Parallax>
+            <Parallax
+              translateX={[-25, 0]}
+              onEnter={(e) => console.log(e)}
+            >
+              <h1>Waiting For YOU</h1>
+            </Parallax>
+
+          </Fade>
+          <Fade
+            triggerOnce
+            direction={"right"}
+            fraction={0}
+            duration={1000}
+            delay={5200}
+          >
+            <Parallax
+              speed={0}
+              onEnter={(e) => console.log(e)}
+            >
+              <div className='text'>
+                <p>The Racing Social CLub is a collection of 7,878 Racers with hundreds of elements.</p>
+                <p>Each artwork is original, with its own color palette and creation. The objective was to make each Racer unique in order to prioritize quality above quantity.</p>
+              </div>
+            </Parallax>
+          </Fade>
+
+        </div>
+        <div className="content-3">
+          <div className="img-wrapper">
+            <picture>
+              <source srcSet='/assets/about/about2.webp' type="image/webp" />
+              <img src='/assets/about/about2.png' alt="racing" />
+            </picture>
+          </div>
+        </div>
+      </div>
+    </AboutStyle>
+  )
+})
+
+export default About

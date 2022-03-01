@@ -1,4 +1,5 @@
 import { createGlobalStyle, keyframes } from "styled-components"
+import { fontFace } from "../utils/utils"
 
 const fadeIn = keyframes`
   from {
@@ -31,88 +32,208 @@ export const GlobalStyle = createGlobalStyle`
     vertical-align: baseline;
     background: transparent;
   }
+
   article, aside, details, figcaption, figure, dialog,
   footer, header, hgroup, menu, nav, section, main {
     display: block;
   }
+
   ul, ul li {
     list-style: none;
   }
+
   blockquote, q {
     quotes: none;
+
     &:before, &:after {
       content: none;
     }
   }
+
   a {
     text-decoration: none;
     font-size: 100%;
     color: inherit;
   }
+
   table {
     border-collapse: collapse;
     border-spacing: 0;
   }
+
   /**
    * Paul Irish box sizing reset so all elements have broder-box.
    */
   html {
     box-sizing: border-box;
   }
+
   *, *:before, *:after {
     box-sizing: inherit;
     font-family: inherit;
   }
+
   /**
    * custom smarty resets
    */
   a {
     text-decoration: none;
   }
+
   button, input, a, textarea {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     outline: none;
   }
+
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
+
   input {
     &:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
       -webkit-box-shadow: 0 0 0 30px #fff inset !important;
     }
   }
+
   /* Firefox */
   input[type=number] {
     -moz-appearance: textfield;
   }
 
+  ${({theme}) => fontFace('/fonts/D-DINCondensed-Bold', theme.fonts.primary, 700)};
+  ${({theme}) => fontFace('/fonts/D-DINCondensed-Regular', theme.fonts.primary, 400)}
+
   /*global*/
   body {
+    font-family: ${({ theme }) => theme.fonts.primary};
+    font-size: ${({ theme }) => theme.fontSizes.lg};
+    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.black};
     font-weight: 400;
     line-height: 1.4;
+    overflow-y: hidden;
   }
   
-  .container {
-    max-width: 1140px;
-    width: 100%;
-    padding: 0 16px;
-    margin: 0 auto;
-  }
   
-  .main-wrapper {
-    padding-top: 64px;
-  }
+  .horizontal-scroll {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    transition: .5s;
+    padding-bottom: 60px;
 
-  /*typography*/
+    section {
+      height: 100vh;
+      flex-shrink: 0;
+      position: relative;
+
+      &:not(:last-child) {
+        border-right: 10px solid ${({theme}) => theme.colors.white};
+      }
+    }
+  }
+  //
+  //.main-wrapper {
+  //  height: 100vh;
+  //  width: 100vh;
+  //  section {
+  //    height: 100vh;
+  //    width: 100vh;
+  //  }
+  //}
+
   
-  h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
+  /*typography*/
+
+  h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
     font-weight: 700;
     line-height: 1.2;
+    -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
+    text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
+    text-transform: uppercase;
   }
 
+  h1, .h1 {
+    white-space: nowrap;
+    font-size: ${({ theme }) => theme.titleSizes.h1};
+
+  }
+
+  h2, .h2 {
+    font-size: ${({ theme }) => theme.titleSizes.h2};
+  }
+
+  h3, .h3 {
+    font-size: ${({ theme }) => theme.titleSizes.h3};
+  }
+
+  h4, .h4 {
+    font-size: ${({ theme }) => theme.titleSizes.h4};
+  }
+
+
+  /*colors*/
+  .color-primary {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+
+  .fw-bold {
+    font-weight: 700;
+  }
+
+
+  /*animations*/
+  .animated {
+    opacity: 0;
+  }
+
+  .fade-in {
+    animation: ${fadeIn} .5s ease-in forwards;
+  }
+
+
+  iframe {
+    pointer-events: none; /*for development*/
+  }
+
+
+  /*media queries*/
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
+
+    h1, .h1 {
+      font-size: ${({ theme }) => theme.titleSizesSM.h1};
+    }
+    
+  }
+
+  /*media queries*/
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
+    
+    body {
+      font-size: ${({ theme }) => theme.fontSizesXS.lg};
+    }
+
+    h1, .h1 {
+      font-size: ${({ theme }) => theme.titleSizesXS.h1};
+    }
+    h2, .h2 {
+      font-size: ${({ theme }) => theme.titleSizesXS.h2};
+    }
+    h3, .h3 {
+      font-size: ${({ theme }) => theme.titleSizesXS.h3};
+    }
+    h4, .h4 {
+      font-size: ${({ theme }) => theme.titleSizesXS.h4};
+    }
+    h5, .h5 {
+      font-size: ${({ theme }) => theme.titleSizesXS.h5};
+    }
+  }
 
 `
