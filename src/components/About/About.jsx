@@ -41,17 +41,20 @@ const About = forwardRef(({ onScreen }, ref) => {
           >
 
             <Parallax
+                className='transition'
               translateX={[-75, 0]}
               onEnter={(e) => console.log(e)}
             >
               <h1>7,878 Unique</h1>
             </Parallax>
             <Parallax
+                className='transition'
               translateX={[-50, 0]}
             >
               <h1 >Racers are</h1>
             </Parallax>
             <Parallax
+                className='transition'
               translateX={[-25, 0]}
             >
               <h1>Waiting For YOU</h1>

@@ -119,7 +119,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   
-  .horizontal-scroll {
+  .scroll-horizontal {
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -138,15 +138,14 @@ export const GlobalStyle = createGlobalStyle`
       }
     }
   }
-  //
-  //.main-wrapper {
-  //  height: 100vh;
-  //  width: 100vh;
-  //  section {
-  //    height: 100vh;
-  //    width: 100vh;
-  //  }
-  //}
+
+  .main-wrapper {
+    height: 100vh;
+    width: 100vw;
+    section {
+      height: 100vh;
+    }
+  }
 
   
   /*typography*/
@@ -202,7 +201,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   .transition {
-    transition: transform .3s;
+    transition: transform .1s linear;
   }
 
   .fade-in {
@@ -245,6 +244,27 @@ export const GlobalStyle = createGlobalStyle`
     }
     h5, .h5 {
       font-size: ${({ theme }) => theme.titleSizesXS.h5};
+    }
+  }
+
+  @media (hover: none), (pointer:coarse), (-moz-touch-enabled: 1) {
+    .scroll-horizontal {
+      overflow: scroll !important;
+      overflow: overlay !important;
+      overflow-x: scroll !important;
+      overflow-x: overlay !important;
+      overflow-y: hidden !important;
+      -ms-overflow-style: none !important;
+      scrollbar-width: none !important;
+
+      &>div {
+        transform: none !important;
+        position: relative;
+      }
+
+      &::-webkit-scrollbar {
+        display: none !important;
+      }
     }
   }
 

@@ -8,6 +8,7 @@ import FAQ from "./components/FAQ/FAQ"
 import Team from "./components/Team/Team"
 import HorizontalScroll from "react-scroll-horizontal"
 import NavBar from "./components/Navbar/NavBar"
+import RoadMap from "./components/RoadMap/RoadMap";
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -21,12 +22,10 @@ function App() {
   const aboutRef = useRef(null)
   const contactRef = useRef(null)
   const teamRef = useRef(null);
+  const roadMapRef = useRef(null);
   const [animValues, setAnimValues] = useState(0);
 
-  const heroScreen = useOnScreen(heroRef)
   const aboutScreen = useOnScreen(aboutRef)
-  const faqScreen = useOnScreen(faqRef)
-  const teamScreen = useOnScreen(teamRef)
   useEffect(() => {
     window.history.scrollRestoration = "manual"
   }, [])
@@ -96,14 +95,14 @@ function App() {
         <HorizontalScroll
           className='parent'
           reverseScroll
-          config={{ stiffness: 75 }}
+          config={{ stiffness: 50 }}
           ref={parentRef}
           animValues={animValues}
         >
-          <Hero  ref={heroRef} onScreen={heroScreen && !loading} />
-          <About  ref={aboutRef} onScreen={aboutScreen && !loading} />
-          <FAQ  ref={faqRef} onScreen={faqScreen && !loading} />
-          <Team  ref={teamRef} onScreen={teamScreen && !loading} />
+            <About  ref={aboutRef} onScreen={aboutScreen && !loading} />
+            <RoadMap ref={roadMapRef} />
+            <Team  ref={teamRef} />
+            <FAQ  ref={faqRef} />
         </HorizontalScroll>
       </div>
 
