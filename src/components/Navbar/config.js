@@ -5,7 +5,7 @@ export const navList = [
   },
   {
     title: "ROADMAP",
-    to: "#roadmap",
+    to: "#roadMap",
   },
   {
     title: "TEAM",

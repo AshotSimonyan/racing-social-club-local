@@ -22,6 +22,7 @@ export const AboutStyle = styled.section`
 
   .content-2 {
     padding-left: 180px;
+    padding-top: 80px;
     width: 670px;
     margin-left: 12px;
     position: relative;

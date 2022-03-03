@@ -11,16 +11,13 @@ import NavBar from "./components/Navbar/NavBar"
 import RoadMap from "./components/RoadMap/RoadMap";
 
 function App() {
-  const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true)
   const [progress, setProgress] = useState(5);
   const [, setLocked] = useLockedBody(true)
   const [scrollTo, setScrollTo] = useState(null)
-  const [transform, setTransform] = useState(null)
   const parentRef = useRef(null)
-  const heroRef = useRef(null)
   const faqRef = useRef(null)
   const aboutRef = useRef(null)
-  const contactRef = useRef(null)
   const teamRef = useRef(null);
   const roadMapRef = useRef(null);
   const [animValues, setAnimValues] = useState(0);
@@ -32,7 +29,7 @@ function App() {
 
   const refMapping = {
     "#about": aboutRef,
-    "#contact": contactRef,
+    "#roadMap": roadMapRef,
     "#faq": faqRef,
     "#team": teamRef,
   }
@@ -44,24 +41,31 @@ function App() {
     }, 3500)
   })
 
+    // useEffect(() => {
+    //     if (scrollTo) {
+    //         refMapping[scrollTo]?.current?.scrollIntoView({
+    //             behavior: "smooth",
+    //         })
+    //         setScrollTo(false)
+    //     }
+    // }, [scrollTo])
+
   useEffect(() => {
     if (scrollTo) {
-      refMapping[scrollTo]?.current?.scrollIntoView({
-        behavior: "smooth",
-      });
+        refMapping[scrollTo]?.current?.scrollIntoView();
 
-      const parent = document.querySelector('.parent >div')
-      const pageWidth = parseInt(window.getComputedStyle(parent).width);
-      setAnimValues(parseInt(refMapping[scrollTo]?.current.offsetLeft))
+        const parent = document.querySelector('.parent >div')
+        const pageWidth = parseInt(window.getComputedStyle(parent).width);
+        setAnimValues(parseInt(refMapping[scrollTo]?.current.offsetLeft))
 
-      let percent = Math.round(refMapping[scrollTo]?.current.offsetLeft / pageWidth * 100);
-      if(percent < 5) {
-        percent = 5;
-      }
-      if(percent <= 100 && percent >= 5) {
-        setProgress(percent)
-      }
-      setScrollTo(false)
+        let percent = Math.round(refMapping[scrollTo]?.current.offsetLeft / pageWidth * 100);
+        if(percent < 5) {
+            percent = 5;
+        }
+        if(percent <= 100 && percent >= 5) {
+            setProgress(percent)
+        }
+        setScrollTo(false)
     }
   }, [scrollTo])
 
@@ -86,16 +90,17 @@ function App() {
 
   return (
     <main
-      onWheel={handleScroll}
+
     >
       <Loader className={loading ? "" : "hide-loader"} />
       <div
         className="main-wrapper"
+        onWheel={handleScroll}
       >
         <HorizontalScroll
           className='parent'
           reverseScroll
-          config={{ stiffness: 50 }}
+          config={{ stiffness: 100 }}
           ref={parentRef}
           animValues={animValues}
         >

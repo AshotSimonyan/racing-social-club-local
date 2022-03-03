@@ -67,8 +67,8 @@ const Team = forwardRef(({ onScreen }, ref) => {
                       <img src={img.png} alt="camp-pluto" />
                     </picture>
                   </div>
-                  <p className="name">{name}</p>
-                  <p className="position">{position}</p>
+                  {/*<p className="name">{name}</p>*/}
+                  {/*<p className="position">{position}</p>*/}
                 </li>
               )
             })}

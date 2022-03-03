@@ -103,8 +103,10 @@ const NavBar = ({ onLinkClick, progress, onScroll, transform }) => {
           </div>
         </nav>
         <div className="progress-wrapper">
-
-          <Progress filled={progress} />
+            {
+                !touchDevice &&
+                <Progress filled={progress} />
+            }
         </div>
         <ul className="social social-desktop">
           <li>
@@ -142,7 +144,8 @@ const NavBar = ({ onLinkClick, progress, onScroll, transform }) => {
         <button
           className="hamburger"
           type="button"
-          onClick={handleDrawerToggle}
+          // onClick={handleDrawerToggle}
+          onClick={() => {}}
         >
           <Icon name={drawerOpened ? "close" : "menu"} size={32} color={theme.colors.white} />
         </button>
