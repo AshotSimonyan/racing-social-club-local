@@ -16,12 +16,10 @@ export const NavBarStyle = styled.nav`
     }
   }
 
-
   .navbar-content {
     height: 100%;
     display: flex;
   }
-
 
   .header-content {
     display: flex;
@@ -92,7 +90,6 @@ export const NavBarStyle = styled.nav`
         &:not(:first-child) {
           margin-top: 24px;
         }
-
       }
     }
 
@@ -111,7 +108,6 @@ export const NavBarStyle = styled.nav`
     border-right: 1px solid ${({ theme }) => theme.colors.white};
 
     li {
-
       &:last-child {
         .social-btn {
           width: 172px;
@@ -139,7 +135,7 @@ export const NavBarStyle = styled.nav`
     .icon {
       path {
         transition: 0.5s;
-        fill: ${({ theme }) => theme.colors.white}
+        fill: ${({ theme }) => theme.colors.white};
       }
     }
 
@@ -176,11 +172,9 @@ export const NavBarStyle = styled.nav`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
-
-
-
-
-
+    .logo-wrapper {
+      width: 62px;
+    }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
@@ -206,9 +200,26 @@ export const NavBarStyle = styled.nav`
     }
 
     .social-mobile {
+      border-top: 1px solid ${({ theme }) => theme.colors.white};
       display: block;
       justify-content: center;
-      padding: 16px;
+    }
+    .social {
+      border: none;
+
+      li {
+        &:last-child {
+          border-left: 1px solid ${({ theme }) => theme.colors.white};
+          width: 100%;
+
+          .social-btn {
+            &.discord {
+              height: 60px;
+              width: 100%;
+            }
+          }
+        }
+      }
     }
   }
 `

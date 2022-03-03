@@ -13,8 +13,7 @@ ReactDOM.render(
       <GlobalStyle />
       <App />
     </ParallaxProvider>
-  </ThemeProvider>
-  ,
+  </ThemeProvider>,
   document.getElementById("root")
 )
 

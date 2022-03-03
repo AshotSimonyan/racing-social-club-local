@@ -17,41 +17,41 @@ const Carousel1 = () => {
       slidesToShow: 1,
       slidesToScroll: 1,
       speed: 800,
-      fade: true
+      fade: true,
     }
   }, [])
 
   const handleBeforeChange = async (oldIndex, newIndex) => {
     setCurrent(newIndex + 1)
-    setPercent((newIndex + 1) / 4 * 100)
+    setPercent(((newIndex + 1) / 4) * 100)
   }
 
   return (
     <Carousel1Style>
-      <Carousel
-        settings={settings}
-        beforeChange={handleBeforeChange}
-      >
-        {
-          [...Array(4)].map((item, index) => {
-            return (
-              <div className='carousel-item' key={`carousel-${index}`}>
-                <picture>
-                  <source srcSet={`/assets/carousel/carousel${index + 1}.webp`} type="image/webp" />
-                  <img src={`/assets/carousel/carousel${index + 1}.png`} alt="racing" />
-                </picture>
-              </div>
-            )
-          } )
-        }
+      <Carousel settings={settings} beforeChange={handleBeforeChange}>
+        {[...Array(4)].map((item, index) => {
+          return (
+            <div className="carousel-item" key={`carousel-${index}`}>
+              <picture>
+                <source
+                  srcSet={`/assets/carousel/carousel${index + 1}.webp`}
+                  type="image/webp"
+                />
+                <img
+                  src={`/assets/carousel/carousel${index + 1}.png`}
+                  alt="racing"
+                />
+              </picture>
+            </div>
+          )
+        })}
       </Carousel>
       <div className="progress-wrapper">
-        <div className='count'>{current} - 4</div>
+        <div className="count">{current} - 4</div>
         <div className="progress">
-          <span style={{height: `${percent}%`}}/>
+          <span style={{ height: `${percent}%` }} />
         </div>
       </div>
-
     </Carousel1Style>
   )
 }

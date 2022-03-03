@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const TeamStyle = styled.section`
   padding-left: 130px;
-  
+
   .content-wrapper {
     display: flex;
     height: 100%;
@@ -13,9 +13,9 @@ export const TeamStyle = styled.section`
     padding: 80px 80px 120px;
     display: flex;
     align-items: flex-end;
-    
+
     .text {
-      font-size: ${({theme}) => theme.titleSizes.h3};
+      font-size: ${({ theme }) => theme.titleSizes.h3};
     }
   }
   .content2 {
@@ -31,7 +31,7 @@ export const TeamStyle = styled.section`
         height: 100%;
         position: relative;
         z-index: 1;
-        transition: .5s;
+        transition: 0.5s;
       }
     }
   }
@@ -65,8 +65,9 @@ export const TeamStyle = styled.section`
   }
   .team-list {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     margin-left: -24px;
+    height: 100%;
   }
   .team-card {
     width: 262px;
@@ -78,40 +79,55 @@ export const TeamStyle = styled.section`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
-    padding: 160px 0;
+    padding-left: 120px;
+
+    .content1 {
+      padding: 60px 60px 120px;
+      width: 630px;
+    }
+
+    .content3 {
+      padding: 60px 60px 120px;
+    }
   }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
-    padding: 120px 0;
-    .team-list {
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin-left: -16px;
-    }
-    .team-card {
-      width: calc((100% / 3) - 24px);
-      margin-left: 16px;
-      margin-bottom: 40px;
-
-      &:nth-child(even) {
-        margin-top: 0;
-      }
-
-      &:nth-child(2) {
-        margin-top: 120px;
-      }
-    }
+    padding-left: 96px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
-    padding: 120px 0 60px;
-    .team-list {
-      justify-content: flex-start;
+    .content1 {
+      padding: 40px 40px 100px;
+      width: 400px;
+
+      .text {
+        font-size: ${({ theme }) => theme.titleSizesXS.h3};
+      }
+    }
+
+    .content3 {
+      padding: 40px 40px 100px;
     }
     .team-card {
-      width: calc((100% / 2) - 24px);
-
       &:nth-child(even) {
         margin-top: 120px;
+      }
+    }
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}px) {
+    padding-left: 70px;
+  }
+  @media (max-height: 480px) {
+    .content1 {
+      .text {
+        font-size: 20px;
+      }
+    }
+    .team-card {
+      width: 130px;
+
+      &:nth-child(even) {
+        margin-top: 40px;
       }
     }
   }

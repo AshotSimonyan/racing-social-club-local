@@ -27,10 +27,10 @@ export const Carousel2Style = styled.div`
   .slick-prev {
     top: 100%;
     width: 72px;
-    transition: width .5s;
+    transition: width 0.5s;
     transform: translateY(100%);
     pointer-events: all;
-    
+
     &:hover {
       width: 120px;
     }
@@ -40,7 +40,7 @@ export const Carousel2Style = styled.div`
       display: block;
 
       &:after {
-        content: '';
+        content: "";
         width: calc(100% - 6px);
         height: 2px;
         background-color: ${({ theme }) => theme.colors.white};
@@ -86,7 +86,7 @@ export const Carousel2Style = styled.div`
     left: inherit;
     right: 60%;
     text-align: right;
-    
+
     .arrow-text {
       text-align: right;
     }
@@ -105,4 +105,13 @@ export const Carousel2Style = styled.div`
     font-weight: 700;
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
+    height: 382px;
+    width: 328px;
+  }
+
+  @media (max-height: 480px) {
+    height: 100%;
+    width: 200px;
+  }
 `

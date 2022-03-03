@@ -1,5 +1,9 @@
-export const fontFace = (fontPath, fontFamily, fontWeight, fontStyle = 'normal') => {
-
+export const fontFace = (
+  fontPath,
+  fontFamily,
+  fontWeight,
+  fontStyle = "normal"
+) => {
   return `
         @font-face {
           font-family: ${fontFamily};

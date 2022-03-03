@@ -8,19 +8,19 @@ import FAQ from "./components/FAQ/FAQ"
 import Team from "./components/Team/Team"
 import HorizontalScroll from "react-scroll-horizontal"
 import NavBar from "./components/Navbar/NavBar"
-import RoadMap from "./components/RoadMap/RoadMap";
+import RoadMap from "./components/RoadMap/RoadMap"
 
 function App() {
-    const [loading, setLoading] = useState(true)
-  const [progress, setProgress] = useState(5);
+  const [loading, setLoading] = useState(true)
+  const [progress, setProgress] = useState(5)
   const [, setLocked] = useLockedBody(true)
   const [scrollTo, setScrollTo] = useState(null)
   const parentRef = useRef(null)
   const faqRef = useRef(null)
   const aboutRef = useRef(null)
-  const teamRef = useRef(null);
-  const roadMapRef = useRef(null);
-  const [animValues, setAnimValues] = useState(0);
+  const teamRef = useRef(null)
+  const roadMapRef = useRef(null)
+  const [animValues, setAnimValues] = useState(0)
 
   const aboutScreen = useOnScreen(aboutRef)
   useEffect(() => {
@@ -41,31 +41,33 @@ function App() {
     }, 3500)
   })
 
-    // useEffect(() => {
-    //     if (scrollTo) {
-    //         refMapping[scrollTo]?.current?.scrollIntoView({
-    //             behavior: "smooth",
-    //         })
-    //         setScrollTo(false)
-    //     }
-    // }, [scrollTo])
+  // useEffect(() => {
+  //     if (scrollTo) {
+  //         refMapping[scrollTo]?.current?.scrollIntoView({
+  //             behavior: "smooth",
+  //         })
+  //         setScrollTo(false)
+  //     }
+  // }, [scrollTo])
 
   useEffect(() => {
     if (scrollTo) {
-        refMapping[scrollTo]?.current?.scrollIntoView();
+      refMapping[scrollTo]?.current?.scrollIntoView()
 
-        const parent = document.querySelector('.parent >div')
-        const pageWidth = parseInt(window.getComputedStyle(parent).width);
-        setAnimValues(parseInt(refMapping[scrollTo]?.current.offsetLeft))
+      const parent = document.querySelector(".parent >div")
+      const pageWidth = parseInt(window.getComputedStyle(parent).width)
+      setAnimValues(parseInt(refMapping[scrollTo]?.current.offsetLeft))
 
-        let percent = Math.round(refMapping[scrollTo]?.current.offsetLeft / pageWidth * 100);
-        if(percent < 5) {
-            percent = 5;
-        }
-        if(percent <= 100 && percent >= 5) {
-            setProgress(percent)
-        }
-        setScrollTo(false)
+      let percent = Math.round(
+        (refMapping[scrollTo]?.current.offsetLeft / pageWidth) * 100
+      )
+      if (percent < 5) {
+        percent = 5
+      }
+      if (percent <= 100 && percent >= 5) {
+        setProgress(percent)
+      }
+      setScrollTo(false)
     }
   }, [scrollTo])
 
@@ -74,44 +76,45 @@ function App() {
   }
 
   const handleScroll = () => {
-    let parent = document.querySelector('.parent >div')
-    const pageWidth = parseInt(window.getComputedStyle(parent).width);
-    const animValues = Math.abs(parentRef.current?.state?.animValues);
+    let parent = document.querySelector(".parent >div")
+    const pageWidth = parseInt(window.getComputedStyle(parent).width)
+    const animValues = Math.abs(parentRef.current?.state?.animValues)
 
-    let percent = Math.round(((animValues + parentRef.current.hScrollParent.clientWidth) / pageWidth * 100));
-    if(percent < 5) {
-      percent = 5;
+    let percent = Math.round(
+      ((animValues + parentRef.current.hScrollParent.clientWidth) / pageWidth) *
+        100
+    )
+    if (percent < 5) {
+      percent = 5
     }
-    if(percent <= 100 && percent >= 5) {
-      setProgress(percent);
+    if (percent <= 100 && percent >= 5) {
+      setProgress(percent)
     }
   }
 
-
   return (
-    <main
-
-    >
+    <main>
       <Loader className={loading ? "" : "hide-loader"} />
-      <div
-        className="main-wrapper"
-        onWheel={handleScroll}
-      >
+      <div className="main-wrapper" onWheel={handleScroll}>
         <HorizontalScroll
-          className='parent'
+          className="parent"
           reverseScroll
           config={{ stiffness: 100 }}
           ref={parentRef}
           animValues={animValues}
         >
-            <About  ref={aboutRef} onScreen={aboutScreen && !loading} />
-            <RoadMap ref={roadMapRef} />
-            <Team  ref={teamRef} />
-            <FAQ  ref={faqRef} />
+          <About ref={aboutRef} onScreen={aboutScreen && !loading} />
+          <RoadMap ref={roadMapRef} />
+          <Team ref={teamRef} />
+          <FAQ ref={faqRef} />
         </HorizontalScroll>
       </div>
 
-      <NavBar onLinkClick={handleLinkClick} progress={progress} onScroll={handleScroll}   />
+      <NavBar
+        onLinkClick={handleLinkClick}
+        progress={progress}
+        onScroll={handleScroll}
+      />
     </main>
   )
 }

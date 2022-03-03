@@ -4,16 +4,16 @@ export const FAQStyle = styled.section`
   padding-left: 130px;
 
   display: flex;
-  
+
   .title {
     span {
       opacity: 0;
     }
   }
+
   .faq-content {
-    padding: 120px 0 80px;
-    max-width: 830px;
-    width: 100%;
+    padding: 120px 0 120px;
+    width: 830px;
     margin: 0 auto;
   }
 
@@ -44,7 +44,6 @@ export const FAQStyle = styled.section`
     cursor: pointer;
   }
 
-
   .contact-block {
     width: 1034px;
     border-left: 10px solid ${({ theme }) => theme.colors.white};
@@ -53,18 +52,19 @@ export const FAQStyle = styled.section`
   }
 
   .contact-content {
+    padding: 0 20px;
     max-width: 714px;
     width: 100%;
     text-align: center;
     margin: 0 auto;
-    
+
     .title {
       position: relative;
       padding-bottom: 40px;
       margin-bottom: 24px;
-      
+
       &:after {
-        content: '';
+        content: "";
         position: absolute;
         height: 2px;
         background-color: ${({ theme }) => theme.colors.white};
@@ -74,12 +74,64 @@ export const FAQStyle = styled.section`
         transform: translateX(-50%);
       }
     }
+
     .text {
       padding-bottom: 24px;
     }
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    padding-left: 120px;
+
+    .contact-block {
+      width: 960px;
+
+      .title {
+        position: relative;
+        padding-bottom: 24px;
+        margin-bottom: 16px;
+      }
+    }
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
-    padding: 80px 0;
+    padding-left: 96px;
+    .faq-content {
+      width: 620px;
+      padding: 80px 0 100px;
+    }
+    .contact-block {
+      width: 600px;
+    }
+    .contact-content {
+      max-width: 100%;
+    }
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
+    .faq-content {
+      width: 480px;
+      padding: 80px 0 100px;
+    }
+    .contact-block {
+      width: 500px;
+    }
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}px) {
+    padding-left: 70px;
+    .faq-content {
+      width: 360px;
+    }
+    .contact-block {
+      width: 400px;
+    }
+  }
+  @media (max-height: 480px) {
+    .faq-content {
+      padding-top: 0;
+    }
+
+    .trigger-inner {
+      padding: 16px 50px;
+    }
   }
 `

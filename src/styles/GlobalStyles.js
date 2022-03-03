@@ -104,8 +104,10 @@ export const GlobalStyle = createGlobalStyle`
     -moz-appearance: textfield;
   }
 
-  ${({theme}) => fontFace('/fonts/D-DINCondensed-Bold', theme.fonts.primary, 700)};
-  ${({theme}) => fontFace('/fonts/D-DINCondensed-Regular', theme.fonts.primary, 400)}
+  ${({ theme }) =>
+    fontFace("/fonts/D-DINCondensed-Bold", theme.fonts.primary, 700)};
+  ${({ theme }) =>
+    fontFace("/fonts/D-DINCondensed-Regular", theme.fonts.primary, 400)}
 
   /*global*/
   body {
@@ -134,7 +136,7 @@ export const GlobalStyle = createGlobalStyle`
       position: relative;
 
       &:not(:last-child) {
-        border-right: 10px solid ${({theme}) => theme.colors.white};
+        border-right: 10px solid ${({ theme }) => theme.colors.white};
       }
     }
   }
@@ -244,6 +246,46 @@ export const GlobalStyle = createGlobalStyle`
     }
     h5, .h5 {
       font-size: ${({ theme }) => theme.titleSizesXS.h5};
+    }
+  }
+
+  @media (max-height: ${({ theme }) => theme.breakpoints.sm}px) {
+    body {
+      font-size: ${({ theme }) => theme.fontSizesXS.lg};
+    }
+
+    h1, .h1 {
+      font-size: ${({ theme }) => theme.titleSizesXS.h1};
+    }
+    h2, .h2 {
+      font-size: ${({ theme }) => theme.titleSizesXS.h2};
+    }
+    h3, .h3 {
+      font-size: ${({ theme }) => theme.titleSizesXS.h3};
+    }
+    h4, .h4 {
+      font-size: ${({ theme }) => theme.titleSizesXS.h4};
+    }
+    h5, .h5 {
+      font-size: ${({ theme }) => theme.titleSizesXS.h5};
+    }
+  }
+
+  @media (max-height: 820px) {
+    h1, .h1 {
+      font-size: ${({ theme }) => theme.titleSizesSM.h1};
+    }
+  }
+
+  @media (max-height: ${({ theme }) => theme.breakpoints.xs}px) {
+    body {
+      font-size: 14px;
+    }
+    h1, .h1 {
+      font-size: 40px;
+    }
+    h3, .h3 {
+      font-size: 20px;
     }
   }
 

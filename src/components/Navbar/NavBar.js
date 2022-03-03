@@ -50,7 +50,7 @@ const NavBar = ({ onLinkClick, progress, onScroll, transform }) => {
         <div className="logo-wrapper">
           <a className="logo" href={"#"}>
             <picture>
-              <source media="(max-width: 767px)" srcSet={LogoIcon} />
+              <source media="(max-width: 991px)" srcSet={LogoIcon} />
               <img src={Logo} alt="Racing Social Club" />
             </picture>
           </a>
@@ -94,6 +94,7 @@ const NavBar = ({ onLinkClick, progress, onScroll, transform }) => {
                     target="_blank"
                     rel="noreferrer"
                     href="https://discord.gg/VcpBh2af"
+                    className="discord social-btn"
                   >
                     DISCORD
                   </Button>
@@ -103,39 +104,21 @@ const NavBar = ({ onLinkClick, progress, onScroll, transform }) => {
           </div>
         </nav>
         <div className="progress-wrapper">
-            {
-                !touchDevice &&
-                <Progress filled={progress} />
-            }
+          {!touchDevice && <Progress filled={progress} />}
         </div>
         <ul className="social social-desktop">
           <li>
-            <a
-              target="_blank"
-              href="#"
-              rel="noreferrer"
-              className="social-btn"
-            >
+            <a target="_blank" href="#" rel="noreferrer" className="social-btn">
               <Icon name="instagram" size={32} />
             </a>
           </li>
           <li>
-            <a
-              target="_blank"
-              href="#"
-              rel="noreferrer"
-              className="social-btn"
-            >
+            <a target="_blank" href="#" rel="noreferrer" className="social-btn">
               <Icon name="twitter" size={32} />
             </a>
           </li>
           <li>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              className="social-btn"
-              href="#"
-            >
+            <a target="_blank" rel="noreferrer" className="social-btn" href="#">
               <Icon name="discord" size={32} />
               <span>JOIN OUR DISCORD</span>
             </a>
@@ -144,10 +127,14 @@ const NavBar = ({ onLinkClick, progress, onScroll, transform }) => {
         <button
           className="hamburger"
           type="button"
-          // onClick={handleDrawerToggle}
-          onClick={() => {}}
+          onClick={handleDrawerToggle}
+          // onClick={() => {}}
         >
-          <Icon name={drawerOpened ? "close" : "menu"} size={32} color={theme.colors.white} />
+          <Icon
+            name={drawerOpened ? "close" : "menu"}
+            size={32}
+            color={theme.colors.white}
+          />
         </button>
       </div>
     </NavBarStyle>

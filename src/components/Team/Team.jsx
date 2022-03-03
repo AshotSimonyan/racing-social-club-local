@@ -10,32 +10,32 @@ const teamList = [
     position: "Project Lead",
     img: {
       png: "/assets/team/team.png",
-      webp: "/assets/team/team.webp"
-    }
+      webp: "/assets/team/team.webp",
+    },
   },
   {
     name: "Barbare S.",
     position: "Art",
     img: {
       png: "/assets/team/team.png",
-      webp: "/assets/team/team.webp"
-    }
+      webp: "/assets/team/team.webp",
+    },
   },
   {
     name: "Scott N.",
     position: "Art & Technology",
     img: {
       png: "/assets/team/team.png",
-      webp: "/assets/team/team.webp"
-    }
+      webp: "/assets/team/team.webp",
+    },
   },
   {
     name: "NFT Stack",
     position: "Smart Contract & Website",
     img: {
       png: "/assets/team/team.png",
-      webp: "/assets/team/team.webp"
-    }
+      webp: "/assets/team/team.webp",
+    },
   },
 ]
 
@@ -45,8 +45,11 @@ const Team = forwardRef(({ onScreen }, ref) => {
       <RunningText image="/assets/team/running" withBorder />
       <div className="content-wrapper">
         <div className="content1">
-          <p className="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu ornare erat. Ut
-            ultricies nunc in quam tincidunt, in blandit sapien euismod. </p>
+          <p className="text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu
+            ornare erat. Ut ultricies nunc in quam tincidunt, in blandit sapien
+            euismod.{" "}
+          </p>
         </div>
         <div className="content2">
           <div className="img-wrapper">

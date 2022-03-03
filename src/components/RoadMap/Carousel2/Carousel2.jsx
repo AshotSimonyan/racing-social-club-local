@@ -6,7 +6,7 @@ import { theme } from "../../../styles/theme"
 const Arrow = ({ className, onClick, direction, size = 8, color }) => {
   return (
     <button onClick={onClick} className={className}>
-      <span className='arrow-text'>{direction}</span>
+      <span className="arrow-text">{direction}</span>
       <span className="icon-wrapper">
         <Icon name={`arrow-${direction}`} color={color} size={size} />
       </span>
@@ -26,7 +26,7 @@ const Carousel2 = () => {
       slidesToShow: 1,
       slidesToScroll: 1,
       speed: 800,
-      fade: true
+      fade: true,
     }
   }, [])
 
@@ -36,25 +36,25 @@ const Carousel2 = () => {
 
   return (
     <Carousel2Style>
-      <Carousel
-        settings={settings}
-        beforeChange={handleBeforeChange}
-      >
-        {
-          [...Array(4)].map((item, index) => {
-            return (
-              <div className='carousel-item' key={`carousel-${index}`}>
-                <picture>
-                  <source srcSet={`/assets/carousel/carousel${index + 1}.webp`} type="image/webp" />
-                  <img src={`/assets/carousel/carousel${index + 1}.png`} alt="racing" />
-                </picture>
-              </div>
-            )
-          } )
-        }
+      <Carousel settings={settings} beforeChange={handleBeforeChange}>
+        {[...Array(4)].map((item, index) => {
+          return (
+            <div className="carousel-item" key={`carousel-${index}`}>
+              <picture>
+                <source
+                  srcSet={`/assets/carousel/carousel${index + 1}.webp`}
+                  type="image/webp"
+                />
+                <img
+                  src={`/assets/carousel/carousel${index + 1}.png`}
+                  alt="racing"
+                />
+              </picture>
+            </div>
+          )
+        })}
       </Carousel>
-      <div className='count'>{current} / 4</div>
-
+      <div className="count">{current} / 4</div>
     </Carousel2Style>
   )
 }

@@ -1,6 +1,5 @@
 import styled, { keyframes } from "styled-components"
 
-
 export const HeroStyle = styled.section`
   //padding: 100px 0;
 
