@@ -12,7 +12,7 @@ export const NavBarStyle = styled.nav`
 
   &.open {
     .header-nav {
-      transform: translateX(0);
+      height: calc(100% - 60px);
     }
   }
 
@@ -61,11 +61,9 @@ export const NavBarStyle = styled.nav`
     left: 0;
     overflow-y: auto;
     z-index: 100;
-    //height: 0;
-    height: calc(100% - 60px);
-    transition: transform 0.5s ease-in-out;
+    height: 0;
+    transition: height 0.5s ease-in-out;
     background-color: ${({ theme }) => theme.colors.black};
-    transform: translateX(100%);
     .header-nav-inner {
       display: flex;
       flex-direction: column;
@@ -100,6 +98,10 @@ export const NavBarStyle = styled.nav`
 
     .copyright {
       display: none;
+    }
+
+    &::-webkit-scrollbar {
+      display: none !important;
     }
   }
 
@@ -175,10 +177,10 @@ export const NavBarStyle = styled.nav`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
 
-    
-    
 
-    
+
+
+
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {

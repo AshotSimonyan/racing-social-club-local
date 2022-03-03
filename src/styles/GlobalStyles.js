@@ -152,25 +152,30 @@ export const GlobalStyle = createGlobalStyle`
   /*typography*/
 
   h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
-    font-weight: 700;
     line-height: 1.2;
-    -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
-    text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
     text-transform: uppercase;
   }
 
   h1, .h1 {
     white-space: nowrap;
     font-size: ${({ theme }) => theme.titleSizes.h1};
-
+    font-weight: 700;
+    -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
+    text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
   }
 
   h2, .h2 {
     font-size: ${({ theme }) => theme.titleSizes.h2};
+    font-weight: 700;
+    -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
+    text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
   }
 
   h3, .h3 {
     font-size: ${({ theme }) => theme.titleSizes.h3};
+    font-weight: 700;
+    -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
+    text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
   }
 
   h4, .h4 {
@@ -186,11 +191,18 @@ export const GlobalStyle = createGlobalStyle`
   .fw-bold {
     font-weight: 700;
   }
+  .fw-regular {
+    font-weight: 400;
+  }
 
 
   /*animations*/
   .animated {
     opacity: 0;
+  }
+  
+  .transition {
+    transition: transform .3s;
   }
 
   .fade-in {

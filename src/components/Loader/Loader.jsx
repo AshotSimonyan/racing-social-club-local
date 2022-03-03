@@ -30,7 +30,7 @@ const MyComponent = ({ className }) => {
         triggerOnce
         cascade
         direction={"right"}
-        fraction={1}
+        fraction={0.5}
         delay={400}
         duration={600}
         damping={2}

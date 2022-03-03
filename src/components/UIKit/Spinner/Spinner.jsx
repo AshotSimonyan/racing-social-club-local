@@ -3,7 +3,7 @@ import { SpinnerStyle } from "./Spinner.style"
 
 const Spinner = () => {
   return (
-    <SpinnerStyle>
+    <SpinnerStyle className='spinner'>
       <img src="/assets/spinner.svg" alt="" />
     </SpinnerStyle>
   )

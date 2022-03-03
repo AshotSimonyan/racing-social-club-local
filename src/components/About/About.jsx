@@ -1,8 +1,9 @@
 import { AboutStyle } from "./About.style"
-import { forwardRef, useEffect, useRef, useState } from "react"
+import { forwardRef, memo, useEffect, useRef, useState } from "react"
 import { Fade } from "react-awesome-reveal"
 import RunningText from "../UIKit/RunningText/RunningText"
 import { Parallax } from "react-scroll-parallax"
+import { Button } from "../UIKit"
 
 
 const About = forwardRef(({ onScreen }, ref) => {
@@ -16,13 +17,6 @@ const About = forwardRef(({ onScreen }, ref) => {
     }
   }, [onScreen])
 
-  function setOffsetYMax(windowWidth) {
-    return windowWidth <= 480 ? 0 : 10;
-  }
-
-  function setOffsetYMin(windowWidth) {
-    return windowWidth <= 480 ? 0 : -120;
-  }
 
   return (
     <AboutStyle ref={ref} startAnim={start}>
@@ -54,13 +48,11 @@ const About = forwardRef(({ onScreen }, ref) => {
             </Parallax>
             <Parallax
               translateX={[-50, 0]}
-              onEnter={(e) => console.log(e)}
             >
               <h1 >Racers are</h1>
             </Parallax>
             <Parallax
               translateX={[-25, 0]}
-              onEnter={(e) => console.log(e)}
             >
               <h1>Waiting For YOU</h1>
             </Parallax>
@@ -74,12 +66,14 @@ const About = forwardRef(({ onScreen }, ref) => {
             delay={5200}
           >
             <Parallax
+              className='transition'
               speed={0}
               onEnter={(e) => console.log(e)}
             >
               <div className='text'>
                 <p>The Racing Social CLub is a collection of 7,878 Racers with hundreds of elements.</p>
                 <p>Each artwork is original, with its own color palette and creation. The objective was to make each Racer unique in order to prioritize quality above quantity.</p>
+                <Button variant='outlined'>JOIN OUR DISCORD</Button>
               </div>
             </Parallax>
           </Fade>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { NavBarStyle } from "./NavBar.style"
 import { theme } from "../../styles/theme"
 import Logo from "../../assets/logo.svg"
+import LogoIcon from "../../assets/logo-icon.svg"
 import { Button, Icon } from "../UIKit"
 import { useLockedBody } from "../../hooks/useLockedBody"
 import { navList } from "./config"
@@ -9,7 +10,7 @@ import Progress from "./Progress/Progress"
 
 const NavBar = ({ onLinkClick, progress, onScroll, transform }) => {
   const [drawerOpened, setDrawerOpened] = useState(false)
-  const [touchDevice, setTouchDevice] = useState(false);
+  const [touchDevice, setTouchDevice] = useState(false)
   const [locked, setLocked] = useLockedBody()
 
   useEffect(() => {
@@ -26,9 +27,9 @@ const NavBar = ({ onLinkClick, progress, onScroll, transform }) => {
       typeof window !== "undefined" &&
       window?.matchMedia("(pointer: coarse)").matches
     ) {
-      setTouchDevice(true);
+      setTouchDevice(true)
     }
-  }, []);
+  }, [])
 
   const handleDrawerToggle = () => {
     setDrawerOpened(!drawerOpened)
@@ -48,7 +49,10 @@ const NavBar = ({ onLinkClick, progress, onScroll, transform }) => {
       <div className="navbar-content">
         <div className="logo-wrapper">
           <a className="logo" href={"#"}>
-            <img src={Logo} alt="Camp Pluto" />
+            <picture>
+              <source media="(max-width: 767px)" srcSet={LogoIcon} />
+              <img src={Logo} alt="Racing Social Club" />
+            </picture>
           </a>
         </div>
 
@@ -98,9 +102,9 @@ const NavBar = ({ onLinkClick, progress, onScroll, transform }) => {
             </div>
           </div>
         </nav>
-        <div className='progress-wrapper'>
+        <div className="progress-wrapper">
 
-          <Progress filled={progress}/>
+          <Progress filled={progress} />
         </div>
         <ul className="social social-desktop">
           <li>
@@ -140,7 +144,7 @@ const NavBar = ({ onLinkClick, progress, onScroll, transform }) => {
           type="button"
           onClick={handleDrawerToggle}
         >
-          <Icon name={drawerOpened ? "close" : "menu"} size={32} color={theme.colors.white}/>
+          <Icon name={drawerOpened ? "close" : "menu"} size={32} color={theme.colors.white} />
         </button>
       </div>
     </NavBarStyle>

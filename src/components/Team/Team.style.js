@@ -1,7 +1,44 @@
 import styled from "styled-components"
 
 export const TeamStyle = styled.section`
-  padding: 200px 0;
+  padding-left: 130px;
+  
+  .content-wrapper {
+    display: flex;
+    height: 100%;
+  }
+  .content1 {
+    height: 100%;
+    width: 670px;
+    padding: 80px 80px 120px;
+    display: flex;
+    align-items: flex-end;
+    
+    .text {
+      font-size: ${({theme}) => theme.titleSizes.h3};
+    }
+  }
+  .content2 {
+    height: 100%;
+    width: 670px;
+
+    .img-wrapper {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+      img {
+        object-fit: cover;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+        transition: .5s;
+      }
+    }
+  }
+
+  .content3 {
+    padding: 80px 80px 120px;
+  }
 
   .title {
     padding-bottom: 48px;
@@ -32,11 +69,11 @@ export const TeamStyle = styled.section`
     margin-left: -24px;
   }
   .team-card {
-    width: 204px;
-    margin-left: 24px;
+    width: 262px;
+    margin-left: 32px;
 
     &:nth-child(even) {
-      margin-top: 120px;
+      margin-top: 180px;
     }
   }
 

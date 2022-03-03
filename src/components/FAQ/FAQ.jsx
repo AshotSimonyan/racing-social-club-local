@@ -80,7 +80,7 @@ const FAQ = forwardRef(({ onScreen }, ref) => {
             triggerOnce
             cascade
             direction={"up"}
-            fraction={1}
+            fraction={0.5}
             duration={1000}
           >
             <p>JOIN TO DISCORD COMMUNITY</p>

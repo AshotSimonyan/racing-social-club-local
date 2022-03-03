@@ -50,6 +50,7 @@ export const AboutStyle = styled.section`
     border-radius: 12px;
     height: 100%;
     overflow: hidden;
+   will-change: transform;
     img {
       object-fit: cover;
       height: 100%;
