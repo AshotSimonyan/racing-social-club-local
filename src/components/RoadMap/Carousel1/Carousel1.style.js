@@ -12,7 +12,7 @@ export const Carousel1Style = styled.div`
       margin-left: auto;
       width: 100%;
       object-position: center bottom;
-      object-fit: contain;
+      object-fit: cover;
     }
   }
 
@@ -51,6 +51,16 @@ export const Carousel1Style = styled.div`
     }
     .progress {
       height: 180px;
+    }
+  }
+
+  @media (max-height: 480px) {
+    .slick-slide {
+
+      img {
+        object-position: center;
+        object-fit: contain;
+      }
     }
   }
 `
