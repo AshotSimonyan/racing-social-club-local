@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { NavBarStyle } from "./NavBar.style"
 import { theme } from "../../styles/theme"
 import Logo from "../../assets/logo.svg"
@@ -10,17 +10,7 @@ import Progress from "./Progress/Progress"
 
 const NavBar = ({ onLinkClick, progress, touchDevice }) => {
   const [drawerOpened, setDrawerOpened] = useState(false)
-  const [locked, setLocked] = useLockedBody()
-
-  useEffect(() => {
-    if (drawerOpened) {
-      // document.body.classList.add("overflow-hidden")
-    }
-    return () => {
-      // document.body.classList.remove("overflow-hidden")
-    }
-  }, [drawerOpened])
-
+  const [, setLocked] = useLockedBody()
 
   const handleDrawerToggle = () => {
     setDrawerOpened(!drawerOpened)
@@ -39,7 +29,7 @@ const NavBar = ({ onLinkClick, progress, touchDevice }) => {
     <NavBarStyle className={drawerOpened ? "open" : ""}>
       <div className="navbar-content">
         <div className="logo-wrapper">
-          <div className="logo" onClick={() => handleMenuLinkClick('#about')}>
+          <div className="logo" onClick={() => handleMenuLinkClick("#about")}>
             <picture>
               <source media="(max-width: 991px)" srcSet={LogoIcon} />
               <img src={Logo} alt="Racing Social Club" />

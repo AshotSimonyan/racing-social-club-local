@@ -272,6 +272,14 @@ export const RoadMapStyle = styled.section(
     }
 
     @media (max-height: 480px) {
+      .content1,
+      .content2 {
+        background-size: auto 60%;
+      }
+      .content3,
+      .content4 {
+        background-size: 50% auto;
+      }
       .title {
         display: flex;
         flex-wrap: wrap;

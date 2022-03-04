@@ -1,8 +1,7 @@
 import React, { forwardRef, useState } from "react"
 import { FAQStyle } from "./FAQ.style"
 import Collapsible from "react-collapsible"
-import { Button, Icon } from "../UIKit"
-import { Title } from "../Animations"
+import { Button } from "../UIKit"
 import { Fade } from "react-awesome-reveal"
 import RunningText from "../UIKit/RunningText/RunningText"
 

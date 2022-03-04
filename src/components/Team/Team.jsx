@@ -1,37 +1,29 @@
-import React, { forwardRef, memo, useState } from "react"
+import React, { forwardRef, memo } from "react"
 import { TeamStyle } from "./Team.style"
-import { Title } from "../Animations"
-import { Fade } from "react-awesome-reveal"
+import { theme } from "../../styles/theme"
 import RunningText from "../UIKit/RunningText/RunningText"
+import { Icon } from "../UIKit"
 
 const teamList = [
   {
-    name: "Nathan K.",
-    position: "Project Lead",
+    name: "Lorem Ipsum",
+    position: "Marketing",
     img: {
       png: "/assets/team/team.png",
       webp: "/assets/team/team.webp",
     },
   },
   {
-    name: "Barbare S.",
-    position: "Art",
+    name: "Lorem Ipsum",
+    position: "Marketing",
     img: {
       png: "/assets/team/team.png",
       webp: "/assets/team/team.webp",
     },
   },
   {
-    name: "Scott N.",
-    position: "Art & Technology",
-    img: {
-      png: "/assets/team/team.png",
-      webp: "/assets/team/team.webp",
-    },
-  },
-  {
-    name: "NFT Stack",
-    position: "Smart Contract & Website",
+    name: "Lorem Ipsum",
+    position: "Marketing",
     img: {
       png: "/assets/team/team.png",
       webp: "/assets/team/team.webp",
@@ -67,14 +59,38 @@ const Team = forwardRef(({ onScreen }, ref) => {
                   <div className="img-wrapper">
                     <picture>
                       <source srcSet={img.webp} type="image/webp" />
-                      <img src={img.png} alt="camp-pluto" />
+                      <img src={img.png} alt={position} />
                     </picture>
                   </div>
-                  {/*<p className="name">{name}</p>*/}
-                  {/*<p className="position">{position}</p>*/}
+                  <p className="name">
+                    {name}{" "}
+                    <a href="#">
+                      <Icon name="twitter" color={theme.colors.white} />
+                    </a>
+                  </p>
+                  <p className="position">{position}</p>
                 </li>
               )
             })}
+            <li className="team-card">
+              <div className="img-wrapper">
+                <picture>
+                  <source srcSet="/assets/team/team.webp" type="image/webp" />
+                  <img src="/assets/team/team.png" alt="" />
+                </picture>
+              </div>
+              <div className="name">
+                <img src="/assets/NFTstack-logo.svg" alt="NFTstack" />
+                <a
+                  href="https://www.nftstack.info/"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <Icon name="link" color={theme.colors.white} size={24} />
+                </a>
+              </div>
+              <p className="position">Art & Smart Contract</p>
+            </li>
           </ul>
         </div>
       </div>

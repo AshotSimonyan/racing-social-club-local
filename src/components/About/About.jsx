@@ -1,5 +1,5 @@
 import { AboutStyle } from "./About.style"
-import { forwardRef, memo, useEffect, useRef, useState } from "react"
+import { forwardRef, useEffect, useState } from "react"
 import { Fade } from "react-awesome-reveal"
 import RunningText from "../UIKit/RunningText/RunningText"
 import { Parallax } from "react-scroll-parallax"

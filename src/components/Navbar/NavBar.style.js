@@ -36,7 +36,7 @@ export const NavBarStyle = styled.nav`
   }
 
   .logo {
-cursor: pointer;
+    cursor: pointer;
     max-width: 102px;
 
     img {
@@ -239,7 +239,6 @@ cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xs}px) {
     .header-nav {
-
       .header-nav-list {
         > li {
           font-size: ${({ theme }) => theme.titleSizesXS.h2};

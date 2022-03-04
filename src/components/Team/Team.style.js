@@ -63,6 +63,11 @@ export const TeamStyle = styled.section`
     font-weight: 700;
     padding-bottom: 4px;
   }
+
+  .position {
+    font-weight: 700;
+    font-size: ${({ theme }) => theme.fontSizes.md};
+  }
   .team-list {
     display: flex;
     align-items: center;
