@@ -32,21 +32,21 @@ const About = forwardRef(({ onScreen }, ref) => {
               triggerOnce
               cascade
               direction={"right"}
-              fraction={0}
+              fraction={0.3}
               duration={1000}
               delay={3800}
             >
               <Parallax
                 className="transition"
-                translateX={[-75, 0]}
+                translateX={[-45, 0]}
                 onEnter={e => console.log(e)}
               >
                 <h1>7,878 Unique</h1>
               </Parallax>
-              <Parallax className="transition" translateX={[-50, 0]}>
+              <Parallax className="transition" translateX={[-30, 0]}>
                 <h1>Racers are</h1>
               </Parallax>
-              <Parallax className="transition" translateX={[-25, 0]}>
+              <Parallax className="transition" translateX={[-15, 0]}>
                 <h1>Waiting For YOU</h1>
               </Parallax>
             </Fade>

@@ -36,8 +36,8 @@ export const NavBarStyle = styled.nav`
   }
 
   .logo {
+cursor: pointer;
     max-width: 102px;
-    display: block;
 
     img {
       width: 100%;
@@ -171,6 +171,25 @@ export const NavBarStyle = styled.nav`
     display: none;
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    .header-nav {
+      .header-nav-inner {
+        padding-top: 100px;
+      }
+
+      .header-nav-list {
+        > li {
+          margin-bottom: 24px;
+          font-size: ${({ theme }) => theme.titleSizesSM.h1};
+
+          &:not(:first-child) {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
     .logo-wrapper {
       width: 62px;
@@ -180,17 +199,12 @@ export const NavBarStyle = styled.nav`
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
     .header-nav {
       .header-nav-inner {
-        padding-top: 100px;
+        padding-top: 40px;
       }
 
       .header-nav-list {
         > li {
-          padding-bottom: 24px;
           font-size: ${({ theme }) => theme.titleSizes.h2};
-
-          &:not(:first-child) {
-            padding-top: 24px;
-          }
         }
       }
     }
@@ -218,6 +232,17 @@ export const NavBarStyle = styled.nav`
               width: 100%;
             }
           }
+        }
+      }
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}px) {
+    .header-nav {
+
+      .header-nav-list {
+        > li {
+          font-size: ${({ theme }) => theme.titleSizesXS.h2};
         }
       }
     }

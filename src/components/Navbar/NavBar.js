@@ -8,9 +8,8 @@ import { useLockedBody } from "../../hooks/useLockedBody"
 import { navList } from "./config"
 import Progress from "./Progress/Progress"
 
-const NavBar = ({ onLinkClick, progress, onScroll, transform }) => {
+const NavBar = ({ onLinkClick, progress, touchDevice }) => {
   const [drawerOpened, setDrawerOpened] = useState(false)
-  const [touchDevice, setTouchDevice] = useState(false)
   const [locked, setLocked] = useLockedBody()
 
   useEffect(() => {
@@ -22,14 +21,6 @@ const NavBar = ({ onLinkClick, progress, onScroll, transform }) => {
     }
   }, [drawerOpened])
 
-  useEffect(() => {
-    if (
-      typeof window !== "undefined" &&
-      window?.matchMedia("(pointer: coarse)").matches
-    ) {
-      setTouchDevice(true)
-    }
-  }, [])
 
   const handleDrawerToggle = () => {
     setDrawerOpened(!drawerOpened)
@@ -48,12 +39,12 @@ const NavBar = ({ onLinkClick, progress, onScroll, transform }) => {
     <NavBarStyle className={drawerOpened ? "open" : ""}>
       <div className="navbar-content">
         <div className="logo-wrapper">
-          <a className="logo" href={"#"}>
+          <div className="logo" onClick={() => handleMenuLinkClick('#about')}>
             <picture>
               <source media="(max-width: 991px)" srcSet={LogoIcon} />
               <img src={Logo} alt="Racing Social Club" />
             </picture>
-          </a>
+          </div>
         </div>
 
         <nav className="header-nav">
