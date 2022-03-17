@@ -34,7 +34,7 @@ const About = forwardRef(({ onScreen }, ref) => {
               direction={"right"}
               fraction={0.3}
               duration={1000}
-              delay={1500}
+              delay={2000}
             >
               <Parallax
                 className="transition"
@@ -57,7 +57,7 @@ const About = forwardRef(({ onScreen }, ref) => {
             direction={"right"}
             fraction={0}
             duration={1000}
-            delay={3000}
+            delay={3500}
           >
             <Parallax
               className="transition"

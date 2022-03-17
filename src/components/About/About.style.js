@@ -38,7 +38,7 @@ export const AboutStyle = styled.section`
         ${({ startAnim }) =>
           startAnim &&
           css`
-            animation: ${scaleImg} 1.3s 0.8s forwards;
+            animation: ${scaleImg} 1.3s 1.5s forwards;
           `}
       }
     }
