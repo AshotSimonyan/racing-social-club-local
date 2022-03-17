@@ -169,7 +169,7 @@ export const RoadMapStyle = styled.section(
         }
 
         .Collapsible__contentInner {
-          padding: 0 24px 16px;
+          padding: 0 24px 16px 50px;
           overflow: auto;
           max-height: 600px;
           margin-right: 16px;
