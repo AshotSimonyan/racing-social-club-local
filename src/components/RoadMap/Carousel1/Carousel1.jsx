@@ -23,13 +23,13 @@ const Carousel1 = () => {
 
   const handleBeforeChange = async (oldIndex, newIndex) => {
     setCurrent(newIndex + 1)
-    setPercent(((newIndex + 1) / 4) * 100)
+    setPercent(((newIndex + 1) / 5) * 100)
   }
 
   return (
     <Carousel1Style>
       <Carousel settings={settings} beforeChange={handleBeforeChange}>
-        {[...Array(4)].map((item, index) => {
+        {[...Array(5)].map((item, index) => {
           return (
             <div className="carousel-item" key={`carousel-${index}`}>
               <picture>
@@ -47,7 +47,7 @@ const Carousel1 = () => {
         })}
       </Carousel>
       <div className="progress-wrapper">
-        <div className="count">{current} - 4</div>
+        <div className="count">{current} - 5</div>
         <div className="progress">
           <span style={{ height: `${percent}%` }} />
         </div>

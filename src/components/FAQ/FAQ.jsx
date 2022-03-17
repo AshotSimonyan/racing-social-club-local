@@ -12,24 +12,29 @@ const data = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu ornare erat. Ut ultricies nunc in quam tincidunt, in blandit sapien euismod.",
   },
   {
-    question: "HOW CAN I BUY A RACER NFT?",
+    question: "HOW CAN I BUY a RSC NFT?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu ornare erat. Ut ultricies nunc in quam tincidunt, in blandit sapien euismod.",
+      "You can mint one of our NFT’s in pre-sale when you earned a whitelist spot or won the raffle. After that you can try your luck at the public sale to mint one. If you are not able to mint a NFT, you can buy one on Opensea. Minting is only done on our OFFICIAL site. We will release a video in our discord on how to mint the NFT and which wallet to use.",
   },
   {
     question: "WHAT DOES “MINT” MEAN?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu ornare erat. Ut ultricies nunc in quam tincidunt, in blandit sapien euismod.",
+      "In simple terms, minting an NFT is the process of turning a digital file into a digital asset. When you mint an NFT, you ‘buy’ a collectible that is stored on the blockchain and will appear in your wallet.",
   },
   {
-    question: "HOW MUCH DOES IT COST TO BUY ONE OF THE RACERS?",
+    question: "HOW DOES IT COST TO BUY ONE OF THE RACERS?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu ornare erat. Ut ultricies nunc in quam tincidunt, in blandit sapien euismod.",
+      "The mint price of our Racer NFTs is yet to be determined. We will make sure that the price of the NFT will reflect the value of the NFT. We added a lot of utilities to our NFT’s. We want to make the NFTs accessible for everyone, but we also do not want to subtract too much from our future potential.",
   },
   {
-    question: "WHY DID YOU CHOOSE RACERS?",
+    question: "WHY DID THE TEAM CHOSE RACERS FOR THE NFT? 1.0",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu ornare erat. Ut ultricies nunc in quam tincidunt, in blandit sapien euismod.",
+      "Racing is one of the most exciting sports in the world. Speed, danger, emotion, competition. A race has everything to entertain a big crowd. The team consists of real racing fans who decided to express their passion in an NFT collection. The innovative technology behind NFTs are perfectly aligned with the ideas that Racing Social Club brand has in store.",
+  },
+  {
+    question: "WHY DID YOU CHOOSE RACERS FOR NFT? 2.0",
+    answer:
+      "As one of the first racing NFTs, we have a head start to make use of the massive potential. Next to our amazing utility, we will keep adding partnerships and grow as a brand. For the long term, we see RSC becoming a household name in the racing industry. We appreciate our early supporters the most. They will get the chance to benefit from the brand that we aim to build.",
   },
 ]
 const FAQ = forwardRef(({ onScreen }, ref) => {

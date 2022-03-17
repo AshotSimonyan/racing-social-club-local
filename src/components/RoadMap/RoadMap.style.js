@@ -35,10 +35,8 @@ export const RoadMapStyle = styled.section(
       max-width: 440px;
       width: 100%;
 
-      > div:not(:first-child) {
-        p {
-          padding-top: 16px;
-        }
+      > div:not(:first-child) p, >p:not(:first-child) {
+        padding-top: 16px;
       }
     }
 
@@ -71,9 +69,10 @@ export const RoadMapStyle = styled.section(
       width: 1100px;
 
       .left {
-        min-width: 300px;
+        min-width: 400px;
         padding-top: 100px;
         padding-left: 40px;
+        padding-right: 40px;
 
         .title {
           padding-bottom: 20px;
@@ -85,44 +84,28 @@ export const RoadMapStyle = styled.section(
       }
 
       .right {
-        width: calc(100% - 300px);
+        width: calc(100% - 400px);
       }
     }
 
     .text-block {
-      width: 780px;
+      width: 500px;
       height: 100%;
       padding: 80px 40px 120px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border-left: 10px solid ${({ theme }) => theme.colors.white};
-      border-right: 2px solid ${({ theme }) => theme.colors.white};
-      margin-right: 12px;
+      border-right: 10px solid ${({ theme }) => theme.colors.white};
+      margin-right: 6px;
 
       .text {
         padding-top: 20px;
-        position: relative;
-
-        &:before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 3px;
-          width: 200px;
-          background-color: ${({ theme }) => theme.colors.white};
-          box-shadow: 2px 0 10px 2px white;
-          border-radius: 3px;
-        }
+        font-size: ${({theme}) => theme.titleSizes.h4};
       }
     }
 
     .carousel-2-block {
       padding: 80px;
-      border-left: 2px solid ${theme.colors.white};
+      border-left: 10px solid ${theme.colors.white};
       height: 100%;
-      margin-left: 10px;
+      margin-left: 6px;
       display: flex;
       width: 1280px;
 
@@ -130,7 +113,6 @@ export const RoadMapStyle = styled.section(
         min-width: 480px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
 
         .spinner {
           text-align: center;
@@ -142,13 +124,82 @@ export const RoadMapStyle = styled.section(
 
         .text {
           font-weight: 400;
-          font-size: ${({ theme }) => theme.titleSizes.h3};
+          font-size: ${({ theme }) => theme.titleSizes.h4};
           padding-bottom: 24px;
         }
       }
 
       .right {
         width: calc(100% - 480px);
+      }
+    }
+
+    .text-block-2 {
+      display: flex;
+      border-left: 10px solid ${theme.colors.white};
+      
+      .left {
+        padding: 80px 40px 120px;
+        border-right: 1px solid ${theme.colors.white};
+        width: 500px;
+        
+        .text {
+          font-size: ${({theme}) => theme.titleSizes.h4};
+          padding-top: 40px;
+        }
+      }
+      .right {
+        width: 420px;
+        padding-top: 24px;
+
+        .Collapsible {
+          border-bottom: 1px solid ${({ theme }) => theme.colors.white};
+        }
+
+        .Collapsible__trigger {
+          display: block;
+          border-radius: 16px 16px 0 0;
+
+          &.is-open {
+            .icon {
+              transform: rotate(180deg);
+            }
+          }
+        }
+
+        .Collapsible__contentInner {
+          padding: 0 24px 16px;
+          overflow: auto;
+          max-height: 600px;
+          margin-right: 16px;
+          margin-bottom: 16px;
+
+          ::-webkit-scrollbar {
+            width: 6px;
+          }
+
+          ::-webkit-scrollbar-track {
+            border-radius: 20px;
+            background-color: ${({theme}) => theme.colors.greyLight};
+          }
+
+          ::-webkit-scrollbar-thumb {
+            border-radius: 20px;
+            background-color: ${({theme}) => theme.colors.white};
+          }
+        }
+
+        .trigger-inner {
+          position: relative;
+          font-weight: 700;
+          padding: 24px 50px;
+          cursor: pointer;
+        }
+        
+        .title {
+          padding: 16px 0;
+        }
+        
       }
     }
 
@@ -178,6 +229,23 @@ export const RoadMapStyle = styled.section(
 
       .carousel-2-block {
         padding: 60px 60px 80px;
+      }
+
+
+      .text-block-2  {
+        
+        .right {
+          .Collapsible__contentInner {
+            max-height: 400px;
+          }
+        }
+        .left {
+          padding-top: 60px;
+          .text {
+            padding-top: 24px;
+            font-size: ${({theme}) => theme.titleSizesXS.h4};
+          }
+        }
       }
     }
 
@@ -215,12 +283,30 @@ export const RoadMapStyle = styled.section(
 
         .left {
           padding-top: 40px;
+          
+          .text {
+            font-size: ${({ theme }) => theme.titleSizesXS.h5};
+          }
         }
       }
 
       .text-block {
         width: 576px;
         padding: 40px 40px 70px;
+
+        .text {
+          font-size: ${({theme}) => theme.titleSizesXS.h4};
+        }
+      }
+
+      .text-block-2 {
+        .left {
+          padding: 40px 40px 70px;
+          .text {
+            font-size: ${({theme}) => theme.titleSizesXS.h4};
+          }
+        }
+        
       }
 
       .carousel-2-block {
@@ -230,7 +316,7 @@ export const RoadMapStyle = styled.section(
           min-width: 340px;
 
           .text {
-            font-size: ${({ theme }) => theme.titleSizesXS.h3};
+            font-size: ${({ theme }) => theme.titleSizesXS.h4};
           }
 
           .title {
@@ -292,20 +378,45 @@ export const RoadMapStyle = styled.section(
       }
 
       .text-block {
-        width: 576px;
         padding: 40px 20px 60px;
+
+        .text {
+          font-size: ${({theme}) => theme.fontSizes.md};
+        }
+      }
+
+      .carousel-block {
+
+        .left {
+          .text {
+            font-size: ${({ theme }) => theme.fontSizes.md};
+          }
+        }
       }
 
       .carousel-2-block {
-        padding: 20px 40px 60px;
+        padding: 40px 20px 60px;
         width: 900px;
 
         .left {
           .text {
-            font-size: 20px;
+            font-size: ${({theme}) => theme.fontSizes.md};
           }
         }
       }
+      .text-block-2  {
+        .right {
+          .Collapsible__contentInner {
+            max-height: 200px;
+          }
+        }
+        
+        .text {
+          font-size: ${({theme}) => theme.fontSizes.md};
+        }
+      }
     }
+    
+    
   `
 )

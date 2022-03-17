@@ -6,29 +6,37 @@ import { Icon } from "../UIKit"
 
 const teamList = [
   {
-    name: "Lorem Ipsum",
-    position: "Marketing",
+    name: "The Nightrider",
+    position: "Founder",
     img: {
-      png: "/assets/team/team.png",
-      webp: "/assets/team/team.webp",
+      png: "/assets/team/team1.png",
+      webp: "/assets/team/team1.webp",
     },
   },
+  // {
+  //   name: "Lorem Ipsum",
+  //   position: "Marketing",
+  //   img: {
+  //     png: "/assets/team/team2.png",
+  //     webp: "/assets/team/team2.webp",
+  //   },
+  // },
   {
-    name: "Lorem Ipsum",
-    position: "Marketing",
+    name: "Nitro",
+    position: "Founder",
     img: {
-      png: "/assets/team/team.png",
-      webp: "/assets/team/team.webp",
+      png: "/assets/team/team3.png",
+      webp: "/assets/team/team3.webp",
     },
   },
-  {
-    name: "Lorem Ipsum",
-    position: "Marketing",
-    img: {
-      png: "/assets/team/team.png",
-      webp: "/assets/team/team.webp",
-    },
-  },
+    // {
+    //     name: "Lorem Ipsum",
+    //     position: "Marketing",
+    //     img: {
+    //         png: "/assets/team/team3.png",
+    //         webp: "/assets/team/team3.webp",
+    //     },
+    // },
 ]
 
 const Team = forwardRef(({ onScreen }, ref) => {
@@ -36,13 +44,6 @@ const Team = forwardRef(({ onScreen }, ref) => {
     <TeamStyle ref={ref}>
       <RunningText image="/assets/team/running" withBorder />
       <div className="content-wrapper">
-        <div className="content1">
-          <p className="text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu
-            ornare erat. Ut ultricies nunc in quam tincidunt, in blandit sapien
-            euismod.{" "}
-          </p>
-        </div>
         <div className="content2">
           <div className="img-wrapper">
             <picture>
@@ -75,8 +76,8 @@ const Team = forwardRef(({ onScreen }, ref) => {
             <li className="team-card">
               <div className="img-wrapper">
                 <picture>
-                  <source srcSet="/assets/team/team.webp" type="image/webp" />
-                  <img src="/assets/team/team.png" alt="" />
+                  <source srcSet="/assets/team/team4.webp" type="image/webp" />
+                  <img src="/assets/team/team4.png" alt="" />
                 </picture>
               </div>
               <div className="name">

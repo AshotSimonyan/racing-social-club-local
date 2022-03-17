@@ -285,7 +285,7 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 40px;
     }
     h3, .h3 {
-      font-size: 20px;
+      font-size: 24px;
     }
   }
 

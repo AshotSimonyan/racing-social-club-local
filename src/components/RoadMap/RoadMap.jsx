@@ -1,12 +1,24 @@
-import React, { forwardRef, memo, useRef } from "react"
+import React, {forwardRef, memo, useRef, useState} from "react"
 import { RoadMapStyle } from "./RoadMap.style"
 import RunningText from "../UIKit/RunningText/RunningText"
 import { Fade } from "react-awesome-reveal"
 import Carousel1 from "./Carousel1/Carousel1"
 import Spinner from "../UIKit/Spinner/Spinner"
 import Carousel2 from "./Carousel2/Carousel2"
+import data from './data'
+import Collapsible from "react-collapsible";
 
 const RoadMap = forwardRef(({}, ref) => {
+    const [openPosition, setOpenPosition] = useState(0)
+
+    const handleTriggerClick = position => {
+        if (openPosition === position) {
+            setOpenPosition(null)
+        } else {
+            setOpenPosition(position)
+        }
+    }
+
   return (
     <RoadMapStyle ref={ref} roadMapImage="/assets/roadmap/roadmap">
       <RunningText image="/assets/roadmap/running" withBorder />
@@ -42,19 +54,10 @@ const RoadMap = forwardRef(({}, ref) => {
               duration={1000}
             >
               <p>
-                A small group of friends, with an extreme passion for racing,
-                decided to take on the NFT space. With our experience, and many
-                contacts, in the racing industry, we are creating a community
-                with loads of benefits and special forms of utility.{" "}
+                  Racing Social Club aims to take an exclusive place in the NFT and racing industry. The goal is to build a like-minded community of racing fans and NFT enthusiasts. We will build the RSC brand by adding partnerships with professional racers and growing our network in the industry, as the 2022 season starts.
               </p>
               <p>
-                We at RSC, are not only creating a great community, but are also
-                trying to create awareness for the cruel problems in the racing
-                industry. As in any race weekend, we need to build up our
-                momentum, to prepare for the qualification, as best as we can!
-                With the help of many events, such as crazy marketing stunts,
-                giveaways, AMAs and other unique activities, we will build a
-                crazy community!{" "}
+                  We will build up the momentum to prepare for the qualification as best as we can. This will be done through events like crazy marketing stunts, professional content, giveaways, Ama’s and many more!
               </p>
             </Fade>
           </div>
@@ -82,22 +85,13 @@ const RoadMap = forwardRef(({}, ref) => {
               duration={1000}
             >
               <p>
-                We need to qualify for the race as best as we can, we need to
-                start on POLE POSITION! We have been working very hard to create
-                a unique and outstanding collection of 7878 racers.
+                  To stay in Pole Position, we need to qualify for the race as best as we can. We have been working very hard to create an outstanding collection of 7878 racers.
               </p>
               <p>
-                Each racer has its own unique characteristics, but can still be
-                identified as a real racing driver! The artworks will be
-                provided with the highest possible quality, even the smallest
-                details will be taken care off, as the traits will be a
-                centerpiece for one of our unique forms of utility.{" "}
+                  Each racer has its own unique characteristics and can be identified as a real racer. We focused on the smallest details, in order to create the highest quality traits and make each racer top notch. The traits are the center focus for one of our unique utility forms.
               </p>
               <p>
-                During the qualification a racing driver has one or two
-                opportunities to set a flawless lap, which will put them in the
-                perfect position to start the race. This lap, is as important as
-                the race itself, as it sets the tone of the rest of the race.
+                  A Rookie can qualify itself, by earning a WL spot or participate in the Raffle before the race starts
               </p>
             </Fade>
           </div>
@@ -123,16 +117,10 @@ const RoadMap = forwardRef(({}, ref) => {
               duration={1000}
             >
               <p>
-                After a very successful qualification, there is only one thing
-                left: Win the race! There is only one thing left after the
-                launch, the reveal! Sit tight, and experience a spectacular
-                reveal, where you get to know.
+                  After a successful qualification, the only thing to do is to win the race! To become a real Racer, our Rookies can mint one of the RSC NFTs and gain access to all benefits of Racing Social Club. After the launch, the racers only have to wait for the Podium Ceremony, where all racers will be revealed.
               </p>
               <p>
-                Every holder will be a member of our community, a community that
-                has loads of different benefits for every single holder,
-                starting with celebrating the race victory and reveal at the
-                Podium Ceremony!{" "}
+                  Every holder will gain utility access with loads of benefits, but only specific racers will get access to the special Trait-Based Utilities. After this, we start the celebration of the race victory and reveal at the Podium Ceremony.
               </p>
             </Fade>
           </div>
@@ -160,21 +148,10 @@ const RoadMap = forwardRef(({}, ref) => {
               delay={100}
             >
               <p>
-                We started the season with an amazing victory in style! It is
-                time for a celebration! Starting with the first real-life race
-                event, hosted by RSC. We will also host a monthly online racing
-                event. Every month, new online racing events, with prizes to be
-                won.{" "}
+                  We started the season with an amazing victory in style. Soon we will organize the first real-life race event hosted by RSC. Also we will start the first online event, and organize the first meet-up where EVERY holder gets access to. This is where the fun starts.
               </p>
               <p>
-                All this will be decided by our community themselves. When the
-                champagne arrives, we have an amazing event scheduled, the same
-                week we host our first race event.{" "}
-              </p>
-              <p>
-                Every single holder will have free access to the event, and a
-                couple of holders will even receive a full stay, so they can
-                attend to the meet-up.
+                  However, we only had the first race of the season. Racing Social Club is only getting started. As we organize multiple events, and keep partnering up with a variety of racers and racing companies, we will turn eyes and grow the brand globally. Get ready for Roadmap 2.0...
               </p>
             </Fade>
           </div>
@@ -192,10 +169,14 @@ const RoadMap = forwardRef(({}, ref) => {
             delay={100}
           >
             <h3 className="title">YOUR DRIVER</h3>
-            <p className="text">
-              Once all drivers are revealed, there will also be an exclusive
-              collection of 10 Legendary
-            </p>
+              <div className="text">
+                  <p>
+                      Once all drivers are revealed, you can finally rock the NFT as your profile picture. We like to see all the different Racers across the socials and show the world what the RSC community is made of.
+                  </p>
+                  <p>
+                      .If you did not make the mint, you can pick up your own Racer on the secondary market, and choose one you really identify yourself with.
+                  </p>
+              </div>
           </Fade>
         </div>
         <div className="right">
@@ -211,18 +192,8 @@ const RoadMap = forwardRef(({}, ref) => {
           duration={1000}
           delay={100}
         >
-          <h4 className="fw-regular">
-            Our “Racing Drivers” (whitelist) are granted a guaranteed spot to
-            mint during the launch. We will also use a raffle system to select a
-            number of “Rookies” who will also receive a guaranteed spot to mint.
-            If there are any racing drivers left, there will be a public launch,
-            where the remaining NFTs will be up for grabs.
-          </h4>
-          <p className="text">
-            Every holder will be a member of our community, a community that has
-            loads of different benefits for every single holder, starting with
-            celebrating the race victory and reveal at the Podium Ceremony!{" "}
-          </p>
+          <h2>RSC FUND</h2>
+          <p className="text">The RSC fund is an initiative started by RSC, in order to create more attention for the financial hurdle that exists in racing. A lot of talented races struggle with this during their career. We want to create attention, raise money and give money from the project back to the racers with this fund.</p>
         </Fade>
       </div>
       <div className="carousel-2-block">
@@ -237,12 +208,8 @@ const RoadMap = forwardRef(({}, ref) => {
               duration={1000}
               delay={100}
             >
-              <h2 className="title">DRIVER</h2>
-              <p className="text">
-                All 10 Legendaries will be unique and different in its own way,
-                perhaps having some extra benefits for you as a holder as well!
-                As a result of a reveal, the base of our community is settled.{" "}
-              </p>
+              <h2 className="title">Special DRIVERs</h2>
+              <p className="text">We created 10 Legendaries, which will be 1/1 racers with their own unique traits. The Legendaries are aesthetically perfect and perhaps have some extra benefits for you as a holder. Owning one of the legendary NFTs of Racing Social Club will be the ultimate flex.</p>
             </Fade>
           </div>
         </div>
@@ -250,6 +217,49 @@ const RoadMap = forwardRef(({}, ref) => {
           <Carousel2 />
         </div>
       </div>
+        <div className="text-block-2">
+            <div className="left">
+                <Fade
+                    triggerOnce
+                    cascade
+                    direction={"up"}
+                    fraction={0.5}
+                    duration={1000}
+                    delay={100}
+                >
+                    <h2>RSC Utility</h2>
+                    <p className="text">We, at Racing Social Club, consider our community as top priority. We aim to provide as much value as we can, and therefore our utility contains multiple layers. The first form of utility we offer are the Membership Utilities, and the second form of utility we offer are the Trait-Based Utilities.</p>
+                </Fade>
+            </div>
+            <div className="right">
+                {data.map(({title, description}, i) => {
+                    return (
+                        <Collapsible
+                            key={"Collapsible" + i}
+                            handleTriggerClick={handleTriggerClick}
+                            transitionTime={500}
+                            accordionPosition={i}
+                            open={openPosition === i}
+                            trigger={
+                                <Fade
+                                    triggerOnce
+                                    cascade
+                                    direction={"down"}
+                                    fraction={0.5}
+                                    duration={800}
+                                >
+                                    <div className="trigger-inner">
+                                        {title}
+                                    </div>
+                                </Fade>
+                            }
+                        >
+                            {description}
+                        </Collapsible>
+                    )
+                })}
+            </div>
+        </div>
     </RoadMapStyle>
   )
 })

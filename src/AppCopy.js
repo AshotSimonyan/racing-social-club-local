@@ -87,7 +87,6 @@ function App() {
       <div className="main-wrapper" onWheel={handleScroll}>
         <HorizontalScroll
           className="parent"
-          reverseScroll
           config={{ stiffness: 50 }}
           ref={parentRef}
           animValues={animValues}

@@ -30,7 +30,7 @@ export const Carousel2Style = styled.div`
     transition: width 0.5s;
     transform: translateY(100%);
     pointer-events: all;
-
+    height: 36px;
     &:hover {
       width: 120px;
     }
@@ -101,17 +101,40 @@ export const Carousel2Style = styled.div`
   }
   .count {
     text-align: center;
-    padding-top: 10px;
+    padding-top: 36px;
     font-weight: 700;
+    
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    height: 382px;
+    width: 328px;
+
+    
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
-    height: 382px;
-    width: 328px;
+    .slick-next,
+    .slick-prev {
+      width: 48px;
+      
+      &:hover {
+        width: 64px;
+      }
+    }
   }
 
   @media (max-height: 480px) {
     height: 100%;
-    width: 200px;
+    width: 170px;
+
+    .slick-next,
+    .slick-prev {
+      width: 40px;
+
+      &:hover {
+        width: 52px;
+      }
+    }
   }
 `

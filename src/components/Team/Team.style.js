@@ -7,20 +7,10 @@ export const TeamStyle = styled.section`
     display: flex;
     height: 100%;
   }
-  .content1 {
-    height: 100%;
-    width: 670px;
-    padding: 80px 80px 120px;
-    display: flex;
-    align-items: flex-end;
-
-    .text {
-      font-size: ${({ theme }) => theme.titleSizes.h3};
-    }
-  }
   .content2 {
     height: 100%;
     width: 670px;
+    margin-left: 160px;
 
     .img-wrapper {
       position: relative;
@@ -86,11 +76,6 @@ export const TeamStyle = styled.section`
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
     padding-left: 120px;
 
-    .content1 {
-      padding: 60px 60px 120px;
-      width: 630px;
-    }
-
     .content3 {
       padding: 60px 60px 120px;
     }
@@ -101,14 +86,6 @@ export const TeamStyle = styled.section`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
-    .content1 {
-      padding: 40px 40px 100px;
-      width: 400px;
-
-      .text {
-        font-size: ${({ theme }) => theme.titleSizesXS.h3};
-      }
-    }
 
     .content3 {
       padding: 40px 40px 100px;
@@ -123,11 +100,7 @@ export const TeamStyle = styled.section`
     padding-left: 70px;
   }
   @media (max-height: 480px) {
-    .content1 {
-      .text {
-        font-size: 20px;
-      }
-    }
+
     .team-card {
       width: 130px;
 

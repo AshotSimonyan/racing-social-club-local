@@ -23,6 +23,10 @@ export const AboutStyle = styled.section`
     width: 670px;
     position: relative;
     z-index: 9;
+    
+    .text {
+      font-size: ${({theme}) => theme.fontSizes.md};
+    }
   }
 
   .content-1 {
@@ -128,12 +132,26 @@ export const AboutStyle = styled.section`
       }
     }
   }
-
+  
   @media (max-height: ${({ theme }) => theme.breakpoints.xs}px) {
     padding-left: 104px;
 
     .content-2 {
       display: flex;
+      width: 840px;
+      padding-top: 40px;  
+      
+      .text {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 12px;
+        p {
+          width: 50%;
+          &:not(:last-of-type) {
+            padding-right: 12px;
+          }
+        }
+      }
     }
   }
 `

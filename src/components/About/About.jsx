@@ -66,13 +66,10 @@ const About = forwardRef(({ onScreen }, ref) => {
             >
               <div className="text">
                 <p>
-                  The Racing Social CLub is a collection of 7,878 Racers with
-                  hundreds of elements.
+                    Racing Social Club is a community of 7878 Racers which are randomly generated on the Ethereum blockchain. The community of racing fans and NFT enthusiasts will gain access to our most exclusive events, which we will organize multiple times a year.
                 </p>
                 <p>
-                  Each artwork is original, with its own color palette and
-                  creation. The objective was to make each Racer unique in order
-                  to prioritize quality above quantity.
+                    The events will give our Rookies the opportunity to feel like a real racer. This includes fast cars, race weekends, Esports events, entertainment, VIP experiences, giveaways and more! We prioritize quality of both the artworks and utilities of the Racing Social Club brand.
                 </p>
                 <Button variant="outlined">JOIN OUR DISCORD</Button>
               </div>

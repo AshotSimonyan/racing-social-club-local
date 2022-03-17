@@ -19,6 +19,7 @@ export const FAQStyle = styled.section`
 
   .Collapsible {
     border-bottom: 1px solid ${({ theme }) => theme.colors.white};
+    
   }
 
   .Collapsible__trigger {
@@ -33,8 +34,24 @@ export const FAQStyle = styled.section`
   }
 
   .Collapsible__contentInner {
-    padding: 0 50px 24px;
-    // font-size: ${({ theme }) => theme.titleSizes.h4};
+    padding: 0 32px 24px 50px;
+    overflow: auto;
+    max-height: 220px;
+    margin-right: 16px;
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      border-radius: 20px;
+      background-color: ${({theme}) => theme.colors.greyLight};
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 20px;
+      background-color: ${({theme}) => theme.colors.white};
+    }
   }
 
   .trigger-inner {
@@ -106,6 +123,10 @@ export const FAQStyle = styled.section`
     .contact-content {
       max-width: 100%;
     }
+
+    .Collapsible__contentInner {
+      max-height: 100px;
+    }
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
     .faq-content {
@@ -129,9 +150,13 @@ export const FAQStyle = styled.section`
     .faq-content {
       padding-top: 0;
     }
+    .Collapsible__contentInner {
+      padding-bottom: 8px;
+      max-height: 80px;
+    }
 
     .trigger-inner {
-      padding: 16px 50px;
+      padding: 12px 50px;
     }
   }
 `
