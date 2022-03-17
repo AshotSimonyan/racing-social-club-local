@@ -54,6 +54,15 @@ export const Carousel1Style = styled.div`
     }
   }
 
+  @media (max-height: 840px) {
+    .slick-slide {
+      img {
+        object-position: center;
+        object-fit: contain;
+      }
+    }
+  }
+
   @media (max-height: 480px) {
     .slick-slide {
       img {

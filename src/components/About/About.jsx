@@ -36,19 +36,9 @@ const About = forwardRef(({ onScreen }, ref) => {
               duration={1000}
               delay={2000}
             >
-              <Parallax
-                className="transition"
-                translateX={[-45, 0]}
-                onEnter={e => console.log(e)}
-              >
-                <h1>7,878 Unique</h1>
-              </Parallax>
-              <Parallax className="transition" translateX={[-30, 0]}>
-                <h1>Racers are</h1>
-              </Parallax>
-              <Parallax className="transition" translateX={[-15, 0]}>
-                <h1>Waiting For YOU</h1>
-              </Parallax>
+                <h1 className='first'>7,878 Unique</h1>
+                <h1 className='second'>Racers are</h1>
+                <h1 className='third'>Waiting For YOU</h1>
             </Fade>
           </div>
 

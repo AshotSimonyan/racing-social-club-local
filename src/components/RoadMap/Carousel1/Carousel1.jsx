@@ -12,7 +12,7 @@ const Carousel1 = () => {
       infinite: true,
       arrows: false,
       autoplay: true,
-      autoplaySpeed: 1000,
+      autoplaySpeed: 1500,
       pauseOnHover: false,
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -32,16 +32,10 @@ const Carousel1 = () => {
         {[...Array(5)].map((item, index) => {
           return (
             <div className="carousel-item" key={`carousel-${index}`}>
-              <picture>
-                <source
-                  srcSet={`/assets/carousel/carousel${index + 1}.webp`}
-                  type="image/webp"
-                />
                 <img
-                  src={`/assets/carousel/carousel${index + 1}.png`}
-                  alt="racing"
+                    src={`/assets/carousel/carousel${index + 1}.jpg`}
+                    alt="racing"
                 />
-              </picture>
             </div>
           )
         })}

@@ -121,8 +121,11 @@ export const Carousel2Style = styled.div`
     }
   }
 
-  @media (max-height: 480px) {
+  @media (max-height: 840px) {
     height: 100%;
+    width: 328px;
+  }
+  @media (max-height: 480px) {
     width: 170px;
 
     .slick-next,

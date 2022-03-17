@@ -334,6 +334,37 @@ export const RoadMapStyle = styled.section(
       }
     }
 
+    @media (max-height: 840px) {
+      .text-block {
+
+        .text {
+          font-size: ${({ theme }) => theme.titleSizesXS.h5};
+        }
+      }
+      .carousel-block {
+        .left {
+          .text {
+            font-size: ${({ theme }) => theme.titleSizesXS.h5};
+          }
+        }
+      }
+      .carousel-2-block {
+        .left {
+          .text {
+            font-size: ${({ theme }) => theme.titleSizesXS.h5};
+          }
+        }
+      }
+      .text-block-2 {
+
+        .left {
+          .text {
+            font-size: ${({ theme }) => theme.titleSizesXS.h5};
+          }
+        }
+      }
+    }
+
     @media (max-height: ${({ theme }) => theme.breakpoints.xs}px) {
       .content {
         padding: 20px 40px 100px;
