@@ -9,7 +9,7 @@ const data = [
   {
     question: "WHAT IS AN NFT?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu ornare erat. Ut ultricies nunc in quam tincidunt, in blandit sapien euismod.",
+      "An NFT is a Non-Fungible Token, which is a digital asset that is interchangeable through the internet. Ownership of the digital asset can be verified through the blockchain. The verifiable ownership makes it easier to give utility to the holder with the underlying smart contract. The world is getting more digital over time, and NFTs will become one of the center points of life.",
   },
   {
     question: "HOW CAN I BUY a RSC NFT?",
