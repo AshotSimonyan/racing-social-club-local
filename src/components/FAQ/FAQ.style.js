@@ -19,7 +19,6 @@ export const FAQStyle = styled.section`
 
   .Collapsible {
     border-bottom: 1px solid ${({ theme }) => theme.colors.white};
-    
   }
 
   .Collapsible__trigger {
@@ -45,12 +44,12 @@ export const FAQStyle = styled.section`
 
     ::-webkit-scrollbar-track {
       border-radius: 20px;
-      background-color: ${({theme}) => theme.colors.greyLight};
+      background-color: ${({ theme }) => theme.colors.greyLight};
     }
 
     ::-webkit-scrollbar-thumb {
       border-radius: 20px;
-      background-color: ${({theme}) => theme.colors.white};
+      background-color: ${({ theme }) => theme.colors.white};
     }
   }
 

@@ -35,7 +35,8 @@ export const RoadMapStyle = styled.section(
       max-width: 440px;
       width: 100%;
 
-      > div:not(:first-child) p, >p:not(:first-child) {
+      > div:not(:first-child) p,
+      > p:not(:first-child) {
         padding-top: 16px;
       }
     }
@@ -97,7 +98,7 @@ export const RoadMapStyle = styled.section(
 
       .text {
         padding-top: 20px;
-        font-size: ${({theme}) => theme.titleSizes.h4};
+        font-size: ${({ theme }) => theme.titleSizes.h4};
       }
     }
 
@@ -137,14 +138,14 @@ export const RoadMapStyle = styled.section(
     .text-block-2 {
       display: flex;
       border-left: 10px solid ${theme.colors.white};
-      
+
       .left {
         padding: 80px 40px 120px;
         border-right: 1px solid ${theme.colors.white};
         width: 500px;
-        
+
         .text {
-          font-size: ${({theme}) => theme.titleSizes.h4};
+          font-size: ${({ theme }) => theme.titleSizes.h4};
           padding-top: 40px;
         }
       }
@@ -180,12 +181,12 @@ export const RoadMapStyle = styled.section(
 
           ::-webkit-scrollbar-track {
             border-radius: 20px;
-            background-color: ${({theme}) => theme.colors.greyLight};
+            background-color: ${({ theme }) => theme.colors.greyLight};
           }
 
           ::-webkit-scrollbar-thumb {
             border-radius: 20px;
-            background-color: ${({theme}) => theme.colors.white};
+            background-color: ${({ theme }) => theme.colors.white};
           }
         }
 
@@ -195,11 +196,10 @@ export const RoadMapStyle = styled.section(
           padding: 24px 50px;
           cursor: pointer;
         }
-        
+
         .title {
           padding: 16px 0;
         }
-        
       }
     }
 
@@ -231,9 +231,7 @@ export const RoadMapStyle = styled.section(
         padding: 60px 60px 80px;
       }
 
-
-      .text-block-2  {
-        
+      .text-block-2 {
         .right {
           .Collapsible__contentInner {
             max-height: 400px;
@@ -243,7 +241,7 @@ export const RoadMapStyle = styled.section(
           padding-top: 60px;
           .text {
             padding-top: 24px;
-            font-size: ${({theme}) => theme.titleSizesXS.h4};
+            font-size: ${({ theme }) => theme.titleSizesXS.h4};
           }
         }
       }
@@ -283,7 +281,7 @@ export const RoadMapStyle = styled.section(
 
         .left {
           padding-top: 40px;
-          
+
           .text {
             font-size: ${({ theme }) => theme.titleSizesXS.h5};
           }
@@ -295,7 +293,7 @@ export const RoadMapStyle = styled.section(
         padding: 40px 40px 70px;
 
         .text {
-          font-size: ${({theme}) => theme.titleSizesXS.h4};
+          font-size: ${({ theme }) => theme.titleSizesXS.h4};
         }
       }
 
@@ -303,10 +301,9 @@ export const RoadMapStyle = styled.section(
         .left {
           padding: 40px 40px 70px;
           .text {
-            font-size: ${({theme}) => theme.titleSizesXS.h4};
+            font-size: ${({ theme }) => theme.titleSizesXS.h4};
           }
         }
-        
       }
 
       .carousel-2-block {
@@ -381,12 +378,11 @@ export const RoadMapStyle = styled.section(
         padding: 40px 20px 60px;
 
         .text {
-          font-size: ${({theme}) => theme.fontSizes.md};
+          font-size: ${({ theme }) => theme.fontSizes.md};
         }
       }
 
       .carousel-block {
-
         .left {
           .text {
             font-size: ${({ theme }) => theme.fontSizes.md};
@@ -400,23 +396,21 @@ export const RoadMapStyle = styled.section(
 
         .left {
           .text {
-            font-size: ${({theme}) => theme.fontSizes.md};
+            font-size: ${({ theme }) => theme.fontSizes.md};
           }
         }
       }
-      .text-block-2  {
+      .text-block-2 {
         .right {
           .Collapsible__contentInner {
             max-height: 200px;
           }
         }
-        
+
         .text {
-          font-size: ${({theme}) => theme.fontSizes.md};
+          font-size: ${({ theme }) => theme.fontSizes.md};
         }
       }
     }
-    
-    
   `
 )

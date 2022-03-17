@@ -103,21 +103,18 @@ export const Carousel2Style = styled.div`
     text-align: center;
     padding-top: 36px;
     font-weight: 700;
-    
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
     height: 382px;
     width: 328px;
-
-    
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
     .slick-next,
     .slick-prev {
       width: 48px;
-      
+
       &:hover {
         width: 64px;
       }

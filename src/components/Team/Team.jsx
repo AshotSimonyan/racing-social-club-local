@@ -29,14 +29,14 @@ const teamList = [
       webp: "/assets/team/team3.webp",
     },
   },
-    // {
-    //     name: "Lorem Ipsum",
-    //     position: "Marketing",
-    //     img: {
-    //         png: "/assets/team/team3.png",
-    //         webp: "/assets/team/team3.webp",
-    //     },
-    // },
+  // {
+  //     name: "Lorem Ipsum",
+  //     position: "Marketing",
+  //     img: {
+  //         png: "/assets/team/team3.png",
+  //         webp: "/assets/team/team3.webp",
+  //     },
+  // },
 ]
 
 const Team = forwardRef(({ onScreen }, ref) => {

@@ -86,7 +86,6 @@ export const TeamStyle = styled.section`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
-
     .content3 {
       padding: 40px 40px 100px;
     }
@@ -100,7 +99,6 @@ export const TeamStyle = styled.section`
     padding-left: 70px;
   }
   @media (max-height: 480px) {
-
     .team-card {
       width: 130px;
 

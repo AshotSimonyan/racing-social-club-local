@@ -23,9 +23,9 @@ export const AboutStyle = styled.section`
     width: 670px;
     position: relative;
     z-index: 9;
-    
+
     .text {
-      font-size: ${({theme}) => theme.fontSizes.md};
+      font-size: ${({ theme }) => theme.fontSizes.md};
     }
   }
 
@@ -132,15 +132,15 @@ export const AboutStyle = styled.section`
       }
     }
   }
-  
+
   @media (max-height: ${({ theme }) => theme.breakpoints.xs}px) {
     padding-left: 104px;
 
     .content-2 {
       display: flex;
       width: 840px;
-      padding-top: 40px;  
-      
+      padding-top: 40px;
+
       .text {
         display: flex;
         flex-wrap: wrap;
