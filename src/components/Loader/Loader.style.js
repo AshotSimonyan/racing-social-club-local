@@ -9,15 +9,12 @@ export const LoaderStyle = styled.div`
   z-index: 1000;
   display: flex;
   align-items: flex-end;
-  //justify-content: flex-end;
   visibility: visible;
   opacity: 1;
-  transition: 1s ease-in-out;
   background-color: ${({ theme }) => theme.colors.black};
 
   &.hide-loader {
-    //opacity: 0;
-    //visibility: hidden;
+    transition: 1s 1s ease-in-out;
     transform: translateX(-100%);
 
     .progress {
@@ -30,7 +27,7 @@ export const LoaderStyle = styled.div`
     font-size: 200px;
     -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
     text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
-    transition: .9s ease-in;
+    transition: .9s 1s  ease-in;
     width: 100%;
 
     p {

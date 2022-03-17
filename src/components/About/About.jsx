@@ -34,7 +34,7 @@ const About = forwardRef(({ onScreen }, ref) => {
               direction={"right"}
               fraction={0.3}
               duration={1000}
-              delay={3800}
+              delay={1500}
             >
               <Parallax
                 className="transition"
@@ -57,7 +57,7 @@ const About = forwardRef(({ onScreen }, ref) => {
             direction={"right"}
             fraction={0}
             duration={1000}
-            delay={5200}
+            delay={3000}
           >
             <Parallax
               className="transition"
@@ -79,7 +79,13 @@ const About = forwardRef(({ onScreen }, ref) => {
                   prioritize quality of both the artworks and utilities of the
                   Racing Social Club brand.
                 </p>
-                <Button variant="outlined">JOIN OUR DISCORD</Button>
+                <Button
+                  variant="outlined"
+                  href="https://discord.com/invite/racingsocialclubnft"
+                  target="_blank"
+                >
+                  JOIN OUR DISCORD
+                </Button>
               </div>
             </Parallax>
           </Fade>

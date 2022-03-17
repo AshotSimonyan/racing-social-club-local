@@ -64,8 +64,8 @@ const Team = forwardRef(({ onScreen }, ref) => {
                     </picture>
                   </div>
                   <p className="name">
-                    {name}{" "}
-                    <a href="#">
+                    {name}
+                    <a href="https://twitter.com/racingsocialnft">
                       <Icon name="twitter" color={theme.colors.white} />
                     </a>
                   </p>

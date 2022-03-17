@@ -53,7 +53,7 @@ const NavBar = ({ onLinkClick, progress, touchDevice }) => {
                 <li>
                   <a
                     target="_blank"
-                    href="https://www.instagram.com/camp_pluto"
+                    href="https://www.instagram.com/racingsocial_nft/"
                     rel="noreferrer"
                     className="social-btn"
                   >
@@ -63,7 +63,7 @@ const NavBar = ({ onLinkClick, progress, touchDevice }) => {
                 <li>
                   <a
                     target="_blank"
-                    href="https://twitter.com/camp_pluto"
+                    href="https://twitter.com/racingsocialnft"
                     rel="noreferrer"
                     className="social-btn"
                   >
@@ -74,7 +74,7 @@ const NavBar = ({ onLinkClick, progress, touchDevice }) => {
                   <Button
                     target="_blank"
                     rel="noreferrer"
-                    href="https://discord.gg/VcpBh2af"
+                    href="https://discord.com/invite/racingsocialclubnft"
                     className="discord social-btn"
                   >
                     DISCORD
@@ -89,17 +89,32 @@ const NavBar = ({ onLinkClick, progress, touchDevice }) => {
         </div>
         <ul className="social social-desktop">
           <li>
-            <a target="_blank" href="#" rel="noreferrer" className="social-btn">
+            <a
+              target="_blank"
+              href="https://www.instagram.com/racingsocial_nft/"
+              rel="noreferrer"
+              className="social-btn"
+            >
               <Icon name="instagram" size={32} />
             </a>
           </li>
           <li>
-            <a target="_blank" href="#" rel="noreferrer" className="social-btn">
+            <a
+              target="_blank"
+              href="https://twitter.com/racingsocialnft"
+              rel="noreferrer"
+              className="social-btn"
+            >
               <Icon name="twitter" size={32} />
             </a>
           </li>
           <li>
-            <a target="_blank" rel="noreferrer" className="social-btn" href="#">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              className="social-btn"
+              href="https://discord.com/invite/racingsocialclubnft"
+            >
               <Icon name="discord" size={32} />
               <span>JOIN OUR DISCORD</span>
             </a>

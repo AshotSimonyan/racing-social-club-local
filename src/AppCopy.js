@@ -1,7 +1,7 @@
-import { useEffect, useState, useRef, useCallback } from "react"
+import { useEffect, useState, useRef, useCallback, useMemo } from "react"
 import About from "./components/About/About"
 import { useOnScreen } from "./hooks/useOnScreen"
-import Loader from "./components/Loader/Loader"
+import Loader from "./components/Loader/LoaderCopy"
 import { useLockedBody } from "./hooks/useLockedBody"
 import FAQ from "./components/FAQ/FAQ"
 import Team from "./components/Team/Team"
@@ -10,7 +10,7 @@ import NavBar from "./components/Navbar/NavBar"
 import RoadMap from "./components/RoadMap/RoadMap"
 
 function App() {
-  const [loading, setLoading] = useState(true)
+  const [loaded, setLoaded] = useState(false)
   const [progress, setProgress] = useState(5)
   const [animValues, setAnimValues] = useState(0)
   const [touchDevice, setTouchDevice] = useState(false)
@@ -21,7 +21,7 @@ function App() {
   const roadMapRef = useRef(null)
 
   const aboutScreen = useOnScreen(aboutRef)
-  const [, setLocked] = useLockedBody(true)
+  // const [, setLocked] = useLockedBody(true)
 
   useEffect(() => {
     window.history.scrollRestoration = "manual"
@@ -43,12 +43,12 @@ function App() {
     }
   }, [])
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false)
-      setLocked(false)
-    }, 3500)
-  }, [])
+  // useEffect(() => {
+  //     setTimeout(() => {
+  //         setLoading(false)
+  //         setLocked(false)
+  //     }, 3500)
+  // }, [])
 
   const calculateProgress = useCallback(offsetLeft => {
     const parent = document.querySelector(".parent >div")
@@ -81,17 +81,22 @@ function App() {
     setProgress(calculateProgress(animValues))
   }
 
+  const handleLoad = () => {
+    setLoaded(true)
+  }
+
   return (
     <main>
-      <Loader className={loading ? "" : "hide-loader"} />
+      <Loader onLoad={handleLoad} />
       <div className="main-wrapper" onWheel={handleScroll}>
         <HorizontalScroll
+          reverseScroll
           className="parent"
           config={{ stiffness: 50 }}
           ref={parentRef}
           animValues={animValues}
         >
-          <About ref={aboutRef} onScreen={aboutScreen && !loading} />
+          <About ref={aboutRef} onScreen={aboutScreen && loaded} />
           <RoadMap ref={roadMapRef} />
           <Team ref={teamRef} />
           <FAQ ref={faqRef} />

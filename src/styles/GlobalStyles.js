@@ -271,7 +271,7 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
-  @media (max-height: 820px) {
+  @media (max-height: 840px) {
     h1, .h1 {
       font-size: ${({ theme }) => theme.titleSizesSM.h1};
     }

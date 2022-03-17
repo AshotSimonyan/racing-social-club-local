@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 
 const number = "100"
 const duration = "8.5"
-const MyComponent = ({ className }) => {
+const Loader = ({ className }) => {
   const [count, setCount] = useState("0")
   useEffect(() => {
     let start = 0
@@ -45,4 +45,4 @@ const MyComponent = ({ className }) => {
   )
 }
 
-export default MyComponent
+export default Loader
