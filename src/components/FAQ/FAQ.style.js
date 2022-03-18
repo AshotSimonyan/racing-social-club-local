@@ -12,7 +12,7 @@ export const FAQStyle = styled.section`
   }
 
   .faq-content {
-    padding: 120px 0 120px;
+    padding: 120px 0 80px;
     width: 830px;
     margin: 0 auto;
   }
@@ -114,7 +114,7 @@ export const FAQStyle = styled.section`
     padding-left: 96px;
     .faq-content {
       width: 620px;
-      padding: 80px 0 100px;
+      padding: 80px 0 80px;
     }
     .contact-block {
       width: 600px;
@@ -130,7 +130,6 @@ export const FAQStyle = styled.section`
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
     .faq-content {
       width: 480px;
-      padding: 80px 0 100px;
     }
     .contact-block {
       width: 500px;
@@ -139,10 +138,10 @@ export const FAQStyle = styled.section`
   @media (max-width: ${({ theme }) => theme.breakpoints.xs}px) {
     padding-left: 70px;
     .faq-content {
-      width: 360px;
+      width: 100vw;
     }
     .contact-block {
-      width: 400px;
+      width: 100vw;
     }
   }
   @media (max-height: 480px) {

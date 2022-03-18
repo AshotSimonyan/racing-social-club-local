@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Carousel2Style = styled.div`
-  height: 544px;
+  height: auto;
   width: 468px;
   margin-left: auto;
   pointer-events: none;
@@ -121,9 +121,24 @@ export const Carousel2Style = styled.div`
     }
   }
 
-  @media (max-height: 840px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}px) {
     height: 100%;
+    width: 100%;
+  }
+
+  @media (max-height: 840px) {
     width: 328px;
+  }
+
+  @media (max-height: 640px) {
+    height: 100%;
+    width: 240px;
+    .slick-next,
+    .slick-prev {
+      .arrow-text {
+        font-size: 16px;
+      }
+    }
   }
   @media (max-height: 480px) {
     width: 170px;

@@ -1,8 +1,7 @@
 import React, { memo, useMemo, useState } from "react"
-import Spinner from "../../UIKit/Spinner/Spinner"
-import { Fade } from "react-awesome-reveal"
 import { Carousel1Style } from "./Carousel1.style"
 import { Carousel } from "../../UIKit"
+import LogoIcon from "../../../assets/logo-icon.svg"
 
 const Carousel1 = () => {
   const [percent, setPercent] = useState(0)
@@ -32,10 +31,13 @@ const Carousel1 = () => {
         {[...Array(5)].map((item, index) => {
           return (
             <div className="carousel-item" key={`carousel-${index}`}>
-                <img
-                    src={`/assets/carousel/carousel${index + 1}.jpg`}
-                    alt="racing"
+              <picture>
+                <source
+                  media="(max-width: 575px)"
+                  srcSet={`/assets/carousel/mobile${index + 1}.png`}
                 />
+                <img src={`/assets/carousel/${index + 1}.png`} alt="racing" />
+              </picture>
             </div>
           )
         })}

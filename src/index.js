@@ -5,14 +5,11 @@ import reportWebVitals from "./reportWebVitals"
 import { ThemeProvider } from "styled-components"
 import { theme } from "./styles/theme"
 import { GlobalStyle } from "./styles/GlobalStyles"
-import { ParallaxProvider } from "react-scroll-parallax"
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <ParallaxProvider scrollAxis="horizontal">
-      <GlobalStyle />
-      <App />
-    </ParallaxProvider>
+    <GlobalStyle />
+    <App />
   </ThemeProvider>,
   document.getElementById("root")
 )

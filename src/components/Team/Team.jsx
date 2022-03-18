@@ -44,7 +44,7 @@ const Team = forwardRef(({ onScreen }, ref) => {
     <TeamStyle ref={ref}>
       <RunningText image="/assets/team/running" withBorder />
       <div className="content-wrapper">
-        <div className="content2">
+        <div className="content1">
           <div className="img-wrapper">
             <picture>
               <source srcSet="/assets/team/team-big.webp" type="image/webp" />
@@ -52,7 +52,7 @@ const Team = forwardRef(({ onScreen }, ref) => {
             </picture>
           </div>
         </div>
-        <div className="content3">
+        <div className="content2">
           <ul className="team-list">
             {teamList.map(({ name, position, img }) => {
               return (

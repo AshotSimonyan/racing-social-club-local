@@ -2,7 +2,6 @@ import { AboutStyle } from "./About.style"
 import { forwardRef, useEffect, useState } from "react"
 import { Fade } from "react-awesome-reveal"
 import RunningText from "../UIKit/RunningText/RunningText"
-import { Parallax } from "react-scroll-parallax"
 import { Button } from "../UIKit"
 
 const About = forwardRef(({ onScreen }, ref) => {
@@ -21,7 +20,15 @@ const About = forwardRef(({ onScreen }, ref) => {
         <div className="content-1">
           <div className="img-wrapper">
             <picture>
-              <source srcSet="/assets/about/about1.webp" type="image/webp" />
+              <source
+                media="(min-width: 480px)"
+                srcSet="/assets/about/about1.webp"
+              />
+              <source
+                media="(max-width: 479px)"
+                srcSet="/assets/about/about1-mobile.png"
+                type="image/webp"
+              />
               <img src="/assets/about/about1.png" alt="racing" />
             </picture>
           </div>
@@ -32,13 +39,13 @@ const About = forwardRef(({ onScreen }, ref) => {
               triggerOnce
               cascade
               direction={"right"}
-              fraction={0.3}
+              fraction={0.2}
               duration={1000}
               delay={2000}
             >
-                <h1 className='first'>7,878 Unique</h1>
-                <h1 className='second'>Racers are</h1>
-                <h1 className='third'>Waiting For YOU</h1>
+              <h2 className="first">7,878 Unique</h2>
+              <h2 className="second">Racers are</h2>
+              <h2 className="third">Waiting For YOU</h2>
             </Fade>
           </div>
 
@@ -49,35 +56,30 @@ const About = forwardRef(({ onScreen }, ref) => {
             duration={1000}
             delay={3500}
           >
-            <Parallax
-              className="transition"
-              speed={0}
-              onEnter={e => console.log(e)}
-            >
-              <div className="text">
-                <p>
-                  Racing Social Club is a community of 7878 Racers which are
-                  randomly generated on the Ethereum blockchain. The community
-                  of racing fans and NFT enthusiasts will gain access to our
-                  most exclusive events, which we will organize multiple times a
-                  year.
-                </p>
-                <p>
-                  The events will give our Rookies the opportunity to feel like
-                  a real racer. This includes fast cars, race weekends, Esports
-                  events, entertainment, VIP experiences, giveaways and more! We
-                  prioritize quality of both the artworks and utilities of the
-                  Racing Social Club brand.
-                </p>
-                <Button
-                  variant="outlined"
-                  href="https://discord.com/invite/racingsocialclubnft"
-                  target="_blank"
-                >
-                  JOIN OUR DISCORD
-                </Button>
-              </div>
-            </Parallax>
+            <div className="text">
+              <p>
+                Racing Social Club is a community of 7878 Racers which are
+                randomly generated on the Ethereum blockchain. The community of
+                racing fans and NFT enthusiasts will gain access to our most
+                exclusive events, which we will organize multiple times a year.
+              </p>
+              <p>
+                The events will give our Rookies the opportunity to feel like a
+                real racer. This includes fast cars, race weekends, Esports
+                events, entertainment, VIP experiences, giveaways and more! We
+                prioritize quality of both the artworks and utilities of the
+                Racing Social Club brand.
+              </p>
+            </div>
+            <div className="button-wrapper">
+              <Button
+                variant="outlined"
+                href="https://discord.com/invite/racingsocialclubnft"
+                target="_blank"
+              >
+                JOIN OUR DISCORD
+              </Button>
+            </div>
           </Fade>
         </div>
         <div className="content-3">

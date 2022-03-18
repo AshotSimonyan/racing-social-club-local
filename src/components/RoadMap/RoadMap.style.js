@@ -20,7 +20,7 @@ export const RoadMapStyle = styled.section(
       border-right: 10px solid ${theme.colors.white};
       display: flex;
       justify-content: space-between;
-      padding: 80px 80px 120px;
+      padding: 80px;
       flex-direction: column;
 
       .text {
@@ -34,6 +34,7 @@ export const RoadMapStyle = styled.section(
       justify-content: flex-end;
       max-width: 440px;
       width: 100%;
+      padding-top: 20px;
 
       > div:not(:first-child) p,
       > p:not(:first-child) {
@@ -67,11 +68,11 @@ export const RoadMapStyle = styled.section(
       height: 100%;
       margin-left: 10px;
       display: flex;
-      width: 1100px;
+      //width: 1100px;
 
       .left {
-        min-width: 400px;
-        padding-top: 100px;
+        width: 408px;
+        padding-top: 80px;
         padding-left: 40px;
         padding-right: 40px;
 
@@ -85,14 +86,14 @@ export const RoadMapStyle = styled.section(
       }
 
       .right {
-        width: calc(100% - 400px);
+        width: 726px;
       }
     }
 
     .text-block {
       width: 500px;
       height: 100%;
-      padding: 80px 40px 120px;
+      padding: 80px 40px;
       border-right: 10px solid ${({ theme }) => theme.colors.white};
       margin-right: 6px;
 
@@ -103,24 +104,26 @@ export const RoadMapStyle = styled.section(
     }
 
     .carousel-2-block {
-      padding: 80px;
+      padding: 60px 120px 80px 80px;
       border-left: 10px solid ${theme.colors.white};
       height: 100%;
       margin-left: 6px;
       display: flex;
-      width: 1280px;
+      justify-content: space-between;
+      align-items: flex-start;
 
       .left {
-        min-width: 480px;
+        width: 600px;
         display: flex;
         flex-direction: column;
+        padding-right: 80px;
 
         .spinner {
           text-align: center;
         }
 
         .title {
-          padding-bottom: 40px;
+          //padding-bottom: 40px;
         }
 
         .text {
@@ -129,10 +132,6 @@ export const RoadMapStyle = styled.section(
           padding-bottom: 24px;
         }
       }
-
-      .right {
-        width: calc(100% - 480px);
-      }
     }
 
     .text-block-2 {
@@ -140,7 +139,7 @@ export const RoadMapStyle = styled.section(
       border-left: 10px solid ${theme.colors.white};
 
       .left {
-        padding: 80px 40px 120px;
+        padding: 80px 40px 80px;
         border-right: 1px solid ${theme.colors.white};
         width: 500px;
 
@@ -216,10 +215,11 @@ export const RoadMapStyle = styled.section(
       }
 
       .carousel-block {
-        width: 1000px;
-
         .left {
           padding-top: 60px;
+        }
+        .right {
+          width: 640px;
         }
       }
 
@@ -228,7 +228,7 @@ export const RoadMapStyle = styled.section(
       }
 
       .carousel-2-block {
-        padding: 60px 60px 80px;
+        padding: 60px 120px 80px 60px;
       }
 
       .text-block-2 {
@@ -252,7 +252,7 @@ export const RoadMapStyle = styled.section(
 
       .content {
         width: 768px;
-        padding: 60px 60px 100px;
+        padding: 60px 60px 80px;
       }
 
       .content1,
@@ -261,36 +261,43 @@ export const RoadMapStyle = styled.section(
       }
 
       .text-block {
-        padding: 40px 40px 100px;
+        padding: 40px 40px 80px;
+      }
+
+      .carousel-block {
+        .left {
+          padding-top: 40px;
+        }
+        .right {
+          width: 778px;
+        }
       }
 
       .carousel-2-block {
-        padding: 40px 40px 80px;
-        width: 1180px;
+        padding: 40px 80px 80px 40px;
       }
     }
 
     @media (max-width: ${theme.breakpoints.sm}px) {
       .content {
         width: 576px;
-        padding: 40px 40px 100px;
+        padding: 40px 40px 80px;
       }
 
       .carousel-block {
-        width: 850px;
-
         .left {
-          padding-top: 40px;
-
           .text {
             font-size: ${({ theme }) => theme.titleSizesXS.h5};
           }
         }
+
+        .right {
+          width: 570px;
+        }
       }
 
       .text-block {
-        width: 576px;
-        padding: 40px 40px 70px;
+        width: 408px;
 
         .text {
           font-size: ${({ theme }) => theme.titleSizesXS.h4};
@@ -299,7 +306,7 @@ export const RoadMapStyle = styled.section(
 
       .text-block-2 {
         .left {
-          padding: 40px 40px 70px;
+          padding: 40px 40px 80px;
           .text {
             font-size: ${({ theme }) => theme.titleSizesXS.h4};
           }
@@ -307,10 +314,9 @@ export const RoadMapStyle = styled.section(
       }
 
       .carousel-2-block {
-        width: 867px;
-
         .left {
-          min-width: 340px;
+          width: 420px;
+          padding-right: 80px;
 
           .text {
             font-size: ${({ theme }) => theme.titleSizesXS.h4};
@@ -320,30 +326,64 @@ export const RoadMapStyle = styled.section(
             padding-bottom: 16px;
           }
         }
-
-        .right {
-          min-width: calc(100% - 340px);
-        }
       }
     }
     @media (max-width: ${theme.breakpoints.xs}px) {
       padding-left: 70px;
 
+      .content {
+        width: 100vw;
+        padding: 20px 24px 80px;
+      }
+
       .text-block {
-        width: 420px;
+        width: 100vw;
+      }
+
+      .carousel-block {
+        .left {
+          width: 100vw;
+        }
+        .right {
+          width: 100vw;
+        }
+      }
+
+      .carousel-2-block {
+        padding: 0;
+        .left {
+          padding: 40px 24px;
+          width: 100vw;
+        }
+
+        .right {
+          padding: 40px;
+          width: 100vw;
+        }
+      }
+
+      .text-block-2 {
+        .left {
+          width: 100vw;
+          padding: 24px 24px 80px;
+        }
+        .right {
+          width: 100vw;
+        }
       }
     }
 
     @media (max-height: 840px) {
       .text-block {
-
         .text {
           font-size: ${({ theme }) => theme.titleSizesXS.h5};
         }
       }
       .carousel-block {
         .left {
+          padding-top: 40px;
           .text {
+            padding-top: 0;
             font-size: ${({ theme }) => theme.titleSizesXS.h5};
           }
         }
@@ -356,10 +396,14 @@ export const RoadMapStyle = styled.section(
         }
       }
       .text-block-2 {
-
         .left {
           .text {
             font-size: ${({ theme }) => theme.titleSizesXS.h5};
+          }
+        }
+        .right {
+          .Collapsible__contentInner {
+            max-height: 320px;
           }
         }
       }
@@ -367,7 +411,7 @@ export const RoadMapStyle = styled.section(
 
     @media (max-height: ${({ theme }) => theme.breakpoints.xs}px) {
       .content {
-        padding: 20px 40px 100px;
+        padding: 20px 40px 80px;
       }
 
       .text {
@@ -381,6 +425,17 @@ export const RoadMapStyle = styled.section(
       .carousel-block {
         .left {
           padding-top: 40px;
+        }
+        .right {
+          width: 320px;
+        }
+      }
+
+      .text-block-2 {
+        .right {
+          .Collapsible__contentInner {
+            max-height: 200px;
+          }
         }
       }
     }
@@ -432,12 +487,6 @@ export const RoadMapStyle = styled.section(
         }
       }
       .text-block-2 {
-        .right {
-          .Collapsible__contentInner {
-            max-height: 200px;
-          }
-        }
-
         .text {
           font-size: ${({ theme }) => theme.fontSizes.md};
         }

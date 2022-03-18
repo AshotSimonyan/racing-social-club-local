@@ -117,23 +117,23 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.black};
     font-weight: 400;
     line-height: 1.4;
-    overflow-y: hidden;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
   }
   
   
   .scroll-horizontal {
     display: flex;
     width: 100vw;
-    height: 100vh;
     overflow-y: hidden;
     overflow-x: scroll;
     transition: .5s;
-    padding-bottom: 60px;
 
     section {
-      height: 100vh;
       flex-shrink: 0;
       position: relative;
+      height: calc(100vh - 60px);
 
       &:not(:last-child) {
         border-right: 10px solid ${({ theme }) => theme.colors.white};
@@ -144,9 +144,6 @@ export const GlobalStyle = createGlobalStyle`
   .main-wrapper {
     height: 100vh;
     width: 100vw;
-    section {
-      height: 100vh;
-    }
   }
 
   
@@ -257,9 +254,7 @@ export const GlobalStyle = createGlobalStyle`
     h1, .h1 {
       font-size: ${({ theme }) => theme.titleSizesXS.h1};
     }
-    h2, .h2 {
-      font-size: ${({ theme }) => theme.titleSizesXS.h2};
-    }
+    
     h3, .h3 {
       font-size: ${({ theme }) => theme.titleSizesXS.h3};
     }
@@ -271,7 +266,13 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
-  @media (max-height: 840px) {
+  @media (max-height: 680px) {
+    h2, .h2 {
+      font-size: ${({ theme }) => theme.titleSizesXS.h2};
+    }
+  }
+
+  @media (max-height: 840px) and (orientation: landscape)  {
     h1, .h1 {
       font-size: ${({ theme }) => theme.titleSizesSM.h1};
     }

@@ -93,7 +93,13 @@ const FAQ = forwardRef(({ onScreen }, ref) => {
               Racing Social Club will have a loyal and strong community, heading
               in to a very important part of the race.
             </p>
-            <Button variant="outlined">JOIN OUR DISCORD</Button>
+            <Button
+              variant="outlined"
+              href="https://discord.com/invite/racingsocialclubnft"
+              target="_blank"
+            >
+              JOIN OUR DISCORD
+            </Button>
           </Fade>
         </div>
       </div>

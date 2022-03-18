@@ -7,7 +7,7 @@ export const TeamStyle = styled.section`
     display: flex;
     height: 100%;
   }
-  .content2 {
+  .content1 {
     height: 100%;
     width: 670px;
     margin-left: 160px;
@@ -18,6 +18,7 @@ export const TeamStyle = styled.section`
       overflow: hidden;
       img {
         object-fit: cover;
+        width: 100%;
         height: 100%;
         position: relative;
         z-index: 1;
@@ -26,8 +27,18 @@ export const TeamStyle = styled.section`
     }
   }
 
-  .content3 {
-    padding: 80px 80px 120px;
+  .content2 {
+    padding: 80px;
+
+    .img-wrapper {
+      padding-bottom: 16px;
+      height: 100%;
+
+      img {
+        display: block;
+        height: 100%;
+      }
+    }
   }
 
   .title {
@@ -37,15 +48,6 @@ export const TeamStyle = styled.section`
 
     span {
       opacity: 0;
-    }
-  }
-
-  .img-wrapper {
-    padding-bottom: 16px;
-
-    img {
-      display: block;
-      width: 100%;
     }
   }
 
@@ -65,19 +67,19 @@ export const TeamStyle = styled.section`
     height: 100%;
   }
   .team-card {
-    width: 262px;
+    height: 40vh;
     margin-left: 32px;
 
     &:nth-child(even) {
-      margin-top: 180px;
+      margin-top: 20%;
     }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
     padding-left: 120px;
 
-    .content3 {
-      padding: 60px 60px 120px;
+    .content2 {
+      padding: 60px 60px 80px;
     }
   }
 
@@ -86,8 +88,8 @@ export const TeamStyle = styled.section`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
-    .content3 {
-      padding: 40px 40px 100px;
+    .content2 {
+      padding: 40px 40px 80px;
     }
     .team-card {
       &:nth-child(even) {
@@ -97,6 +99,10 @@ export const TeamStyle = styled.section`
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.xs}px) {
     padding-left: 70px;
+
+    .content1 {
+      width: 100vw;
+    }
   }
   @media (max-height: 480px) {
     .team-card {

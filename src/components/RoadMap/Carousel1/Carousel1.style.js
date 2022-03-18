@@ -11,15 +11,15 @@ export const Carousel1Style = styled.div`
       height: 100vh;
       margin-left: auto;
       width: 100%;
-      object-position: center bottom;
-      object-fit: cover;
+      object-position: right bottom;
+      object-fit: contain;
     }
   }
 
   .progress-wrapper {
     position: absolute;
     top: 80px;
-    right: 80px;
+    right: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,8 +46,8 @@ export const Carousel1Style = styled.div`
 
   @media (max-height: ${({ theme }) => theme.breakpoints.md}px) {
     .progress-wrapper {
-      top: 60px;
-      right: 60px;
+      top: 40px;
+      right: 20px;
     }
     .progress {
       height: 180px;
@@ -57,8 +57,8 @@ export const Carousel1Style = styled.div`
   @media (max-height: 840px) {
     .slick-slide {
       img {
-        object-position: center;
-        object-fit: contain;
+        //object-position: center;
+        //object-fit: contain;
       }
     }
   }
@@ -66,8 +66,8 @@ export const Carousel1Style = styled.div`
   @media (max-height: 480px) {
     .slick-slide {
       img {
-        object-position: center;
-        object-fit: contain;
+        //object-position: center;
+        //object-fit: contain;
       }
     }
   }
