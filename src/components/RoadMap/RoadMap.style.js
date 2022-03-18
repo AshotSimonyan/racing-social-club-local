@@ -20,7 +20,7 @@ export const RoadMapStyle = styled.section(
       border-right: 10px solid ${theme.colors.white};
       display: flex;
       justify-content: space-between;
-      padding: 80px;
+      padding: 80px 80px 100px;
       flex-direction: column;
 
       .text {
@@ -104,7 +104,7 @@ export const RoadMapStyle = styled.section(
     }
 
     .carousel-2-block {
-      padding: 60px 120px 80px 80px;
+      padding: 60px 120px 100px 80px;
       border-left: 10px solid ${theme.colors.white};
       height: 100%;
       margin-left: 6px;
@@ -139,7 +139,7 @@ export const RoadMapStyle = styled.section(
       border-left: 10px solid ${theme.colors.white};
 
       .left {
-        padding: 80px 40px 80px;
+        padding: 80px 40px 100px;
         border-right: 1px solid ${theme.colors.white};
         width: 500px;
 
@@ -228,7 +228,7 @@ export const RoadMapStyle = styled.section(
       }
 
       .carousel-2-block {
-        padding: 60px 120px 80px 60px;
+        padding: 60px 120px 100px 60px;
       }
 
       .text-block-2 {
@@ -252,7 +252,7 @@ export const RoadMapStyle = styled.section(
 
       .content {
         width: 768px;
-        padding: 60px 60px 80px;
+        padding: 60px 60px 100px;
       }
 
       .content1,
@@ -261,7 +261,7 @@ export const RoadMapStyle = styled.section(
       }
 
       .text-block {
-        padding: 40px 40px 80px;
+        padding: 40px 40px 100px;
       }
 
       .carousel-block {
@@ -274,14 +274,14 @@ export const RoadMapStyle = styled.section(
       }
 
       .carousel-2-block {
-        padding: 40px 80px 80px 40px;
+        padding: 40px 80px 100px 40px;
       }
     }
 
     @media (max-width: ${theme.breakpoints.sm}px) {
       .content {
         width: 576px;
-        padding: 40px 40px 80px;
+        padding: 40px 40px 100px;
       }
 
       .carousel-block {
@@ -306,7 +306,7 @@ export const RoadMapStyle = styled.section(
 
       .text-block-2 {
         .left {
-          padding: 40px 40px 80px;
+          padding: 40px 40px 100px;
           .text {
             font-size: ${({ theme }) => theme.titleSizesXS.h4};
           }
@@ -333,7 +333,7 @@ export const RoadMapStyle = styled.section(
 
       .content {
         width: 100vw;
-        padding: 20px 24px 80px;
+        padding: 20px 24px 100px;
       }
 
       .text-block {
@@ -365,7 +365,7 @@ export const RoadMapStyle = styled.section(
       .text-block-2 {
         .left {
           width: 100vw;
-          padding: 24px 24px 80px;
+          padding: 24px 24px 100px;
         }
         .right {
           width: 100vw;
@@ -411,7 +411,7 @@ export const RoadMapStyle = styled.section(
 
     @media (max-height: ${({ theme }) => theme.breakpoints.xs}px) {
       .content {
-        padding: 20px 40px 80px;
+        padding: 20px 40px 100px;
       }
 
       .text {
@@ -461,7 +461,7 @@ export const RoadMapStyle = styled.section(
       }
 
       .text-block {
-        padding: 40px 20px 60px;
+        padding: 40px 20px 100px;
 
         .text {
           font-size: ${({ theme }) => theme.fontSizes.md};
@@ -477,7 +477,7 @@ export const RoadMapStyle = styled.section(
       }
 
       .carousel-2-block {
-        padding: 40px 20px 60px;
+        padding: 40px 20px 100px;
         width: 900px;
 
         .left {

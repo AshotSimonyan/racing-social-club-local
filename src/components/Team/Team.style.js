@@ -28,7 +28,7 @@ export const TeamStyle = styled.section`
   }
 
   .content2 {
-    padding: 80px;
+    padding: 80px 80px 100px;
 
     .img-wrapper {
       padding-bottom: 16px;
@@ -79,7 +79,7 @@ export const TeamStyle = styled.section`
     padding-left: 120px;
 
     .content2 {
-      padding: 60px 60px 80px;
+      padding: 60px 60px 100px;
     }
   }
 
@@ -89,7 +89,7 @@ export const TeamStyle = styled.section`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
     .content2 {
-      padding: 40px 40px 80px;
+      padding: 40px 40px 100px;
     }
     .team-card {
       &:nth-child(even) {

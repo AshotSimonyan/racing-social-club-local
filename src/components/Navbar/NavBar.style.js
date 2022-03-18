@@ -12,7 +12,7 @@ export const NavBarStyle = styled.nav`
 
   &.open {
     .header-nav {
-      height: calc(100% - 60px);
+      height: calc((${({height}) => height}px) - 60px);
     }
   }
 
@@ -66,7 +66,7 @@ export const NavBarStyle = styled.nav`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: calc(100vh - 60px);
+      height: calc((${({height}) => height}px) - 60px);
       padding-top: 120px;
     }
 

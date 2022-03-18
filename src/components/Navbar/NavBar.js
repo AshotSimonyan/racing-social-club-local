@@ -7,10 +7,12 @@ import { Button, Icon } from "../UIKit"
 import { useLockedBody } from "../../hooks/useLockedBody"
 import { navList } from "./config"
 import Progress from "./Progress/Progress"
+import useWindowSize from "../../hooks/useWindowSize";
 
 const NavBar = ({ onLinkClick, progress, touchDevice }) => {
   const [drawerOpened, setDrawerOpened] = useState(false)
   const [, setLocked] = useLockedBody()
+    const [, height] = useWindowSize();
 
   const handleDrawerToggle = () => {
     setDrawerOpened(!drawerOpened)
@@ -26,7 +28,7 @@ const NavBar = ({ onLinkClick, progress, touchDevice }) => {
   }
 
   return (
-    <NavBarStyle className={drawerOpened ? "open" : ""}>
+    <NavBarStyle height={height} className={drawerOpened ? "open" : ""}>
       <div className="navbar-content">
         <div className="logo-wrapper">
           <div className="logo" onClick={() => handleMenuLinkClick("#about")}>

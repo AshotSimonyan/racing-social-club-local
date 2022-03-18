@@ -8,7 +8,7 @@ export const Carousel1Style = styled.div`
     will-change: opacity;
 
     img {
-      height: 100vh;
+      height: calc(100vh - 60px);
       margin-left: auto;
       width: 100%;
       object-position: right bottom;

@@ -1,7 +1,6 @@
 import React, { memo, useMemo, useState } from "react"
 import { Carousel1Style } from "./Carousel1.style"
 import { Carousel } from "../../UIKit"
-import LogoIcon from "../../../assets/logo-icon.svg"
 
 const Carousel1 = () => {
   const [percent, setPercent] = useState(0)

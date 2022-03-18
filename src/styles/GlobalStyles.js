@@ -55,6 +55,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 100%;
     color: inherit;
   }
+  
 
   table {
     border-collapse: collapse;
@@ -121,8 +122,7 @@ export const GlobalStyle = createGlobalStyle`
     position: relative;
     height: 100%;
   }
-  
-  
+
   .scroll-horizontal {
     display: flex;
     width: 100vw;
@@ -134,6 +134,7 @@ export const GlobalStyle = createGlobalStyle`
       flex-shrink: 0;
       position: relative;
       height: calc(100vh - 60px);
+      overflow-y: hidden;
 
       &:not(:last-child) {
         border-right: 10px solid ${({ theme }) => theme.colors.white};

@@ -18,7 +18,7 @@ export const AboutStyle = styled.section`
   }
 
   .content-2 {
-    padding: 80px 60px 80px 180px;
+    padding: 80px 60px 100px 180px;
     width: 708px;
     position: relative;
     z-index: 9;
@@ -41,7 +41,6 @@ export const AboutStyle = styled.section`
   }
 
   .content-1 {
-    //height:  calc(100vh - 60px);
     .img-wrapper {
       img {
         transform: scale(1.2);
@@ -88,7 +87,7 @@ export const AboutStyle = styled.section`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xl}px) {
     .content-2 {
-      padding: 60px 60px 80px 100px;
+      padding: 60px 60px 100px 100px;
 
       .text {
         display: flex;
