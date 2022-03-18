@@ -23,6 +23,10 @@ export const RoadMapStyle = styled.section(
       padding: 80px 80px 100px;
       flex-direction: column;
 
+      @supports (-webkit-touch-callout: none) {
+        padding-bottom: 140px !important;
+      }
+
       .text {
         margin-left: auto;
       }
