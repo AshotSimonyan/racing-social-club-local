@@ -38,6 +38,12 @@ export const FAQStyle = styled.section`
     max-height: 220px;
     margin-right: 16px;
 
+    p {
+      &:not(:first-child) {
+        padding-top: 16px;
+      }
+    }
+
     ::-webkit-scrollbar {
       width: 6px;
     }

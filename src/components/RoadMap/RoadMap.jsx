@@ -54,17 +54,10 @@ const RoadMap = forwardRef(({}, ref) => {
               duration={1000}
             >
               <p>
-                Racing Social Club aims to take an exclusive place in the NFT
-                and racing industry. The goal is to build a like-minded
-                community of racing fans and NFT enthusiasts. We will build the
-                RSC brand by adding partnerships with professional racers and
-                growing our network in the industry, as the 2022 season starts.
+                  Racing Social Club aims to take an exclusive place in the NFT and racing industry. The goal is to build a likeminded community of racing fans and NFT enthusiasts. We will build the RSC brand by adding partnerships with professional racers and growing our network in the industry.
               </p>
               <p>
-                We will build up the momentum to prepare for the qualification
-                as best as we can. This will be done through events like crazy
-                marketing stunts, professional content, giveaways, Ama’s and
-                many more!
+                  We will build up the momentum to prepare for the qualification as best as we can. Growing the community during the free practice will be done by adding real value and getting the right attention. This will be done through events like crazy marketing stunts, professional content, giveaways, AMA’s and many more!
               </p>
             </Fade>
           </div>
@@ -92,20 +85,13 @@ const RoadMap = forwardRef(({}, ref) => {
               duration={1000}
             >
               <p>
-                To stay in Pole Position, we need to qualify for the race as
-                best as we can. We have been working very hard to create an
-                outstanding collection of 7878 racers.
+                  To start the race in pole position, we need to qualify as best as we can. We have been working very hard to create an outstanding collection of 7878 racers.
               </p>
               <p>
-                Each racer has its own unique characteristics and can be
-                identified as a real racer. We focused on the smallest details,
-                in order to create the highest quality traits and make each
-                racer top notch. The traits are the center focus for one of our
-                unique utility forms.
+                  Each racer has its own unique characteristics. We focused on the smallest details in order to  make each Racer top notch. The traits are the center focus for one of our unique utility forms.
               </p>
               <p>
-                A Rookie can qualify itself, by earning a WL spot or participate
-                in the Raffle before the race starts
+                  During the qualification, each RSC member has two opportunities for a flawless lap, which will put them in the best position for the race. A Rookie can qualify itself, by earning a WL spot or by participating in the raffle before the race starts.
               </p>
             </Fade>
           </div>
@@ -131,17 +117,10 @@ const RoadMap = forwardRef(({}, ref) => {
               duration={1000}
             >
               <p>
-                After a successful qualification, the only thing to do is to win
-                the race! To become a real Racer, our Rookies can mint one of
-                the RSC NFTs and gain access to all benefits of Racing Social
-                Club. After the launch, the racers only have to wait for the
-                Podium Ceremony, where all racers will be revealed.
+                  After a successful qualification, the only thing left, is to win the race! To become a real Racer, our Rookies can mint one of the RSC NFT’s and gain access to all benefits of the Racing Social Club brand. After the launch, the Racers only have to wait for the Podium Ceremony, where all Racers will be revealed.
               </p>
               <p>
-                Every holder will gain utility access with loads of benefits,
-                but only specific racers will get access to the special
-                Trait-Based Utilities. After this, we start the celebration of
-                the race victory and reveal at the Podium Ceremony.
+                  Some racers might end up being lucky, since some traits will be directly connected to certain benefits. So make sure you don’t lose patience. Holding your Racer will be the only right decision to make.
               </p>
             </Fade>
           </div>
@@ -169,18 +148,10 @@ const RoadMap = forwardRef(({}, ref) => {
               delay={100}
             >
               <p>
-                We started the season with an amazing victory in style. Soon we
-                will organize the first real-life race event hosted by RSC. Also
-                we will start the first online event, and organize the first
-                meet-up where EVERY holder gets access to. This is where the fun
-                starts.
+                  We started the season with an amazing victory in style. It is time for a celebration. Soon we will organize the first real-life race event hosted by RSC. Also we will start the first online event, where we will create competitions, and prizes can be won. Besides that, we will organize the first meet-up where EVERY holder gains access to. This is where the fun starts.
               </p>
               <p>
-                However, we only had the first race of the season. Racing Social
-                Club is only getting started. As we organize multiple events,
-                and keep partnering up with a variety of racers and racing
-                companies, we will turn eyes and grow the brand globally. Get
-                ready for Roadmap 2.0...
+                  However, there are many more races to come. Racing Social Club is only getting started. As we organize multiple events, and keep partnering up with a variety of Racers and racing companies, we will turn eyes and grow the brand globally.
               </p>
             </Fade>
           </div>
@@ -200,15 +171,10 @@ const RoadMap = forwardRef(({}, ref) => {
             <h3 className="title">YOUR DRIVER</h3>
             <div className="text">
               <p>
-                Once all drivers are revealed, you can finally rock the NFT as
-                your profile picture. We like to see all the different Racers
-                across the socials and show the world what the RSC community is
-                made of.
+                  Once all drivers are revealed, you can finally rock the NFT as your profile picture. We like to see all the different Racers across the socials and show the world what the RSC community is made off.
               </p>
               <p>
-                .If you did not make the mint, you can pick up your own Racer on
-                the secondary market, and choose one you really identify
-                yourself with.
+                  If you did not make the mint, you can pick up your own Racer on the secondary market, and choose one you really identify yourself with.
               </p>
             </div>
           </Fade>
@@ -248,13 +214,9 @@ const RoadMap = forwardRef(({}, ref) => {
               duration={1000}
               delay={100}
             >
-              <h2 className="title">Special DRIVERs</h2>
+              <h2 className="title">Special DRIVERS</h2>
               <p className="text">
-                We created 10 Legendaries, which will be 1/1 racers with their
-                own unique traits. The Legendaries are aesthetically perfect and
-                perhaps have some extra benefits for you as a holder. Owning one
-                of the legendary NFTs of Racing Social Club will be the ultimate
-                flex.
+                  We created 10 Legendaries, which will be 1/1 racers with their own unique traits. The Legendaries are not only aesthetically perfect, they are also the most rare Racers of the collection, and perhaps have some extra benefits for you as a holder. Owning one of the legendary NFT’s of Racing Social Club will be the ultimate goal.
               </p>
             </Fade>
           </div>
@@ -275,11 +237,7 @@ const RoadMap = forwardRef(({}, ref) => {
           >
             <h2>RSC Utility</h2>
             <p className="text">
-              We, at Racing Social Club, consider our community as top priority.
-              We aim to provide as much value as we can, and therefore our
-              utility contains multiple layers. The first form of utility we
-              offer are the Membership Utilities, and the second form of utility
-              we offer are the Trait-Based Utilities.
+                We, at Racing Social Club, consider our community as top priority. We aim to provide as much value as we can, therefore our utility contains multiple layers. We have divided the utility in two different forms. The first form of utility we offer, are Membership utilities, and the second form of utility we offer are Trait Utilities.
             </p>
           </Fade>
         </div>
