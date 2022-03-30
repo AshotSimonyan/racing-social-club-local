@@ -19,7 +19,7 @@ export const AboutStyle = styled.section`
 
   .content-2 {
     padding: 80px 60px 100px 180px;
-    width: 708px;
+    width: 768px;
     position: relative;
     z-index: 9;
 
@@ -42,6 +42,14 @@ export const AboutStyle = styled.section`
 
   .content-1 {
     .img-wrapper {
+      position: relative;
+      &:after  {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(359.26deg, #000000 -8.36%, rgba(68, 68, 68, 0) 45.34%);;
+        z-index: 1;
+      }
       img {
         transform: scale(1.2);
         ${({ startAnim }) =>
@@ -87,7 +95,7 @@ export const AboutStyle = styled.section`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xl}px) {
     .content-2 {
-      padding: 60px 60px 100px 100px;
+      padding: 60px 60px 100px 60px;
 
       .text {
         display: flex;
@@ -101,17 +109,11 @@ export const AboutStyle = styled.section`
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
-    .content-2 {
-      width: 620px;
-    }
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
     padding-left: 130px;
 
     .content-2 {
-      width: 540px;
       padding: 60px;
 
       .text {

@@ -62,11 +62,12 @@ const About = forwardRef(({ onScreen }, ref) => {
             </div>
             <div className="button-wrapper">
               <Button
-                variant="outlined"
-                href="https://discord.com/invite/racingsocialclubnft"
+                variant="primary"
+                href="#"
                 target="_blank"
+                withIcon={false}
               >
-                JOIN OUR DISCORD
+                  REGISTER FOR RAFFLE
               </Button>
             </div>
           </Fade>

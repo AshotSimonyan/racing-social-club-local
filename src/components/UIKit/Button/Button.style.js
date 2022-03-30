@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components"
 
 export const ButtonStyle = styled.a`
-  height: 40px;
   padding: 0 16px;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.white};
@@ -22,11 +21,14 @@ export const ButtonStyle = styled.a`
   ${({ variant }) =>
     variant === "primary" &&
     css`
-      background-color: ${({ theme }) => theme.colors.black};
-      border: 1px solid ${({ theme }) => theme.colors.black};
+      height: 60px;
+      font-size: ${({theme}) => theme.fontSizes.md};
+      background-color: ${({ theme }) => theme.colors.white};
+      color: ${({ theme }) => theme.colors.black};
+      border: 1px solid ${({ theme }) => theme.colors.white};
 
       &:hover {
-        background-color: transparent;
+        //background-color: transparent;
         color: ${({ theme }) => theme.colors.black};
 
         .icon {
@@ -39,7 +41,9 @@ export const ButtonStyle = styled.a`
 
   ${({ variant }) =>
     variant === "outlined" &&
+    
     css`
+      height: 40px;
       background-color: transparent;
       border: 1px solid ${({ theme }) => theme.colors.white};
 

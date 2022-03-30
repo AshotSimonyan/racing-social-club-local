@@ -73,13 +73,24 @@ const NavBar = ({ onLinkClick, progress, touchDevice }) => {
                   </a>
                 </li>
                 <li>
+                  <a
+                    target="_blank"
+                    href="https://discord.com/invite/racingsocialclubnft"
+                    rel="noreferrer"
+                    className="social-btn"
+                  >
+                    <Icon name="discord" />
+                  </a>
+                </li>
+                <li>
                   <Button
                     target="_blank"
                     rel="noreferrer"
-                    href="https://discord.com/invite/racingsocialclubnft"
+                    href="#"
                     className="discord social-btn"
+                    withIcon={false}
                   >
-                    DISCORD
+                      REGISTER FOR RAFFLE
                   </Button>
                 </li>
               </ul>
@@ -113,12 +124,21 @@ const NavBar = ({ onLinkClick, progress, touchDevice }) => {
           <li>
             <a
               target="_blank"
+              href="https://discord.com/invite/racingsocialclubnft"
               rel="noreferrer"
               className="social-btn"
-              href="https://discord.com/invite/racingsocialclubnft"
             >
               <Icon name="discord" size={32} />
-              <span>JOIN OUR DISCORD</span>
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              className="social-btn"
+              href="#"
+            >
+              <span>REGISTER FOR RAFFLE</span>
             </a>
           </li>
         </ul>

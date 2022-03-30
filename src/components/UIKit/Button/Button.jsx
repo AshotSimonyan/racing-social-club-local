@@ -9,6 +9,7 @@ export const Button = ({
   variant = "primary",
   onClick,
   iconName = "discord",
+                           withIcon= true,
   ...props
 }) => {
   return (
@@ -19,7 +20,7 @@ export const Button = ({
       rel="noreferrer"
       {...props}
     >
-      <Icon name={iconName} color={theme.colors.white} />
+        {withIcon && <Icon name={iconName} color={theme.colors.white} />}
       {children}
     </ButtonStyle>
   )
