@@ -1,4 +1,4 @@
-import React, {forwardRef, useState} from "react"
+import React, {forwardRef, useEffect, useState} from "react"
 import {FAQStyle} from "./FAQ.style"
 import Collapsible from "react-collapsible"
 import {Button} from "../UIKit"
@@ -8,6 +8,14 @@ import data from "./dataFAQ";
 
 const FAQ = forwardRef(({onScreen}, ref) => {
     const [openPosition, setOpenPosition] = useState(null)
+    const [members, setMembers] = useState(null)
+
+    useEffect(() => {
+        fetch('https://discord.com/api/v9/invites/racingsocialclubnft?with_counts=true&with_expiration=true')
+            .then(response => response.json())
+            .then(data => setMembers(data.approximate_member_count));
+    }, [])
+    console.log(members)
 
     const handleTriggerClick = position => {
         if (openPosition === position) {
@@ -57,7 +65,7 @@ const FAQ = forwardRef(({onScreen}, ref) => {
                         duration={1000}
                     >
                         <p>JOIN TO DISCORD COMMUNITY</p>
-                        <h1 className="title">4567MEMBER</h1>
+                        <h1 className="title">{members || '29603'}MEMBER</h1>
                         <p className="text">
                             Racing Social Club will have a loyal and strong community, heading
                             in to a very important part of the race.

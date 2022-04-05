@@ -61,14 +61,21 @@ const About = forwardRef(({ onScreen }, ref) => {
               <p>The Rookies in our community can gain access to the Racing Social Club benefits, by holding one of the unique NFT’s. We prioritize the quality of both the artworks and utilities of the Racing Social Club brand.</p>
             </div>
             <div className="button-wrapper">
-              <Button
-                variant="primary"
-                href="#"
-                target="_blank"
-                withIcon={false}
-              >
-                  REGISTER FOR RAFFLE
-              </Button>
+              {/*<Button*/}
+              {/*  variant="primary"*/}
+              {/*  href="#"*/}
+              {/*  target="_blank"*/}
+              {/*  withIcon={false}*/}
+              {/*>*/}
+              {/*    REGISTER FOR RAFFLE*/}
+              {/*</Button>*/}
+                <Button
+                    variant="outlined"
+                    href="https://discord.com/invite/racingsocialclubnft"
+                    target="_blank"
+                >
+                    JOIN OUR DISCORD
+                </Button>
             </div>
           </Fade>
         </div>
