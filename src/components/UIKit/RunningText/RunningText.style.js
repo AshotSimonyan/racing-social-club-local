@@ -42,11 +42,11 @@ export const RunningTextStyle = styled.div`
     withFlag &&
     css`
       .flag {
-        width: 38px;
         position: absolute;
         top: 0;
         right: -34px;
         bottom: 0;
+        height: 100%;
       }
     `}
 

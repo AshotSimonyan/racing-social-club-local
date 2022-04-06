@@ -124,6 +124,8 @@ export const NavBarStyle = styled.nav`
   }
 
   .social-btn {
+    background-color: ${({theme}) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.white};
     display: flex;
     justify-content: center;
     align-items: center;
