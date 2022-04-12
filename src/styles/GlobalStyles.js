@@ -118,33 +118,8 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.black};
     font-weight: 400;
     line-height: 1.4;
-    overflow: hidden;
     position: relative;
     height: 100%;
-  }
-
-  .scroll-horizontal {
-    display: flex;
-    width: 100vw;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    transition: .5s;
-
-    section {
-      flex-shrink: 0;
-      position: relative;
-      height: calc(100vh - 60px);
-      overflow-y: hidden;
-
-      &:not(:last-child) {
-        border-right: 10px solid ${({ theme }) => theme.colors.white};
-      }
-    }
-  }
-
-  .main-wrapper {
-    height: 100vh;
-    width: 100vw;
   }
 
   

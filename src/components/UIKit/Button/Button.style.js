@@ -7,7 +7,6 @@ export const ButtonStyle = styled.a`
   transition: 0.5s;
   cursor: pointer;
   text-transform: uppercase;
-  font-size: ${({ theme }) => theme.fontSizes.sm};
   display: inline-flex;
   align-items: center;
 
@@ -22,14 +21,14 @@ export const ButtonStyle = styled.a`
     variant === "primary" &&
     css`
       height: 60px;
-      font-size: ${({theme}) => theme.fontSizes.md};
+      font-size: ${({theme}) => theme.fontSizes.lg};
       background-color: ${({ theme }) => theme.colors.white};
       color: ${({ theme }) => theme.colors.black};
       border: 1px solid ${({ theme }) => theme.colors.white};
 
       &:hover {
-        //background-color: transparent;
-        color: ${({ theme }) => theme.colors.black};
+        background-color: transparent;
+        color: ${({ theme }) => theme.colors.white};
 
         .icon {
           path {
@@ -46,6 +45,7 @@ export const ButtonStyle = styled.a`
       height: 40px;
       background-color: transparent;
       border: 1px solid ${({ theme }) => theme.colors.white};
+      font-size: ${({ theme }) => theme.fontSizes.sm};
 
       &:hover {
         background-color: ${({ theme }) => theme.colors.white};

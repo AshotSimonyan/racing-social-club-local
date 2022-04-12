@@ -1,115 +1,185 @@
-import { useEffect, useState, useRef, useCallback, useMemo } from "react"
-import About from "./components/About/About"
-import { useOnScreen } from "./hooks/useOnScreen"
-import Loader from "./components/Loader/LoaderCopy"
-import { useLockedBody } from "./hooks/useLockedBody"
-import FAQ from "./components/FAQ/FAQ"
-import Team from "./components/Team/Team"
-import HorizontalScroll from "react-scroll-horizontal"
-import NavBar from "./components/Navbar/NavBar"
-import RoadMap from "./components/RoadMap/RoadMap"
+import {useEffect, useState} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {Button, Icon} from "./components/UIKit";
+import {fetchData} from "./redux/data/dataActions";
+import {checkRegistered, checkRuffle, connect} from "./redux/blockchain/blockchainActions";
+import {AppStyle} from "./App.style";
+import Countdown from 'react-countdown';
+import {isAndroid, isIOS} from "react-device-detect";
+import {theme} from "./styles/theme";
+
+const errorMessages = [
+    'Change network to ETH.',
+    'Something went wrong.'
+]
+const metamaskError = 'Install Metamask.'
 
 function App() {
-    const [loaded, setLoaded] = useState(false)
-    const [progress, setProgress] = useState(5)
-    const [animValues, setAnimValues] = useState(0)
-    const [touchDevice, setTouchDevice] = useState(false)
-    const parentRef = useRef(null)
-    const faqRef = useRef(null)
-    const aboutRef = useRef(null)
-    const teamRef = useRef(null)
-    const roadMapRef = useRef(null)
+    const dispatch = useDispatch();
+    const blockchain = useSelector((state) => state.blockchain);
+    const data = useSelector((state) => state.data);
+    // const [feedback, setFeedback] = useState("");
+    const [connectingMobile, setConnectingMobile] = useState(false)
+    const [walletConnected, setWalletConnected] = useState(false)
+    const [fallback, setFallback] = useState('')
 
-    const aboutScreen = useOnScreen(aboutRef)
-    // const [, setLocked] = useLockedBody(true)
 
-    useEffect(() => {
-        window.history.scrollRestoration = "manual"
+    useEffect( () => {
+        dispatch(checkRuffle())
     }, [])
 
-    const refMapping = {
-        "#about": aboutRef,
-        "#roadMap": roadMapRef,
-        "#faq": faqRef,
-        "#team": teamRef,
+    useEffect(() => {
+        if (blockchain.account !== "" && blockchain.smartContract !== null) {
+            dispatch(fetchData(blockchain.account));
+            if (blockchain.account) {
+                setWalletConnected(true)
+            }
+        }
+    }, [blockchain.smartContract, dispatch]);
+
+    useEffect(() => {
+        setConnectingMobile(true)
+
+        setFallback('')
+        if (blockchain.errorMsg && errorMessages.includes(blockchain.errorMsg)) {
+            setFallback(blockchain.errorMsg)
+        }
+        if(blockchain.errorMsg === metamaskError && !(isIOS || isAndroid)) {
+            window.location.replace('https://metamask.app.link/dapp/summer-vibes.netlify.app/')
+        }
+    }, [blockchain.errorMsg])
+
+    const openMobileMetamask = () => {
+        if(typeof window.ethereum === 'undefined') {
+            if (connectingMobile && !walletConnected && (isIOS || isAndroid)
+                || blockchain.errorMsg === metamaskError) {
+                // mobile redirect
+                // for dev
+                window.location.replace('https://metamask.app.link/dapp/summer-vibes.netlify.app/')
+
+                // for production
+                // window.location.replace('https://metamask.app.link/dapp/' + window.location.hostname ?? 'summer-vlbes.co')
+            }
+        }
     }
 
-    useEffect(() => {
-        if (
-            typeof window !== "undefined" &&
-            window?.matchMedia("(pointer: coarse)").matches
-        ) {
-            setTouchDevice(true)
-        }
-    }, [])
 
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         setLoading(false)
-    //         setLocked(false)
-    //     }, 3500)
-    // }, [])
 
-    const calculateProgress = useCallback(offsetLeft => {
-        const parent = document.querySelector(".parent >div")
-        const pageWidth = parseInt(window.getComputedStyle(parent).width)
-        let percent = Math.round(
-            ((offsetLeft + parentRef.current.hScrollParent.clientWidth) / pageWidth) *
-            100
-        )
-        if (percent < 5) {
-            percent = 5
-        }
-        return percent
-    }, [])
-
-    const handleLinkClick = to => {
-        const offsetLeft = parseInt(refMapping[to]?.current.offsetLeft)
-        const animValues = Math.abs(parentRef.current?.state.animValues)
-        if (touchDevice) {
-            refMapping[to]?.current.scrollIntoView({
-                inline: "start",
-            })
+    const renderer = ({ hours, minutes, seconds, completed }) => {
+        if (completed) {
+            // Render a completed state
+            return <>
+                <h2>Register for the raffle is closed.</h2>
+            </>;
         } else {
-            setAnimValues(animValues - offsetLeft)
-            setProgress(calculateProgress(offsetLeft))
-        }
-    }
-
-    const handleScroll = () => {
-        const animValues = Math.abs(parentRef.current?.state?.animValues)
-        setProgress(calculateProgress(animValues))
-    }
-
-    const handleLoad = () => {
-        setLoaded(true)
-    }
-
-    return (
-        <main>
-            <Loader onLoad={handleLoad} />
-            <div className="main-wrapper" onWheel={handleScroll}>
-                <HorizontalScroll
-                    reverseScroll
-                    className="parent"
-                    config={{ stiffness: 50 }}
-                    ref={parentRef}
-                    animValues={animValues}
-                >
-                    <About ref={aboutRef} onScreen={aboutScreen && loaded} />
-                    <RoadMap ref={roadMapRef} />
-                    <Team ref={teamRef} />
-                    <FAQ ref={faqRef} />
-                </HorizontalScroll>
+            // Render a countdown
+            return <div>
+                {blockchain.registerMessage ? (
+                    <>
+                        <h2 className='title'>REGISTERed Successfully</h2>
+                        <p className='text'>Check back tomorrow to see if you were selected to Mint</p>
+                    </>
+                ) : (
+                    <>
+                        <h2>REGISTER FOR RAFFLE</h2>
+                        <p className='text'>The registration is free and registering is only a metamask wallet registration period ends ind {hours} hours {minutes} minutes {seconds} seconds</p>
+                        <p className='yellow-text'>You need to have 0.25 ETH gas fee to participate on Raffle</p>
+                        <Button
+                            as='button'
+                            withIcon={false}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                dispatch(connect(true));
+                                openMobileMetamask();
+                            }}
+                        >
+                            REGISTER
+                        </Button>
+                        <p>{fallback}</p>
+                    </>
+                )
+                }
             </div>
+        }
+    };
 
-            <NavBar
-                onLinkClick={handleLinkClick}
-                progress={progress}
-                onScroll={handleScroll}
-                touchDevice={touchDevice}
-            />
-        </main>
+    console.log(blockchain)
+    console.log(walletConnected)
+    return (
+        <AppStyle>
+            <header>
+                <a href="#" rel='noreferrer'>
+                    <img src="/assets/logo.svg" alt="Racing"/>
+                </a>
+            </header>
+            <section>
+                <div className="content">
+                    {/*<Countdown*/}
+                    {/*    date={'2022-03-30T20:58:55'}*/}
+                    {/*    // date={1648664657000}*/}
+                    {/*    renderer={renderer}*/}
+                    {/*/>*/}
+
+                    {/*mint checking*/}
+                    {/*<h2 className='title'>Mint</h2>*/}
+                    {/*<p className='text'>Connect Wallet to see if you were selected to Mint</p>*/}
+                    {/*<Button*/}
+                    {/*    as='button'*/}
+                    {/*    withIcon={false}*/}
+                    {/*>*/}
+                    {/*    CONNECT WALLET*/}
+                    {/*</Button>*/}
+
+                    {/*mint*/}
+                    <h2 className='title'>Mint</h2>
+                    <p className='text'>Congrats! You have been selected for the Mint</p>
+                    <p className='yellow-text'>Wallet Address - 0x9320....2423</p>
+                    <div className="mint-content">
+                        <div className="mint-input">
+                            <Icon
+                                name="plus"
+                                size={24}
+                                color={theme.colors.white}
+                                // onClick={() => setMintCount(normalizeMintCount(mintCount - 1))}
+                            />
+                            {/*<strong>{mintCount}</strong>*/}
+                            <strong>0</strong>
+                            <Icon
+                                name="minus"
+                                size={24}
+                                color={theme.colors.white}
+                                // onClick={() => setMintCount(normalizeMintCount(mintCount + 1))}
+                            />
+                        </div>
+
+                        <Button
+                            withIcon={false}
+                            className="btn-mint"
+                            // onClick={e => {
+                            //     e.preventDefault()
+                            //     claimNFTs(mintCount)
+                            // }}
+                        >
+                            Mint
+                        </Button>
+                    </div>
+
+                    {/*Unselected*/}
+                    {/*<p className='text'>Unfortunately you have not been selected for the Mint</p>*/}
+                    {/*<p className='yellow-text'>Wallet Address - 0x9320....2423</p>*/}
+                    {/*<Button*/}
+                    {/*    href='#'*/}
+                    {/*    withIcon={false}*/}
+                    {/*    className='mt-24'*/}
+                    {/*>*/}
+                    {/*    BACK TO  HOME PAGE*/}
+                    {/*</Button>*/}
+                </div>
+            </section>
+            <footer>
+                <img src="assets/race.png" alt=""/>
+            </footer>
+        </AppStyle>
     )
 }
 
