@@ -114,11 +114,11 @@ function App() {
             </header>
             <section>
                 <div className="content">
-                    {/*<Countdown*/}
-                    {/*    date={'2022-03-30T20:58:55'}*/}
-                    {/*    // date={1648664657000}*/}
-                    {/*    renderer={renderer}*/}
-                    {/*/>*/}
+                    <Countdown
+                        date={'2022-04-13T12:45:55'}
+                        // date={1648664657000}
+                        renderer={renderer}
+                    />
 
                     {/*mint checking*/}
                     {/*<h2 className='title'>Mint</h2>*/}
@@ -131,38 +131,38 @@ function App() {
                     {/*</Button>*/}
 
                     {/*mint*/}
-                    <h2 className='title'>Mint</h2>
-                    <p className='text'>Congrats! You have been selected for the Mint</p>
-                    <p className='yellow-text'>Wallet Address - 0x9320....2423</p>
-                    <div className="mint-content">
-                        <div className="mint-input">
-                            <Icon
-                                name="plus"
-                                size={24}
-                                color={theme.colors.white}
-                                // onClick={() => setMintCount(normalizeMintCount(mintCount - 1))}
-                            />
-                            {/*<strong>{mintCount}</strong>*/}
-                            <strong>0</strong>
-                            <Icon
-                                name="minus"
-                                size={24}
-                                color={theme.colors.white}
-                                // onClick={() => setMintCount(normalizeMintCount(mintCount + 1))}
-                            />
-                        </div>
+                    {/*<h2 className='title'>Mint</h2>*/}
+                    {/*<p className='text'>Congrats! You have been selected for the Mint</p>*/}
+                    {/*<p className='yellow-text'>Wallet Address - 0x9320....2423</p>*/}
+                    {/*<div className="mint-content">*/}
+                    {/*    <div className="mint-input">*/}
+                    {/*        <Icon*/}
+                    {/*            name="plus"*/}
+                    {/*            size={24}*/}
+                    {/*            color={theme.colors.white}*/}
+                    {/*            // onClick={() => setMintCount(normalizeMintCount(mintCount - 1))}*/}
+                    {/*        />*/}
+                    {/*        /!*<strong>{mintCount}</strong>*!/*/}
+                    {/*        <strong>0</strong>*/}
+                    {/*        <Icon*/}
+                    {/*            name="minus"*/}
+                    {/*            size={24}*/}
+                    {/*            color={theme.colors.white}*/}
+                    {/*            // onClick={() => setMintCount(normalizeMintCount(mintCount + 1))}*/}
+                    {/*        />*/}
+                    {/*    </div>*/}
 
-                        <Button
-                            withIcon={false}
-                            className="btn-mint"
-                            // onClick={e => {
-                            //     e.preventDefault()
-                            //     claimNFTs(mintCount)
-                            // }}
-                        >
-                            Mint
-                        </Button>
-                    </div>
+                    {/*    <Button*/}
+                    {/*        withIcon={false}*/}
+                    {/*        className="btn-mint"*/}
+                    {/*        // onClick={e => {*/}
+                    {/*        //     e.preventDefault()*/}
+                    {/*        //     claimNFTs(mintCount)*/}
+                    {/*        // }}*/}
+                    {/*    >*/}
+                    {/*        Mint*/}
+                    {/*    </Button>*/}
+                    {/*</div>*/}
 
                     {/*Unselected*/}
                     {/*<p className='text'>Unfortunately you have not been selected for the Mint</p>*/}
