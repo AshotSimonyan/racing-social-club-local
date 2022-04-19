@@ -269,7 +269,7 @@ function App() {
             <section>
                 <div className="content">
                     <Countdown
-                        date={'2022-04-19T14:55:55'}
+                        date={'2022-04-19T20:00:55'}
                         // date={1648664657000}
                         renderer={renderer}
                     />
