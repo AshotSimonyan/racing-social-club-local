@@ -64,11 +64,9 @@ export const connect = (register = true) => {
                 const accounts = await window.ethereum.request({
                     method: "eth_accounts",
                 });
-                console.log(accounts)
                 const networkId = await window.ethereum.request({
                     method: "net_version",
                 });
-                console.log(networkId)
                 //const NetworkData = await SmartContract.networks[networkId];
                 if (networkId === '4' || networkId === 4) {
                     const address = "0x131B5f376B20D67F6D3bA4C9c43536788E7772A8";
@@ -80,14 +78,12 @@ export const connect = (register = true) => {
                     );
 
                     if (register) {
-
                         web3.eth.getBalance(account, async (err, result) => {
                             const amount = web3.utils.fromWei(result, "ether")
                             const body = {address: account, amount: amount}
                             const response = await axios.post('https://raffle.testnftstack.info/', body)
-                            console.log(response)
-                            if (response.data.success) {
 
+                            if (response.data.success) {
                                 dispatch(registerSuccess('Register success'))
                             } else {
                                 dispatch(registerFailed('Sorry you are already registered'))

@@ -99,6 +99,12 @@ export const AppStyle = styled.main`
   .mt-24 {
     margin-top: 24px;
   }
+  
+  .warn-text {
+    font-size: ${({theme}) => theme.fontSizes.md};
+    padding-top: 16px;
+  }
+  
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
     header {

@@ -1,12 +1,15 @@
 import {useEffect, useState} from "react";
-import { useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Button, Icon} from "./components/UIKit";
 import {fetchData} from "./redux/data/dataActions";
-import {checkRegistered, checkRuffle, connect} from "./redux/blockchain/blockchainActions";
+import {checkRuffle, connect} from "./redux/blockchain/blockchainActions";
 import {AppStyle} from "./App.style";
 import Countdown from 'react-countdown';
 import {isAndroid, isIOS} from "react-device-detect";
 import {theme} from "./styles/theme";
+import addressList from "./data";
+const {MerkleTree} = require('merkletreejs')
+const keccak256 = require('keccak256')
 
 const errorMessages = [
     'Change network to ETH.',
@@ -14,25 +17,60 @@ const errorMessages = [
 ]
 const metamaskError = 'Install Metamask.'
 
+const fixImpreciseNumber = (number) => {
+    return (parseFloat(number.toPrecision(12)));
+}
+
+const truncateText = (text) => {
+    return text.substring(0, 5) + "...." + text.substring(text.length - 4, text.length);
+}
+
 function App() {
     const dispatch = useDispatch();
     const blockchain = useSelector((state) => state.blockchain);
     const data = useSelector((state) => state.data);
-    // const [feedback, setFeedback] = useState("");
+    // const [maxMintCount, setMaxMintCount] = useState(1) //comment if you need static maxMintCount
+    const [mintCount, setMintCount] = useState(1)
     const [connectingMobile, setConnectingMobile] = useState(false)
     const [walletConnected, setWalletConnected] = useState(false)
     const [fallback, setFallback] = useState('')
+    const [notSelected, setNotSelected] = useState(null)
 
+    const minMintCount = 1
+
+    // uncomment if you need static maxMintCount
+    const maxMintCount = 5
 
     useEffect( () => {
         dispatch(checkRuffle())
     }, [])
 
-    useEffect(() => {
+
+    useEffect(async () => {
         if (blockchain.account !== "" && blockchain.smartContract !== null) {
             dispatch(fetchData(blockchain.account));
             if (blockchain.account) {
                 setWalletConnected(true)
+                let tree
+
+                const createMerkleTree = () => {
+                    const leaves = addressList.map(v => keccak256(v))
+                    tree = new MerkleTree(leaves, keccak256, { sort: true })
+                }
+
+                const getRoot = () => {
+                    return tree.getHexRoot()
+                }
+
+                createMerkleTree()
+                const root = await blockchain?.smartContract?.methods.getRoot().call()
+                const localRoot = getRoot()
+
+                if(root !== localRoot) {
+                    setNotSelected(true)
+                } else {
+                    setNotSelected(false)
+                }
             }
         }
     }, [blockchain.smartContract, dispatch]);
@@ -45,7 +83,7 @@ function App() {
             setFallback(blockchain.errorMsg)
         }
         if(blockchain.errorMsg === metamaskError && !(isIOS || isAndroid)) {
-            window.location.replace('https://metamask.app.link/dapp/summer-vibes.netlify.app/')
+            window.location.replace('https://metamask.app.link/dapp/racing-social-club.netlify.com/')
         }
     }, [blockchain.errorMsg])
 
@@ -53,23 +91,144 @@ function App() {
         if(typeof window.ethereum === 'undefined') {
             if (connectingMobile && !walletConnected && (isIOS || isAndroid)
                 || blockchain.errorMsg === metamaskError) {
-                // mobile redirect
-                // for dev
-                window.location.replace('https://metamask.app.link/dapp/summer-vibes.netlify.app/')
-
-                // for production
-                // window.location.replace('https://metamask.app.link/dapp/' + window.location.hostname ?? 'summer-vlbes.co')
+                window.location.replace('https://metamask.app.link/dapp/racing-social-club.netlify.com/')
             }
         }
     }
 
+    const normalizeMintCount = count =>
+        count > maxMintCount
+            ? maxMintCount
+            : count < minMintCount
+                ? minMintCount
+                : count
 
+    const handleConnectWallet = async () => {
+        dispatch(connect(false));
+        openMobileMetamask();
+    }
+
+    const claimNFTs = async (_amount) => {
+        let tree
+
+        const createMerkleTree = () => {
+            const leaves = addressList.map(v => keccak256(v))
+            tree = new MerkleTree(leaves, keccak256, { sort: true })
+        }
+
+        const getProof = (address) => {
+            const leaf = keccak256(address)
+            return tree.getHexProof(leaf)
+        }
+
+        createMerkleTree()
+        const isMintActive = await blockchain.smartContract.methods.isActive().call();
+        const isRaffleActive = await blockchain.smartContract.methods.isRaffleActive().call();
+        const mint = isMintActive ? blockchain.smartContract.methods.mint(blockchain.account, _amount)
+            : isRaffleActive ? blockchain.smartContract.methods.raffleMint(_amount, getProof(blockchain.account))
+                : null ;
+
+        if (mint) {
+            const mintPrice = await blockchain.smartContract.methods?.mintPrice().call() / 10 ** 18
+
+            const balance = await blockchain.web3.eth.getBalance(blockchain.account, async (err, result) => {
+                return  blockchain.web3.utils.fromWei(result, "ether")
+            })
+            const roundedBalance = balance / 10 ** 18
+            if(roundedBalance < fixImpreciseNumber(_amount * mintPrice)) {
+
+                return setFallback(`You don’t have enough funds to mint! Please, make sure to have ${fixImpreciseNumber(_amount * mintPrice)} ETH + gas.`)
+            }
+            if(roundedBalance)
+                mint.send({
+                    from: blockchain.account,
+                    value: blockchain.web3.utils.toWei(fixImpreciseNumber(mintPrice * _amount).toString(), "ether")
+
+                }).once("error", (err) => {
+                    if (err.code === -32000 || err.code === '-32000') {
+                        setFallback('Insufficient funds, please add funds to your wallet and try again')
+                    } else {
+                        setFallback('Sorry, something went wrong please try again')
+                    }
+                }).then(receipt => {
+                    setFallback('Success')
+                });
+        } else {
+            setFallback('The mint is not open yet.')
+        }
+    }
 
     const renderer = ({ hours, minutes, seconds, completed }) => {
         if (completed) {
             // Render a completed state
             return <>
-                <h2>Register for the raffle is closed.</h2>
+
+                {(walletConnected && notSelected === false) ? (
+                    <>
+                        <h2 className='title'>Mint</h2>
+                        <p className='text'>Congrats! You have been selected to mint.</p>
+                        <p className='yellow-text'>Wallet Address - ${truncateText(blockchain.account)}</p>
+                        <div className="mint-content">
+                            <div className="mint-input">
+                                <Icon
+                                    name="minus"
+                                    size={24}
+                                    color={theme.colors.white}
+                                    onClick={() => setMintCount(normalizeMintCount(mintCount - 1))}
+                                />
+                                <strong>{mintCount}</strong>
+                                <Icon
+                                    name="plus"
+                                    size={24}
+                                    color={theme.colors.white}
+                                    onClick={() => setMintCount(normalizeMintCount(mintCount + 1))}
+                                />
+                            </div>
+
+                            <Button
+                                withIcon={false}
+                                className="btn-mint"
+                                onClick={e => {
+                                    e.preventDefault();
+                                    setFallback('');
+                                    claimNFTs(mintCount);
+                                }}
+                            >
+                                Mint
+                            </Button>
+                        </div>
+                        {fallback && <p className="warn-text">{fallback}</p>}
+                    </>
+
+
+                ) : (walletConnected && notSelected) ? (
+                    <>
+                        <p className='text'>Unfortunately you have not been selected to mint.</p>
+                        <p className='yellow-text'>Wallet Address - ${truncateText(blockchain.account)}</p>
+                        <Button
+                            href='#'
+                            withIcon={false}
+                            className='mt-24'
+                        >
+                            BACK TO  HOME PAGE
+                        </Button>
+                    </>
+                )
+                  :  (
+                    <>
+                        <h2 className='title'>Mint</h2>
+                        <p className='text'>Connect Wallet to see if you were selected to mint.</p>
+                        <Button
+                            as='button'
+                            withIcon={false}
+                            onClick={handleConnectWallet}
+                        >
+                            CONNECT WALLET
+                        </Button>
+                        {fallback && <p className="warn-text">{fallback}</p>}
+                    </>
+                )
+                }
             </>;
         } else {
             // Render a countdown
@@ -77,13 +236,13 @@ function App() {
                 {blockchain.registerMessage ? (
                     <>
                         <h2 className='title'>REGISTERed Successfully</h2>
-                        <p className='text'>Check back tomorrow to see if you were selected to Mint</p>
+                        <p className='text'>Check back in {hours} hours {minutes} minutes {seconds} seconds to see if you were selected to mint.</p>
                     </>
                 ) : (
                     <>
                         <h2>REGISTER FOR RAFFLE</h2>
-                        <p className='text'>The registration is free and registering is only a metamask wallet registration period ends ind {hours} hours {minutes} minutes {seconds} seconds</p>
-                        <p className='yellow-text'>You need to have 0.25 ETH gas fee to participate on Raffle</p>
+                        <p className='text'>The registration is free and registering is only available metamask wallet. <br/> Registration period ends in {hours} hours {minutes} minutes {seconds} seconds</p>
+                        <p className='yellow-text'>You need to have 0.25 ETH + gas fee to participate in Raffle</p>
                         <Button
                             as='button'
                             withIcon={false}
@@ -103,8 +262,6 @@ function App() {
         }
     };
 
-    console.log(blockchain)
-    console.log(walletConnected)
     return (
         <AppStyle>
             <header>
@@ -115,65 +272,10 @@ function App() {
             <section>
                 <div className="content">
                     <Countdown
-                        date={'2022-04-13T12:45:55'}
+                        date={'2022-04-19T14:55:55'}
                         // date={1648664657000}
                         renderer={renderer}
                     />
-
-                    {/*mint checking*/}
-                    {/*<h2 className='title'>Mint</h2>*/}
-                    {/*<p className='text'>Connect Wallet to see if you were selected to Mint</p>*/}
-                    {/*<Button*/}
-                    {/*    as='button'*/}
-                    {/*    withIcon={false}*/}
-                    {/*>*/}
-                    {/*    CONNECT WALLET*/}
-                    {/*</Button>*/}
-
-                    {/*mint*/}
-                    {/*<h2 className='title'>Mint</h2>*/}
-                    {/*<p className='text'>Congrats! You have been selected for the Mint</p>*/}
-                    {/*<p className='yellow-text'>Wallet Address - 0x9320....2423</p>*/}
-                    {/*<div className="mint-content">*/}
-                    {/*    <div className="mint-input">*/}
-                    {/*        <Icon*/}
-                    {/*            name="plus"*/}
-                    {/*            size={24}*/}
-                    {/*            color={theme.colors.white}*/}
-                    {/*            // onClick={() => setMintCount(normalizeMintCount(mintCount - 1))}*/}
-                    {/*        />*/}
-                    {/*        /!*<strong>{mintCount}</strong>*!/*/}
-                    {/*        <strong>0</strong>*/}
-                    {/*        <Icon*/}
-                    {/*            name="minus"*/}
-                    {/*            size={24}*/}
-                    {/*            color={theme.colors.white}*/}
-                    {/*            // onClick={() => setMintCount(normalizeMintCount(mintCount + 1))}*/}
-                    {/*        />*/}
-                    {/*    </div>*/}
-
-                    {/*    <Button*/}
-                    {/*        withIcon={false}*/}
-                    {/*        className="btn-mint"*/}
-                    {/*        // onClick={e => {*/}
-                    {/*        //     e.preventDefault()*/}
-                    {/*        //     claimNFTs(mintCount)*/}
-                    {/*        // }}*/}
-                    {/*    >*/}
-                    {/*        Mint*/}
-                    {/*    </Button>*/}
-                    {/*</div>*/}
-
-                    {/*Unselected*/}
-                    {/*<p className='text'>Unfortunately you have not been selected for the Mint</p>*/}
-                    {/*<p className='yellow-text'>Wallet Address - 0x9320....2423</p>*/}
-                    {/*<Button*/}
-                    {/*    href='#'*/}
-                    {/*    withIcon={false}*/}
-                    {/*    className='mt-24'*/}
-                    {/*>*/}
-                    {/*    BACK TO  HOME PAGE*/}
-                    {/*</Button>*/}
                 </div>
             </section>
             <footer>
