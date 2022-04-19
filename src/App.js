@@ -66,10 +66,10 @@ function App() {
                 const root = await blockchain?.smartContract?.methods.getRoot().call()
                 const localRoot = getRoot()
 
-                if(root !== localRoot) {
-                    setNotSelected(true)
-                } else {
+                if(root === localRoot && addressList.includes(blockchain.account)) {
                     setNotSelected(false)
+                } else {
+                    setNotSelected(true)
                 }
             }
         }
@@ -163,58 +163,55 @@ function App() {
             // Render a completed state
             return <>
 
-                {(walletConnected && notSelected === false) ? (
-                    <>
-                        <h2 className='title'>Mint</h2>
-                        <p className='text'>Congrats! You have been selected to mint.</p>
-                        <p className='yellow-text'>Wallet Address - ${truncateText(blockchain.account)}</p>
-                        <div className="mint-content">
-                            <div className="mint-input">
-                                <Icon
-                                    name="minus"
-                                    size={24}
-                                    color={theme.colors.white}
-                                    onClick={() => setMintCount(normalizeMintCount(mintCount - 1))}
-                                />
-                                <strong>{mintCount}</strong>
-                                <Icon
-                                    name="plus"
-                                    size={24}
-                                    color={theme.colors.white}
-                                    onClick={() => setMintCount(normalizeMintCount(mintCount + 1))}
-                                />
-                            </div>
-
+                {(walletConnected && notSelected) ? (
+                        <>
+                            <p className='text'>Unfortunately you have not been selected to mint.</p>
+                            <p className='yellow-text'>Wallet Address - ${truncateText(blockchain.account)}</p>
                             <Button
+                                href='#'
                                 withIcon={false}
-                                className="btn-mint"
-                                onClick={e => {
-                                    e.preventDefault();
-                                    setFallback('');
-                                    claimNFTs(mintCount);
-                                }}
+                                className='mt-24'
                             >
-                                Mint
+                                BACK TO  HOME PAGE
                             </Button>
-                        </div>
-                        {fallback && <p className="warn-text">{fallback}</p>}
-                    </>
+                        </>
+                    ) : (walletConnected && notSelected === false) ? (
+                        <>
+                            <h2 className='title'>Mint</h2>
+                            <p className='text'>Congrats! You have been selected to mint.</p>
+                            <p className='yellow-text'>Wallet Address - ${truncateText(blockchain.account)}</p>
+                            <div className="mint-content">
+                                <div className="mint-input">
+                                    <Icon
+                                        name="minus"
+                                        size={24}
+                                        color={theme.colors.white}
+                                        onClick={() => setMintCount(normalizeMintCount(mintCount - 1))}
+                                    />
+                                    <strong>{mintCount}</strong>
+                                    <Icon
+                                        name="plus"
+                                        size={24}
+                                        color={theme.colors.white}
+                                        onClick={() => setMintCount(normalizeMintCount(mintCount + 1))}
+                                    />
+                                </div>
 
-
-                ) : (walletConnected && notSelected) ? (
-                    <>
-                        <p className='text'>Unfortunately you have not been selected to mint.</p>
-                        <p className='yellow-text'>Wallet Address - ${truncateText(blockchain.account)}</p>
-                        <Button
-                            href='#'
-                            withIcon={false}
-                            className='mt-24'
-                        >
-                            BACK TO  HOME PAGE
-                        </Button>
-                    </>
-                )
-                  :  (
+                                <Button
+                                    withIcon={false}
+                                    className="btn-mint"
+                                    onClick={e => {
+                                        e.preventDefault();
+                                        setFallback('');
+                                        claimNFTs(mintCount);
+                                    }}
+                                >
+                                    Mint
+                                </Button>
+                            </div>
+                            {fallback && <p className="warn-text">{fallback}</p>}
+                        </>
+                    ) : (
                     <>
                         <h2 className='title'>Mint</h2>
                         <p className='text'>Connect Wallet to see if you were selected to mint.</p>
