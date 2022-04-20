@@ -69,9 +69,7 @@ function App() {
                 createMerkleTree()
                 const localRoot = getRoot()
 
-                console.log(getRoot())
-                console.log(root)
-                console.log(getRoot() === root)
+                
                 if(root === localRoot && addressList.includes(blockchain.account)) {
                     setNotSelected(false)
                 } else {
