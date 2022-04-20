@@ -69,6 +69,9 @@ function App() {
                 createMerkleTree()
                 const localRoot = getRoot()
 
+                console.log(root)
+                console.log(localRoot)
+                console.log(root === localRoot)
 
                 if(root === localRoot && addressList.includes(blockchain.account)) {
                     setNotSelected(false)
@@ -275,7 +278,7 @@ function App() {
             <section>
                 <div className="content">
                     <Countdown
-                        date={'2022-04-21T18:23:55'}
+                        date={'2022-04-20T18:28:55'}
                         // date={1648664657000}
                         renderer={renderer}
                     />
