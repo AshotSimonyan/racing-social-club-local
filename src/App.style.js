@@ -94,6 +94,11 @@ export const AppStyle = styled.main`
     
     .icon {
       cursor: pointer;
+      
+      &.disabled {
+        opacity: 0.4;
+        cursor: default;
+      }
     }
   }
   .mt-24 {

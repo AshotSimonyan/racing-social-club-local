@@ -1,7 +1,7 @@
 // constants
 import Web3 from "web3";
 import axios from "axios"
-import SmartContract from "../../contracts/TestRaffle.json";
+import SmartContract from "../../contracts/NFTStack721ARaffle.json";
 // log
 import {fetchData} from "../data/dataActions";
 

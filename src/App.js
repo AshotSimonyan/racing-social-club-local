@@ -50,7 +50,8 @@ function App() {
         if (blockchain.account !== "" && blockchain.smartContract !== null) {
             dispatch(fetchData(blockchain.account));
             if (blockchain.account) {
-                setWalletConnected(true)
+
+                const root = await blockchain?.smartContract?.methods.getRoot().call()
                 let tree
 
                 const createMerkleTree = () => {
@@ -62,10 +63,15 @@ function App() {
                     return tree.getHexRoot()
                 }
 
+                setWalletConnected(true)
+
+
                 createMerkleTree()
-                const root = await blockchain?.smartContract?.methods.getRoot().call()
                 const localRoot = getRoot()
 
+                console.log(getRoot())
+                console.log(root)
+                console.log(getRoot() === root)
                 if(root === localRoot && addressList.includes(blockchain.account)) {
                     setNotSelected(false)
                 } else {
@@ -122,7 +128,7 @@ function App() {
         }
 
         createMerkleTree()
-        const isMintActive = await blockchain.smartContract.methods.isActive().call();
+        const isMintActive = await blockchain.smartContract.methods.isMintActive().call();
         const isRaffleActive = await blockchain.smartContract.methods.isRaffleActive().call();
         const mint = isMintActive ? blockchain.smartContract.methods.mint(blockchain.account, _amount)
             : isRaffleActive ? blockchain.smartContract.methods.raffleMint(_amount, getProof(blockchain.account))
@@ -187,6 +193,7 @@ function App() {
                                         size={24}
                                         color={theme.colors.white}
                                         onClick={() => setMintCount(normalizeMintCount(mintCount - 1))}
+                                        className={mintCount === minMintCount ? 'disabled' : ''}
                                     />
                                     <strong>{mintCount}</strong>
                                     <Icon
@@ -194,6 +201,7 @@ function App() {
                                         size={24}
                                         color={theme.colors.white}
                                         onClick={() => setMintCount(normalizeMintCount(mintCount + 1))}
+                                        className={mintCount === maxMintCount ? 'disabled' : ''}
                                     />
                                 </div>
 
@@ -269,7 +277,7 @@ function App() {
             <section>
                 <div className="content">
                     <Countdown
-                        date={'2022-04-19T20:00:55'}
+                        date={'2022-04-20T17:26:55'}
                         // date={1648664657000}
                         renderer={renderer}
                     />
