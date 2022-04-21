@@ -10,11 +10,13 @@ export const Button = ({
   onClick,
   iconName = "discord",
                            withIcon= true,
+                           isLoading,
   ...props
 }) => {
   return (
     <ButtonStyle
       variant={variant}
+      isLoading={isLoading}
       onClick={onClick}
       className={className}
       rel="noreferrer"
@@ -22,6 +24,13 @@ export const Button = ({
     >
         {withIcon && <Icon name={iconName} color={theme.colors.white} />}
       {children}
+        {isLoading &&
+            <div className="lds-ring">
+                <div/>
+                <div/>
+                <div/>
+                <div/>
+            </div>}
     </ButtonStyle>
   )
 }

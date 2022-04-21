@@ -35,6 +35,7 @@ function App() {
     const [walletConnected, setWalletConnected] = useState(false)
     const [fallback, setFallback] = useState('')
     const [notSelected, setNotSelected] = useState(null)
+    const [loading, setLoading] = useState(false)
 
     const minMintCount = 1
 
@@ -44,7 +45,6 @@ function App() {
     useEffect( () => {
         dispatch(checkRuffle())
     }, [])
-
 
     useEffect(async () => {
         if (blockchain.account !== "" && blockchain.smartContract !== null) {
@@ -68,12 +68,9 @@ function App() {
 
                 createMerkleTree()
                 const localRoot = getRoot()
+                const account = await blockchain.account
 
-                console.log(root)
-                console.log(localRoot)
-                console.log(root === localRoot)
-
-                if(root === localRoot && addressList.includes(blockchain.account)) {
+                if(root === localRoot && addressList.includes(account)) {
                     setNotSelected(false)
                 } else {
                     setNotSelected(true)
@@ -116,6 +113,7 @@ function App() {
     }
 
     const claimNFTs = async (_amount) => {
+        setLoading(true)
         let tree
 
         const createMerkleTree = () => {
@@ -129,6 +127,7 @@ function App() {
         }
 
         createMerkleTree()
+
         const isMintActive = await blockchain.smartContract.methods.isMintActive().call();
         const isRaffleActive = await blockchain.smartContract.methods.isRaffleActive().call();
         const mint = isMintActive ? blockchain.smartContract.methods.mint(blockchain.account, _amount)
@@ -143,7 +142,7 @@ function App() {
             })
             const roundedBalance = balance / 10 ** 18
             if(roundedBalance < fixImpreciseNumber(_amount * mintPrice)) {
-
+                setLoading(false)
                 return setFallback(`You don’t have enough funds to mint! Please, make sure to have ${fixImpreciseNumber(_amount * mintPrice)} ETH + gas.`)
             }
             if(roundedBalance)
@@ -155,14 +154,18 @@ function App() {
                     if (err.code === -32000 || err.code === '-32000') {
                         setFallback('Insufficient funds, please add funds to your wallet and try again')
                     } else {
+                        setLoading(false)
                         setFallback('Sorry, something went wrong please try again')
                     }
                 }).then(receipt => {
-                    setFallback('Success')
+                    setLoading(false)
+                    setFallback('Success') //TODO change message
                 });
         } else {
+            setLoading(false)
             setFallback('The mint is not open yet.')
         }
+
     }
 
     const renderer = ({ hours, minutes, seconds, completed }) => {
@@ -209,6 +212,7 @@ function App() {
                                 <Button
                                     withIcon={false}
                                     className="btn-mint"
+                                    isLoading={loading}
                                     onClick={e => {
                                         e.preventDefault();
                                         setFallback('');
@@ -228,6 +232,7 @@ function App() {
                             as='button'
                             withIcon={false}
                             onClick={handleConnectWallet}
+                            isLoading={data.loading}
                         >
                             CONNECT WALLET
                         </Button>
