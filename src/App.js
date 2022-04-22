@@ -146,6 +146,8 @@ function App() {
                 return setFallback(`You don’t have enough funds to mint! Please, make sure to have ${fixImpreciseNumber(_amount * mintPrice)} ETH + gas.`)
             }
             if(roundedBalance)
+
+                setLoading(false)
                 mint.send({
                     from: blockchain.account,
                     value: blockchain.web3.utils.toWei(fixImpreciseNumber(mintPrice * _amount).toString(), "ether")
@@ -154,12 +156,10 @@ function App() {
                     if (err.code === -32000 || err.code === '-32000') {
                         setFallback('Insufficient funds, please add funds to your wallet and try again')
                     } else {
-                        setLoading(false)
                         setFallback('Sorry, something went wrong please try again')
                     }
                 }).then(receipt => {
-                    setLoading(false)
-                    setFallback('Success') //TODO change message
+                    setFallback('You have successfully minted your NFT/s.')
                 });
         } else {
             setLoading(false)
