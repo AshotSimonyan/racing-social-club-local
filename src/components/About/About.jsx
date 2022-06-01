@@ -70,7 +70,7 @@ const About = forwardRef(({ onScreen }, ref) => {
               {/*    REGISTER FOR RAFFLE*/}
               {/*</Button>*/}
                 <Button
-                    variant="outlined"
+                    variant="primary"
                     href="https://discord.com/invite/racingsocialclubnft"
                     target="_blank"
                 >

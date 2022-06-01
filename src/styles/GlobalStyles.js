@@ -105,15 +105,10 @@ export const GlobalStyle = createGlobalStyle`
     -moz-appearance: textfield;
   }
 
-  ${({ theme }) =>
-    fontFace("/fonts/D-DINCondensed-Bold", theme.fonts.primary, 700)};
-  ${({ theme }) =>
-    fontFace("/fonts/D-DINCondensed-Regular", theme.fonts.primary, 400)}
-
   /*global*/
   body {
-    font-family: ${({ theme }) => theme.fonts.primary};
-    font-size: ${({ theme }) => theme.fontSizes.lg};
+    font-family: ${({ theme }) => theme.fonts.secondary};
+    font-size: ${({ theme }) => theme.fontSizes.md};
     color: ${({ theme }) => theme.colors.white};
     background-color: ${({ theme }) => theme.colors.black};
     font-weight: 400;
@@ -150,7 +145,7 @@ export const GlobalStyle = createGlobalStyle`
   
   /*typography*/
 
-  h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
+  h1, h2, h4, .h1, .h2, .h4 {
     line-height: 1.2;
     text-transform: uppercase;
   }
@@ -158,21 +153,14 @@ export const GlobalStyle = createGlobalStyle`
   h1, .h1 {
     white-space: nowrap;
     font-size: ${({ theme }) => theme.titleSizes.h1};
-    font-weight: 700;
+    font-weight: 500;
     -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
     text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
   }
 
   h2, .h2 {
     font-size: ${({ theme }) => theme.titleSizes.h2};
-    font-weight: 700;
-    -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
-    text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
-  }
-
-  h3, .h3 {
-    font-size: ${({ theme }) => theme.titleSizes.h3};
-    font-weight: 700;
+    font-weight: 500;
     -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
     text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
   }
@@ -192,6 +180,9 @@ export const GlobalStyle = createGlobalStyle`
   }
   .fw-regular {
     font-weight: 400;
+  }
+  .fw-medium {
+    font-weight: 500;
   }
 
 
@@ -221,49 +212,21 @@ export const GlobalStyle = createGlobalStyle`
       font-size: ${({ theme }) => theme.titleSizesSM.h1};
     }
     
+    h2, .h2 {
+      font-size: ${({ theme }) => theme.titleSizesSM.h2};
+    }
   }
 
   /*media queries*/
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
-    
-    body {
-      font-size: ${({ theme }) => theme.fontSizesXS.lg};
-    }
-
     h1, .h1 {
       font-size: ${({ theme }) => theme.titleSizesXS.h1};
     }
     h2, .h2 {
       font-size: ${({ theme }) => theme.titleSizesXS.h2};
     }
-    h3, .h3 {
-      font-size: ${({ theme }) => theme.titleSizesXS.h3};
-    }
     h4, .h4 {
       font-size: ${({ theme }) => theme.titleSizesXS.h4};
-    }
-    h5, .h5 {
-      font-size: ${({ theme }) => theme.titleSizesXS.h5};
-    }
-  }
-
-  @media (max-height: ${({ theme }) => theme.breakpoints.sm}px) {
-    body {
-      font-size: ${({ theme }) => theme.fontSizesXS.lg};
-    }
-
-    h1, .h1 {
-      font-size: ${({ theme }) => theme.titleSizesXS.h1};
-    }
-    
-    h3, .h3 {
-      font-size: ${({ theme }) => theme.titleSizesXS.h3};
-    }
-    h4, .h4 {
-      font-size: ${({ theme }) => theme.titleSizesXS.h4};
-    }
-    h5, .h5 {
-      font-size: ${({ theme }) => theme.titleSizesXS.h5};
     }
   }
 
@@ -276,18 +239,6 @@ export const GlobalStyle = createGlobalStyle`
   @media (max-height: 840px) and (orientation: landscape)  {
     h1, .h1 {
       font-size: ${({ theme }) => theme.titleSizesSM.h1};
-    }
-  }
-
-  @media (max-height: ${({ theme }) => theme.breakpoints.xs}px) {
-    body {
-      font-size: 14px;
-    }
-    h1, .h1 {
-      font-size: 40px;
-    }
-    h3, .h3 {
-      font-size: 24px;
     }
   }
 

@@ -8,32 +8,28 @@ export const theme = {
     white: "#ffffff",
   },
   fonts: {
-    primary: "D-DIN Condensed",
+    primary: "'Fira Sans', sans-serif",
+    secondary: "'Montserrat', sans-serif"
   },
   titleSizes: {
-    h1: "120px",
-    h2: "72px",
-    h3: "40px",
-    h4: "32px",
-    h5: "24px",
+    h1: "80px",
+    h2: "64px",
+    h4: "40px",
+    h5: "32px",
   },
   titleSizesSM: {
-    h1: "80px",
+    h1: "64px",
+    h2: "48px",
   },
   titleSizesXS: {
-    h1: "56px",
+    h1: "40px",
     h2: "40px",
-    h3: "32px",
-    h4: "24px",
-    h5: "20px",
+    h4: "32px",
   },
   fontSizes: {
-    lg: "20px",
-    md: "16px",
-    sm: "14px",
-  },
-  fontSizesXS: {
-    lg: "16px",
+    lg: "24px",
+    md: "20px",
+    sm: "16px",
   },
   breakpoints: {
     xxs: 359,

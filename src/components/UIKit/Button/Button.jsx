@@ -6,7 +6,7 @@ import { Icon } from "../Icons/Icon"
 export const Button = ({
   className,
   children,
-  variant = "primary",
+  variant,
   onClick,
   iconName = "discord",
                            withIcon= true,
