@@ -2,39 +2,49 @@ import styled, { css } from "styled-components"
 
 export const ButtonStyle = styled.a`
   padding: 0 16px;
-  font-weight: 700;
+  font-weight: 500;
   color: ${({ theme }) => theme.colors.white};
   transition: 0.5s;
   cursor: pointer;
   text-transform: uppercase;
-  font-size: ${({ theme }) => theme.fontSizes.sm};
+  background-color: transparent;
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-family: ${({ theme }) => theme.fonts.primary};
   display: inline-flex;
   align-items: center;
+  gap: 8px;
+  height: 60px;
 
   .icon {
-    margin-right: 12px;
     path {
       transition: 0.5s;
+    }
+  }
+
+  &:hover {
+    background-image: none;
+    background-color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.black};
+
+    .icon {
+      path {
+        fill: ${({ theme }) => theme.colors.black} !important;
+      }
     }
   }
 
   ${({ variant }) =>
     variant === "primary" &&
     css`
-      height: 60px;
       font-size: ${({theme}) => theme.fontSizes.md};
-      background-color: ${({ theme }) => theme.colors.white};
+      background-image: ${({ theme }) => theme.colors.primaryGradient};
       color: ${({ theme }) => theme.colors.black};
-      border: 1px solid ${({ theme }) => theme.colors.white};
-
-      &:hover {
-        //background-color: transparent;
-        color: ${({ theme }) => theme.colors.black};
-
-        .icon {
-          path {
-            fill: ${({ theme }) => theme.colors.black} !important;
-          }
+      border: none;
+      transition: none;
+      
+      .icon {
+        path {
+          fill: ${({ theme }) => theme.colors.black} !important;
         }
       }
     `}
@@ -43,23 +53,9 @@ export const ButtonStyle = styled.a`
     variant === "outlined" &&
     
     css`
-      height: 40px;
       background-color: transparent;
       border: 1px solid ${({ theme }) => theme.colors.white};
-
-      &:hover {
-        background-color: ${({ theme }) => theme.colors.white};
-        color: ${({ theme }) => theme.colors.black};
-
-        .icon {
-          path {
-            fill: ${({ theme }) => theme.colors.black} !important;
-          }
-        }
-      }
     `}
-
-
 
   &.fade-in-button {
     opacity: 1;
