@@ -16,13 +16,13 @@ const NavBar = ({ onLinkClick, progress, touchDevice }) => {
 
     const handleDrawerToggle = () => {
         setDrawerOpened(!drawerOpened)
-        setLocked(false)
+        // setLocked(false)
     }
 
     const handleMenuLinkClick = to => {
         if (drawerOpened) {
             setDrawerOpened(false)
-            setLocked(false)
+            // setLocked(false)
         }
         onLinkClick(to)
     }

@@ -15,37 +15,35 @@ import GalleryCars from './components/GalleryCars/GalleryCars'
 
 function App() {
   // const [loaded, setLoaded] = useState(false)
-  // const [progress, setProgress] = useState(5)
-  // const [animValues, setAnimValues] = useState(0)
-  // const [touchDevice, setTouchDevice] = useState(false)
-  // const parentRef = useRef(null)
-  // const faqRef = useRef(null)
-  // const aboutRef = useRef(null)
-  // const teamRef = useRef(null)
-  // const roadMapRef = useRef(null)
-  //
-  // const aboutScreen = useOnScreen(aboutRef)
-  // // const [, setLocked] = useLockedBody(true)
-  //
-  // useEffect(() => {
-  //     window.history.scrollRestoration = "manual"
-  // }, [])
-  //
-  // const refMapping = {
-  //     "#about": aboutRef,
-  //     "#roadMap": roadMapRef,
-  //     "#faq": faqRef,
-  //     "#team": teamRef,
-  // }
-  //
-  // useEffect(() => {
-  //     if (
-  //         typeof window !== "undefined" &&
-  //         window?.matchMedia("(pointer: coarse)").matches
-  //     ) {
-  //         setTouchDevice(true)
-  //     }
-  // }, [])
+  const [progress, setProgress] = useState(5)
+  const [animValues, setAnimValues] = useState(0)
+  const [touchDevice, setTouchDevice] = useState(false)
+  const parentRef = useRef(null)
+  const faqRef = useRef(null)
+  const aboutRef = useRef(null)
+  const teamRef = useRef(null)
+  const roadMapRef = useRef(null)
+  const [, setLocked] = useLockedBody(false)
+
+  useEffect(() => {
+      window.history.scrollRestoration = "manual"
+  }, [])
+
+  const refMapping = {
+      "#about": aboutRef,
+      "#roadMap": roadMapRef,
+      "#faq": faqRef,
+      "#team": teamRef,
+  }
+
+  useEffect(() => {
+      if (
+          typeof window !== "undefined" &&
+          window?.matchMedia("(pointer: coarse)").matches
+      ) {
+          setTouchDevice(true)
+      }
+  }, [])
   //
   // // useEffect(() => {
   // //     setTimeout(() => {
@@ -67,18 +65,18 @@ function App() {
   //     return percent
   // }, [])
   //
-  // const handleLinkClick = to => {
-  //     const offsetLeft = parseInt(refMapping[to]?.current.offsetLeft)
-  //     const animValues = Math.abs(parentRef.current?.state.animValues)
-  //     if (touchDevice) {
-  //         refMapping[to]?.current.scrollIntoView({
-  //             inline: "start",
-  //         })
-  //     } else {
-  //         setAnimValues(animValues - offsetLeft)
-  //         setProgress(calculateProgress(offsetLeft))
-  //     }
-  // }
+  const handleLinkClick = to => {
+      const offsetLeft = parseInt(refMapping[to]?.current.offsetLeft)
+      const animValues = Math.abs(parentRef.current?.state.animValues)
+      if (touchDevice) {
+          refMapping[to]?.current.scrollIntoView({
+              inline: "start",
+          })
+      } else {
+          setAnimValues(animValues - offsetLeft)
+          // setProgress(calculateProgress(offsetLeft))
+      }
+  }
   //
   // const handleScroll = () => {
   //     const animValues = Math.abs(parentRef.current?.state?.animValues)
@@ -92,6 +90,12 @@ function App() {
   return (
     <>
       {/*<Loader onLoad={handleLoad} />*/}
+      <NavBar
+          onLinkClick={handleLinkClick}
+          // progress={progress}
+          // onScroll={handleScroll}
+          // touchDevice={touchDevice}
+      />
       <div className="main-wrapper">
         <Hero />
         <About />
@@ -112,13 +116,6 @@ function App() {
         {/*    <FAQ ref={faqRef} />*/}
         {/*</HorizontalScroll>*/}
       </div>
-
-      {/*<NavBar*/}
-      {/*    onLinkClick={handleLinkClick}*/}
-      {/*    progress={progress}*/}
-      {/*    onScroll={handleScroll}*/}
-      {/*    touchDevice={touchDevice}*/}
-      {/*/>*/}
     </>
   )
 }

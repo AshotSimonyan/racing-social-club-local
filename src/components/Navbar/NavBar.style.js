@@ -4,7 +4,7 @@ export const NavBarStyle = styled.nav`
   background-color: ${({ theme }) => theme.colors.black};
   height: 60px;
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 99;
@@ -54,7 +54,7 @@ export const NavBarStyle = styled.nav`
 
   .header-nav {
     position: fixed;
-    bottom: 60px;
+    top: 61px;
     right: 0;
     left: 0;
     overflow-y: auto;

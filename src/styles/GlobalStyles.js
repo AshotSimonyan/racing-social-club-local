@@ -113,34 +113,13 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.black};
     font-weight: 400;
     line-height: 1.4;
-    //overflow: hidden;
     position: relative;
     height: 100%;
     letter-spacing: 0.04em;
   }
 
-  .scroll-horizontal {
-    display: flex;
-    width: 100vw;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    transition: .5s;
-
-    section {
-      flex-shrink: 0;
-      position: relative;
-      height: calc(100vh - 60px);
-      overflow-y: hidden;
-
-      &:not(:last-child) {
-        border-right: 10px solid ${({ theme }) => theme.colors.white};
-      }
-    }
-  }
-
   .main-wrapper {
-    height: 100vh;
-    width: 100vw;
+    padding-top: 60px;
   }
 
 
@@ -231,39 +210,6 @@ export const GlobalStyle = createGlobalStyle`
     }
     h4, .h4 {
       font-size: ${({ theme }) => theme.titleSizesXS.h4};
-    }
-  }
-
-  @media (max-height: 680px) {
-    h2, .h2 {
-      font-size: ${({ theme }) => theme.titleSizesXS.h2};
-    }
-  }
-
-  //@media (max-height: 840px) and (orientation: landscape)  {
-  //  h1, .h1 {
-  //    font-size: ${({ theme }) => theme.titleSizesSM.h1};
-  //  }
-  //}
-
-  @media (hover: none), (pointer:coarse), (-moz-touch-enabled: 1) {
-    .scroll-horizontal {
-      overflow: scroll !important;
-      overflow: overlay !important;
-      overflow-x: scroll !important;
-      overflow-x: overlay !important;
-      overflow-y: hidden !important;
-      -ms-overflow-style: none !important;
-      scrollbar-width: none !important;
-
-      &>div {
-        transform: none !important;
-        position: relative;
-      }
-
-      &::-webkit-scrollbar {
-        display: none !important;
-      }
     }
   }
 
