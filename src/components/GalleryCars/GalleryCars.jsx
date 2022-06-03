@@ -33,10 +33,9 @@ function GalleryCars(props) {
 
               <h1 className="title">{members || '29603'}MEMBER</h1>
 
-              <p className="text">
+              <p className="text text-center">
                 Racing Social Club will have a loyal and strong community,
-                heading
-                in to a very important part of the race.
+                heading in to a very important part of the race.
               </p>
 
               <Button
