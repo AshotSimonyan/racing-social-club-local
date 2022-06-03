@@ -37,6 +37,14 @@ export const RSCUtilityStyle = styled.section`
         gap: 32px;
         padding-left: 64px;
 
+        @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+            padding-left: 36px;
+        }
+
+        @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+          padding-left: 64px;
+        }
+
         .block {
           h4 {
             font-size: ${({ theme }) => theme.fontSizes.lg};
