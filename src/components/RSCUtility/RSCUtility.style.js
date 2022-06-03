@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const RSCUtilityStyle = styled.section`
-  padding-block: 120px;
   border-top: 10px solid ${({ theme }) => theme.colors.white};
 
   .container-title {

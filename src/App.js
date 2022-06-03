@@ -94,8 +94,8 @@ function App() {
       {/*<Loader onLoad={handleLoad} />*/}
       <div className="main-wrapper">
         {/*<Hero />*/}
-        <About />
-        {/*<Roadmap />*/}
+        {/*<About />*/}
+        <Roadmap />
         {/*<RSCFunds />*/}
         {/*<RscUtility />*/}
         {/*<FAQ />*/}

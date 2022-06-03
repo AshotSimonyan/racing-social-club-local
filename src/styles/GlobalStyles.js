@@ -299,5 +299,15 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     padding-top: 120px;
     padding-bottom: 120px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
   }
 `

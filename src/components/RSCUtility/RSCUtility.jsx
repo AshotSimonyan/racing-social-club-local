@@ -4,7 +4,7 @@ import Spinner from '../UIKit/Spinner/Spinner'
 
 const RscUtility = forwardRef(({ onScreen }, ref) => {
   return (
-    <RSCUtilityStyle>
+    <RSCUtilityStyle className="wrapper">
       <div className="container-title container-md">
         <div className="content text-center">
           <h1>RSC UTILITY</h1>
