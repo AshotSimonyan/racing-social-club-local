@@ -274,6 +274,12 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .lt {
+    &-0 {
+      letter-spacing: 0;
+    }
+  }
+
   .container {
     max-width: 1200px;
 

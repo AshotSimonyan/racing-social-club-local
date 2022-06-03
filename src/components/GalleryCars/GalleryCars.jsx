@@ -19,7 +19,7 @@ function GalleryCars(props) {
       <div className="wrapper-carousel">
       </div>
 
-      <div className="wrapper-members">
+      <div className="wrapper wrapper-members">
         <div className="container">
           <div className="content">
             <Fade
@@ -29,7 +29,7 @@ function GalleryCars(props) {
               fraction={0.5}
               duration={1000}
             >
-              <p>JOIN TO DISCORD COMMUNITY</p>
+              <p className="lt-0">JOIN TO DISCORD COMMUNITY</p>
 
               <h1 className="title">{members || '29603'}MEMBER</h1>
 
