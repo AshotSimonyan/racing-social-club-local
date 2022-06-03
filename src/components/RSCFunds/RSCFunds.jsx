@@ -4,9 +4,9 @@ import { Button } from '../UIKit'
 
 const RscFunds = forwardRef(({ onScreen }, ref) => {
   return (
-    <RSCFundsStyle>
-      <div className="wrapper">
-        <div className="container">
+    <RSCFundsStyle className="wrapper">
+      <div className="container-md">
+        <div className="content text-center">
           <h2>RSC FUND</h2>
 
           <p>

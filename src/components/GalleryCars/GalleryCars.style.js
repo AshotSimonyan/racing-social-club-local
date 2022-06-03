@@ -5,14 +5,16 @@ export const GalleryCarsStyle = styled.section`
   column-gap: 5px;
 
   .wrapper-members {
-    padding: 120px 40px;
+    padding: 120px;
     border-top: 5px solid ${({ theme }) => theme.colors.white};
 
     .container {
-      max-width: 738px;
-      width: 100%;
-      text-align: center;
-      margin-inline: auto;
+      max-width: 818px;
+    }
+
+    .content {
+      display: grid;
+      justify-items: center;
 
       .title {
         position: relative;
@@ -34,6 +36,30 @@ export const GalleryCarsStyle = styled.section`
         margin-top: 24px;
         margin-bottom: 24px;
       }
+    }
+  }
+
+  .flag {
+    height: 163px;
+    width: 100%;
+    background-image: url('/assets/gallery-cars/flag.svg');
+    background-position-y: 3px;
+    position: relative;
+
+    ::before, ::after {
+      content: '';
+      position: absolute;
+      height: 19px;
+      width: 100%;
+      background-image: ${({ theme }) => theme.colors.primaryGradient};
+    }
+
+    ::before {
+      top: 0;
+    }
+
+    ::after {
+      bottom: 0;
     }
   }
 `

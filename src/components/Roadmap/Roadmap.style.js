@@ -9,46 +9,38 @@ export const RoadmapStyle = styled.section`
   }
 
   .wrapper {
-    padding-inline: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &.wrapper-2, &.wrapper-3, &.wrapper-4 {
-      border-top: 5px solid ${({ theme }) => theme.colors.white};
-    }
-
-    &.wrapper-1 {
-      .img {
-        margin-right: 106px;
-      }
-    }
-
-    &.wrapper-2 {
-      .img {
-        margin-left: 44px;
-      }
-    }
-
-    &.wrapper-3 {
-      .img {
-        margin-right: 24px;
-      }
-    }
+    border-bottom: 5px solid ${({ theme }) => theme.colors.white};
   }
 
-  .roadmap-step {
-    display: flex;
-    align-items: center;
-    padding-block: 120px;
+  .container {
+    .mr-6 {
+      margin-right: 24px;
+    }
 
     .content {
-      max-width: 644px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      .text {
-        margin-top: 40px;
-        display: grid;
-        gap: 24px;
+      .img {
+        max-width: 100%;
+
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+
+      &__text {
+        max-width: 643px;
+        width: 100%;
+        flex-shrink: 0;
+
+        .text {
+          margin-top: 40px;
+          display: grid;
+          gap: 24px;
+        }
       }
     }
   }

@@ -1,28 +1,24 @@
 import styled from 'styled-components'
 
 export const RSCUtilityStyle = styled.section`
-  .wrapper {
-    padding: 120px 40px;
-    border-top: 10px solid ${({ theme }) => theme.colors.white}
-  }
+  padding-block: 120px;
+  border-top: 10px solid ${({ theme }) => theme.colors.white};
 
   .container-title {
-    max-width: 930px;
-    text-align: center;
-    margin-inline: auto;
-
     p {
       margin-top: 24px;
       font-size: ${({ theme }) => theme.fontSizes.lg};
     }
   }
 
-  .container-utilities {
-    max-width: 1120px;
-    margin-inline: auto;
+  .wrapper-utilities {
     margin-top: 80px;
-    display: grid;
-    row-gap: 80px;
+  }
+  .container-utilities {
+    .content {
+      display: grid;
+      row-gap: 80px;
+    }
 
     .title {
       display: flex;

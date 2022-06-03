@@ -3,7 +3,6 @@ import About from 'components/About/About'
 import { useOnScreen } from './hooks/useOnScreen'
 import Loader from './components/Loader/LoaderCopy'
 import { useLockedBody } from './hooks/useLockedBody'
-import FAQ from './components/FAQ/FAQ'
 import Team from './components/Team/Team'
 import HorizontalScroll from 'react-scroll-horizontal'
 import NavBar from './components/Navbar/NavBar'
@@ -12,6 +11,7 @@ import Roadmap from './components/Roadmap/Roadmap'
 import RSCFunds from './components/RSCFunds/RSCFunds'
 import RscUtility from './components/RSCUtility/RSCUtility'
 import GalleryCars from './components/GalleryCars/GalleryCars'
+import FAQ from './components/FAQ/FAQ'
 
 function App() {
   // const [loaded, setLoaded] = useState(false)
@@ -102,6 +102,7 @@ function App() {
         <Roadmap />
         <RSCFunds />
         <RscUtility />
+        <FAQ />
         <GalleryCars />
         {/*<HorizontalScroll*/}
         {/*    reverseScroll*/}
