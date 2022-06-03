@@ -55,7 +55,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 100%;
     color: inherit;
   }
-  
+
 
   table {
     border-collapse: collapse;
@@ -113,9 +113,10 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.black};
     font-weight: 400;
     line-height: 1.4;
-    overflow: hidden;
+    //overflow: hidden;
     position: relative;
     height: 100%;
+    letter-spacing: 0.04em;
   }
 
   .scroll-horizontal {
@@ -142,16 +143,21 @@ export const GlobalStyle = createGlobalStyle`
     width: 100vw;
   }
 
-  
+
   /*typography*/
 
-  h1, h2, h4, .h1, .h2, .h4 {
+  h1, h2, h4, h5, .h1, .h2, .h4, .h5 {
     line-height: 1.2;
     text-transform: uppercase;
+    font-family: ${({ theme }) => theme.fonts.primary};
+  }
+
+  .text-shadow {
+    -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
+    text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
   }
 
   h1, .h1 {
-    white-space: nowrap;
     font-size: ${({ theme }) => theme.titleSizes.h1};
     font-weight: 500;
     -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
@@ -161,8 +167,6 @@ export const GlobalStyle = createGlobalStyle`
   h2, .h2 {
     font-size: ${({ theme }) => theme.titleSizes.h2};
     font-weight: 500;
-    -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
-    text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
   }
 
   h4, .h4 {
@@ -190,7 +194,7 @@ export const GlobalStyle = createGlobalStyle`
   .animated {
     opacity: 0;
   }
-  
+
   .transition {
     transition: transform .1s linear;
   }
@@ -206,19 +210,19 @@ export const GlobalStyle = createGlobalStyle`
 
 
   /*media queries*/
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
 
     h1, .h1 {
       font-size: ${({ theme }) => theme.titleSizesSM.h1};
     }
-    
+
     h2, .h2 {
       font-size: ${({ theme }) => theme.titleSizesSM.h2};
     }
   }
 
   /*media queries*/
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     h1, .h1 {
       font-size: ${({ theme }) => theme.titleSizesXS.h1};
     }
@@ -236,11 +240,11 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
-  @media (max-height: 840px) and (orientation: landscape)  {
-    h1, .h1 {
-      font-size: ${({ theme }) => theme.titleSizesSM.h1};
-    }
-  }
+  //@media (max-height: 840px) and (orientation: landscape)  {
+  //  h1, .h1 {
+  //    font-size: ${({ theme }) => theme.titleSizesSM.h1};
+  //  }
+  //}
 
   @media (hover: none), (pointer:coarse), (-moz-touch-enabled: 1) {
     .scroll-horizontal {

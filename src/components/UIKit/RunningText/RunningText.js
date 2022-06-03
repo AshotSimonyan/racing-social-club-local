@@ -1,12 +1,9 @@
-import React from "react"
-import { RunningTextStyle } from "./RunningText.style"
-import Flag from "../../../assets/rally-flag.svg"
+import React from 'react'
+import { RunningTextStyle } from './RunningText.style'
 
-const RunningText = ({ withFlag, image, withBorder }) => {
+const RunningText = ({image }) => {
   return (
-    <RunningTextStyle image={image} withFlag={withFlag} withBorder={withBorder}>
-      {withFlag && <img src={Flag} className="flag" alt="" />}
-    </RunningTextStyle>
+    <RunningTextStyle image={image} />
   )
 }
 

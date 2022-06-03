@@ -1,9 +1,9 @@
 import React from "react"
 import { SpinnerStyle } from "./Spinner.style"
 
-const Spinner = () => {
+const Spinner = ({size="sm"}) => {
   return (
-    <SpinnerStyle className="spinner">
+    <SpinnerStyle className={['spinner', size].join(' ')}>
       <img src="/assets/spinner.svg" alt="" />
     </SpinnerStyle>
   )

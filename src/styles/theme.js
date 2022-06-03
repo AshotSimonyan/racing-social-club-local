@@ -32,11 +32,11 @@ export const theme = {
     sm: "16px",
   },
   breakpoints: {
-    xxs: 359,
-    xs: 575,
-    sm: 767,
-    md: 991,
-    lg: 1199,
-    xl: 1439,
+    xxs: '359px',
+    xs: '575px',
+    sm: '767px',
+    md: '991px',
+    lg: '1199px',
+    xl: '1439px',
   },
 }

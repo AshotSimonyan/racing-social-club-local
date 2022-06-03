@@ -26,7 +26,6 @@ const FAQ = forwardRef(({onScreen}, ref) => {
     }
     return (
         <FAQStyle ref={ref}>
-            <RunningText image="/assets/faq/running" withBorder/>
             <div className="faq-content">
                 {data.map((q, i) => {
                     return (

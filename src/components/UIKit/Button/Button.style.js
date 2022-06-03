@@ -7,7 +7,7 @@ export const ButtonStyle = styled.a`
   transition: 0.5s;
   cursor: pointer;
   text-transform: uppercase;
-  background-color: transparent;
+  background-color: ${({ theme }) => theme.colors.black};
   font-size: ${({ theme }) => theme.fontSizes.md};
   font-family: ${({ theme }) => theme.fonts.primary};
   display: inline-flex;
@@ -41,7 +41,7 @@ export const ButtonStyle = styled.a`
       color: ${({ theme }) => theme.colors.black};
       border: none;
       transition: none;
-      
+
       .icon {
         path {
           fill: ${({ theme }) => theme.colors.black} !important;
@@ -51,7 +51,7 @@ export const ButtonStyle = styled.a`
 
   ${({ variant }) =>
     variant === "outlined" &&
-    
+
     css`
       background-color: transparent;
       border: 1px solid ${({ theme }) => theme.colors.white};
