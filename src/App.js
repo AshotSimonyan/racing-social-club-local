@@ -93,13 +93,15 @@ function App() {
     <>
       {/*<Loader onLoad={handleLoad} />*/}
       <div className="main-wrapper">
-        <Hero />
+        {/*<Hero />*/}
         <About />
-        <Roadmap />
-        <RSCFunds />
-        <RscUtility />
-        <FAQ />
-        <GalleryCars />
+        {/*<Roadmap />*/}
+        {/*<RSCFunds />*/}
+        {/*<RscUtility />*/}
+        {/*<FAQ />*/}
+        {/*<GalleryCars />*/}
+
+
         {/*<HorizontalScroll*/}
         {/*    reverseScroll*/}
         {/*    className="parent"*/}
