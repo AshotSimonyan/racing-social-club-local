@@ -18,6 +18,8 @@ export const HeroStyle = styled.section`
     justify-content: center;
     height: calc(100vh - 96px);
     position: relative;
+    padding-left: 40px;
+    padding-right: 40px;
 
     a {
       position: absolute;

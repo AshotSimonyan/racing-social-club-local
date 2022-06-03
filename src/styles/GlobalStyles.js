@@ -111,7 +111,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: ${({ theme }) => theme.fontSizes.md};
     color: ${({ theme }) => theme.colors.white};
     background-color: ${({ theme }) => theme.colors.black};
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.4;
     //overflow: hidden;
     position: relative;
@@ -162,6 +162,7 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 500;
     -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
     text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
+    line-height: 1.1;
   }
 
   h2, .h2 {
@@ -267,4 +268,36 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .text {
+    &-center {
+      text-align: center;
+    }
+  }
+
+  .container {
+    max-width: 1200px;
+
+    &-md {
+      max-width: 1010px;
+    }
+
+    &, &-md {
+      margin-right: auto;
+      margin-left: auto;
+      width: 100%;
+      padding-right: 40px;
+      padding-left: 40px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+    }
+  }
+
+  .wrapper {
+    width: 100%;
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
 `

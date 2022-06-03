@@ -21,33 +21,37 @@ function GalleryCars(props) {
 
       <div className="wrapper-members">
         <div className="container">
-          <Fade
-            triggerOnce
-            cascade
-            direction={'up'}
-            fraction={0.5}
-            duration={1000}
-          >
-            <p>JOIN TO DISCORD COMMUNITY</p>
-
-            <h1 className="title">{members || '29603'}MEMBER</h1>
-
-            <p className="text">
-              Racing Social Club will have a loyal and strong community,
-              heading
-              in to a very important part of the race.
-            </p>
-
-            <Button
-              variant="outlined"
-              href="https://discord.com/invite/racingsocialclubnft"
-              target="_blank"
+          <div className="content">
+            <Fade
+              triggerOnce
+              cascade
+              direction={'up'}
+              fraction={0.5}
+              duration={1000}
             >
-              JOIN OUR DISCORD
-            </Button>
-          </Fade>
+              <p>JOIN TO DISCORD COMMUNITY</p>
+
+              <h1 className="title">{members || '29603'}MEMBER</h1>
+
+              <p className="text">
+                Racing Social Club will have a loyal and strong community,
+                heading
+                in to a very important part of the race.
+              </p>
+
+              <Button
+                variant="outlined"
+                href="https://discord.com/invite/racingsocialclubnft"
+                target="_blank"
+              >
+                JOIN OUR DISCORD
+              </Button>
+            </Fade>
+          </div>
         </div>
       </div>
+
+      <div className="flag" />
     </GalleryCarsStyle>
   )
 }

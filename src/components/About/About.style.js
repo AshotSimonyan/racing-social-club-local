@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from "styled-components"
+import styled, { css, keyframes } from 'styled-components'
 
 const scaleImg = keyframes`
   from {
@@ -10,22 +10,12 @@ const scaleImg = keyframes`
 `
 
 export const AboutStyle = styled.section`
-  .wrapper {
-    border-top: 5px solid ${({ theme }) => theme.colors.white};
-    width: 100%;
-    padding: 120px 40px;
+  border-top: 5px solid ${({ theme }) => theme.colors.white};
 
-    .container {
-      max-width: 930px;
-      text-align: center;
-      margin-inline: auto;
-
-      .content {
-        margin-top: 32px;
-        display: grid;
-        gap: 16px;
-      }
-    }
+  .content__text {
+    margin-top: 32px;
+    display: grid;
+    gap: 16px;
   }
 
   .banner {

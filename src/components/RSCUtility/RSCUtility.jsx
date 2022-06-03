@@ -5,8 +5,8 @@ import Spinner from '../UIKit/Spinner/Spinner'
 const RscUtility = forwardRef(({ onScreen }, ref) => {
   return (
     <RSCUtilityStyle>
-      <div className="wrapper">
-        <div className="container-title">
+      <div className="container-title container-md">
+        <div className="content text-center">
           <h1>RSC UTILITY</h1>
 
           <p>
@@ -17,61 +17,65 @@ const RscUtility = forwardRef(({ onScreen }, ref) => {
             the Trait-Based Utilities.
           </p>
         </div>
+      </div>
 
-        <div className="container-utilities">
-          <div className="membership">
-            <div className="title">
-              <Spinner size="sm" />
-              <h4>MEMBERSHIP UTILITIES</h4>
-            </div>
-
-            <div className="text">
-              <div className="block">
-                <h4>Metaracing</h4>
-
-                <p>Metaracing is an online event which is available for ALL RSC
-                   NFT holders. This event is filled with, games, tournaments,
-                   entertainment and prizes
-                </p>
+      <div className="wrapper-utilities">
+        <div className="container-utilities container">
+          <div className="content">
+            <div className="membership">
+              <div className="title">
+                <Spinner size="sm" />
+                <h4>MEMBERSHIP UTILITIES</h4>
               </div>
 
-              <div className="block">
-                <h4>RSC Race</h4>
+              <div className="text">
+                <div className="block">
+                  <h4>Metaracing</h4>
 
-                <p>The RSC Race will be one of a kind. We will have fast cars
-                   and real racers on a racetrack! This event is for the real
-                   speed devils. An exclusive event that is available to some of
-                   the RSC NFT holders.
-                </p>
-              </div>
+                  <p>Metaracing is an online event which is available for ALL RSC
+                     NFT holders. This event is filled with, games, tournaments,
+                     entertainment and prizes
+                  </p>
+                </div>
 
-              <div className="block">
-                <h4>RSC Meet-up</h4>
+                <div className="block">
+                  <h4>RSC Race</h4>
 
-                <p>The community meetup of RSC will be available for every RSC
-                   NFT holder. Besides some nice cars, we will also have music,
-                   public speakers, entertainment, good food and more!
-                </p>
+                  <p>The RSC Race will be one of a kind. We will have fast cars
+                     and real racers on a racetrack! This event is for the real
+                     speed devils. An exclusive event that is available to some of
+                     the RSC NFT holders.
+                  </p>
+                </div>
+
+                <div className="block">
+                  <h4>RSC Meet-up</h4>
+
+                  <p>The community meetup of RSC will be available for every RSC
+                     NFT holder. Besides some nice cars, we will also have music,
+                     public speakers, entertainment, good food and more!
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="trait">
-            <div className="title">
-              <Spinner size="sm" />
-              <h4>TRAIT UTILITIES</h4>
-            </div>
+            <div className="trait">
+              <div className="title">
+                <Spinner size="sm" />
+                <h4>TRAIT UTILITIES</h4>
+              </div>
 
-            <div className="text">
-              <p>
-                The trait utilities are introduced by RSC as a very unique way
-                to provide utility. This way of providing utility will be very
-                dynamic. We will announce some of the trait utilities before
-                mint, but we also will announce some after mint. In the future
-                we might even transfer the utility from one trait category to
-                another one… We will change the game, people will be blown away
-                by this new, innovative way of providing value to holders.
-              </p>
+              <div className="text">
+                <p>
+                  The trait utilities are introduced by RSC as a very unique way
+                  to provide utility. This way of providing utility will be very
+                  dynamic. We will announce some of the trait utilities before
+                  mint, but we also will announce some after mint. In the future
+                  we might even transfer the utility from one trait category to
+                  another one… We will change the game, people will be blown away
+                  by this new, innovative way of providing value to holders.
+                </p>
+              </div>
             </div>
           </div>
         </div>
