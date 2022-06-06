@@ -1,116 +1,125 @@
 import styled from "styled-components"
 
 export const TeamStyle = styled.section`
-  padding-left: 130px;
-
-  .content-wrapper {
-    display: flex;
-    height: 100%;
+  .running-text-wrapper {
+    border-top: 6px solid ${({ theme }) => theme.colors.white};
+    border-bottom: 6px solid ${({ theme }) => theme.colors.white};
   }
-  .content1 {
-    height: 100%;
-    width: 670px;
-    margin-left: 160px;
 
-    .img-wrapper {
-      position: relative;
-      height: 100%;
-      overflow: hidden;
-      img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
+  .content {
+    .slick-slider {
+      padding-bottom: 48px;
+    }
+    .slick-slide {
+      will-change: opacity;
+      padding: 0 12px 24px;
+    }
+
+    .slick-next,
+    .slick-prev {
+      top: 100%;
+      width: 72px;
+      transition: width 0.5s;
+      pointer-events: all;
+      height: 36px;
+      &:hover {
+        width: 100px;
+      }
+
+      :before {
+        content: none;
+      }
+      .icon-wrapper {
         position: relative;
-        z-index: 1;
-        transition: 0.5s;
-      }
-    }
-  }
-
-  .content2 {
-    padding: 80px 80px 100px;
-
-    .img-wrapper {
-      padding-bottom: 16px;
-      height: 100%;
-
-      img {
         display: block;
-        height: 100%;
+
+        &:after {
+          content: "";
+          width: calc(100% - 6px);
+          height: 2px;
+          background-color: ${({ theme }) => theme.colors.white};
+          position: absolute;
+          display: block;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+
+      .arrow-text {
+        font-size: 20px;
+        color: ${({ theme }) => theme.colors.white};
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: inline-block;
+      }
+
+      &:before {
+        content: none;
+      }
+    }
+
+    .slick-next {
+      left: 52%;
+      right: inherit;
+      text-align: left;
+
+      .arrow-text {
+        text-align: left;
+      }
+
+      .icon-wrapper {
+        text-align: right;
+
+        &:after {
+          left: 0;
+        }
+      }
+    }
+
+    .slick-prev {
+      left: inherit;
+      right: 52%;
+      text-align: right;
+
+      .arrow-text {
+        text-align: right;
+      }
+
+      .icon-wrapper {
+        text-align: left;
+
+        &:after {
+          right: 0;
+        }
       }
     }
   }
+  .img-wrapper {
+    margin-bottom: 16px;
 
-  .title {
-    padding-bottom: 48px;
-    display: flex;
-    justify-content: center;
-
-    span {
-      opacity: 0;
+    img {
+      width: 100%;
+      //border-radius: 50%;
+      display: block;
+      background-color: ${({ theme }) => theme.colors.black};
+      border: 1px solid ${({theme}) => theme.colors.greyLight};
     }
   }
 
   .name {
-    font-weight: 700;
-    padding-bottom: 4px;
+    display: flex;
+    font-size: ${({theme}) => theme.fontSizes.lg};
+    margin-bottom: 8px;
+
+    .icon {
+      margin-left: 8px;
+    }
   }
 
   .position {
-    font-weight: 700;
-    font-size: ${({ theme }) => theme.fontSizes.md};
-  }
-  .team-list {
-    display: flex;
-    align-items: center;
-    margin-left: -24px;
-    height: 100%;
-  }
-  .team-card {
-    height: 40vh;
-    margin-left: 32px;
-
-    &:nth-child(even) {
-      margin-top: 20%;
-    }
+    margin-bottom: 8px;
+    font-size: ${({theme}) => theme.fontSizes.sm};
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
-    padding-left: 120px;
 
-    .content2 {
-      padding: 60px 60px 100px;
-    }
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
-    padding-left: 96px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
-    .content2 {
-      padding: 40px 40px 100px;
-    }
-    .team-card {
-      &:nth-child(even) {
-        margin-top: 120px;
-      }
-    }
-  }
-  @media (max-width: ${({ theme }) => theme.breakpoints.xs}px) {
-    padding-left: 70px;
-
-    .content1 {
-      width: 100vw;
-    }
-  }
-  @media (max-height: 480px) {
-    .team-card {
-      width: 130px;
-
-      &:nth-child(even) {
-        margin-top: 40px;
-      }
-    }
-  }
 `

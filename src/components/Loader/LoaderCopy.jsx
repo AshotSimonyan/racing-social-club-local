@@ -41,7 +41,7 @@ const Loader = ({ onLoad }) => {
         <Fade
           triggerOnce
           cascade
-          direction={"right"}
+          direction={"up"}
           fraction={0.5}
           delay={400}
           duration={600}

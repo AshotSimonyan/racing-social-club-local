@@ -132,7 +132,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .text-shadow {
-    -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
+    -webkit-text-stroke: 1px ${({ theme }) => theme.colors.black};
     text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
   }
 

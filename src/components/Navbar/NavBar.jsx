@@ -87,7 +87,7 @@ const NavBar = ({ onLinkClick, progress, touchDevice }) => {
                     </div>
                 </nav>
                 <div className="progress-wrapper">
-                    {!touchDevice && <Progress filled={progress} />}
+                  <Progress filled={progress} />
                 </div>
                 <ul className="social social-desktop">
                     <li>

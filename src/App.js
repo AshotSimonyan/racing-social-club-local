@@ -12,84 +12,55 @@ import RSCFunds from './components/RSCFunds/RSCFunds'
 import RscUtility from './components/RSCUtility/RSCUtility'
 import GalleryCars from './components/GalleryCars/GalleryCars'
 import FAQ from './components/FAQ/FAQ'
+import Legendaries from "./components/Legendaries/Legendaries";
+import Driver from "./components/Driver/Driver";
+const scrollIntoView = require("scroll-into-view")
 
 function App() {
-  // const [loaded, setLoaded] = useState(false)
-  const [progress, setProgress] = useState(5)
-  const [animValues, setAnimValues] = useState(0)
-  const [touchDevice, setTouchDevice] = useState(false)
-  const parentRef = useRef(null)
+  const [loaded, setLoaded] = useState(false)
+  const [scrollTo, setScrollTo] = useState(null)
   const faqRef = useRef(null)
   const aboutRef = useRef(null)
   const teamRef = useRef(null)
   const roadMapRef = useRef(null)
   const [, setLocked] = useLockedBody(false)
 
+
   useEffect(() => {
-      window.history.scrollRestoration = "manual"
+    window.history.scrollRestoration = "manual"
   }, [])
+
+  useEffect(() => {
+    if (scrollTo) {
+      scrollIntoView(refMapping[scrollTo]?.current, {
+        align: {
+          top: 0,
+        },
+      })
+      setScrollTo(false)
+    }
+  }, [scrollTo])
 
   const refMapping = {
-      "#about": aboutRef,
-      "#roadMap": roadMapRef,
-      "#faq": faqRef,
-      "#team": teamRef,
+    // "#hero": heroRef,
+    // "#about": aboutRef,
+    // "#roadmap": roadmapRef,
+    // "#utilities": utilitiesRef,
+    "#team": teamRef,
+    // "#faq": faqRef,
   }
 
-  useEffect(() => {
-      if (
-          typeof window !== "undefined" &&
-          window?.matchMedia("(pointer: coarse)").matches
-      ) {
-          setTouchDevice(true)
-      }
-  }, [])
-  //
-  // // useEffect(() => {
-  // //     setTimeout(() => {
-  // //         setLoading(false)
-  // //         setLocked(false)
-  // //     }, 3500)
-  // // }, [])
-  //
-  // const calculateProgress = useCallback(offsetLeft => {
-  //     const parent = document.querySelector(".parent >div")
-  //     const pageWidth = parseInt(window.getComputedStyle(parent).width)
-  //     let percent = Math.round(
-  //         ((offsetLeft + parentRef.current.hScrollParent.clientWidth) / pageWidth) *
-  //         100
-  //     )
-  //     if (percent < 5) {
-  //         percent = 5
-  //     }
-  //     return percent
-  // }, [])
-  //
   const handleLinkClick = to => {
-      const offsetLeft = parseInt(refMapping[to]?.current.offsetLeft)
-      const animValues = Math.abs(parentRef.current?.state.animValues)
-      if (touchDevice) {
-          refMapping[to]?.current.scrollIntoView({
-              inline: "start",
-          })
-      } else {
-          setAnimValues(animValues - offsetLeft)
-          // setProgress(calculateProgress(offsetLeft))
-      }
+    setScrollTo(to)
   }
-  //
-  // const handleScroll = () => {
-  //     const animValues = Math.abs(parentRef.current?.state?.animValues)
-  //     setProgress(calculateProgress(animValues))
-  // }
-  //
-  // const handleLoad = () => {
-  //     setLoaded(true)
-  // }
+
+  const handleLoad = () => {
+      setLoaded(true)
+  }
 
   return (
     <>
-      {/*<Loader onLoad={handleLoad} />*/}
+      <Loader onLoad={handleLoad} />
       <NavBar
           onLinkClick={handleLinkClick}
           // progress={progress}
@@ -100,10 +71,13 @@ function App() {
         <Hero />
         <About />
         <Roadmap />
+        <Driver />
         <RSCFunds />
+        <Legendaries />
         <RscUtility />
+        <Team ref={teamRef}/>
         <FAQ />
-        <GalleryCars />
+        {/*<GalleryCars />*/}
 
 
         {/*<HorizontalScroll*/}

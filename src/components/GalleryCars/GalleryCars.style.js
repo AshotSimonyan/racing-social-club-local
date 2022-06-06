@@ -4,6 +4,12 @@ export const GalleryCarsStyle = styled.section`
   display: grid;
   column-gap: 5px;
 
+  .wrapper-carousel {
+    border-top: 10px solid ${({ theme }) => theme.colors.white};
+    border-bottom: 5px solid ${({ theme }) => theme.colors.white};
+    margin-bottom: 5px;
+  }
+
   .wrapper-members {
     border-top: 5px solid ${({ theme }) => theme.colors.white};
 

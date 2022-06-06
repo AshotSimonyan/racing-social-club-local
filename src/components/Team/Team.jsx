@@ -1,84 +1,105 @@
-import React, { forwardRef, memo } from "react"
+import React, {forwardRef, memo, useMemo} from "react"
 import { TeamStyle } from "./Team.style"
 import { theme } from "../../styles/theme"
 import RunningText from "../UIKit/RunningText/RunningText"
-import { Icon } from "../UIKit"
+import {Arrow, Carousel, Icon} from "../UIKit"
 
 const teamList = [
   {
-    name: "The Nightrider",
-    position: "Founder",
-    img: {
-      png: "/assets/team/team1.png",
-      webp: "/assets/team/team1.webp",
-    },
+    name: "Jeroen",
+    position: "Business Director",
+    img: "/assets/team/1.jpg",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis felis pretium leo egestas, id vehicula ligula auctor. Duis dui odio, aliquam eget lacinia scelerisque, vestibulum nec massa.",
+    twitter: '#'
   },
-  // {
-  //   name: "Lorem Ipsum",
-  //   position: "Marketing",
-  //   img: {
-  //     png: "/assets/team/team2.png",
-  //     webp: "/assets/team/team2.webp",
-  //   },
-  // },
   {
-    name: "Nitro",
-    position: "Founder",
-    img: {
-      png: "/assets/team/team3.png",
-      webp: "/assets/team/team3.webp",
-    },
+    name: "Luuk",
+    position: "Creative Director",
+    img: "/assets/team/2.jpg",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis felis pretium leo egestas, id vehicula ligula auctor. Duis dui odio, aliquam eget lacinia scelerisque, vestibulum nec massa.",
+    twitter: '#'
   },
-  // {
-  //     name: "Lorem Ipsum",
-  //     position: "Marketing",
-  //     img: {
-  //         png: "/assets/team/team3.png",
-  //         webp: "/assets/team/team3.webp",
-  //     },
-  // },
+  {
+    name: "JP",
+    position: "Development Director",
+    img: "/assets/team/3.jpg",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis felis pretium leo egestas, id vehicula ligula auctor. Duis dui odio, aliquam eget lacinia scelerisque, vestibulum nec massa.",
+    twitter: '#'
+  },
+  {
+    name: "Anri",
+    position: "Marketing Director",
+    img: "/assets/team/4.jpg",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis felis pretium leo egestas, id vehicula ligula auctor. Duis dui odio, aliquam eget lacinia scelerisque, vestibulum nec massa.",
+    twitter: '#'
+  }
 ]
 
+
 const Team = forwardRef(({ onScreen }, ref) => {
+  const settings = useMemo(() => {
+    return {
+      dots: false,
+      infinite: true,
+      arrows: true,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      pauseOnHover: false,
+      speed: 500,
+      autoplaySpeed: 2000,
+      autoplay: true,
+      nextArrow: <Arrow direction={"next"} color={theme.colors.white} />,
+      prevArrow: <Arrow direction={"prev"} color={theme.colors.white} />,
+      responsive: [
+        {
+          breakpoint: theme.breakpoints.md,
+          settings: {
+            slidesToShow: 2,
+          },
+        },
+        {
+          breakpoint: theme.breakpoints.sm,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+      ],
+    };
+  }, []);
   return (
     <TeamStyle ref={ref}>
-      <RunningText image="/assets/team/running" withBorder />
-      <div className="content-wrapper">
-        <div className="content1">
-          <div className="img-wrapper">
-            <picture>
-              <source srcSet="/assets/team/team-big.webp" type="image/webp" />
-              <img src="/assets/team/team-big.jpg" alt="racing" />
-            </picture>
-          </div>
-        </div>
-        <div className="content2">
-          <ul className="team-list">
-            {teamList.map(({ name, position, img }) => {
+      <div className="running-text-wrapper">
+        <RunningText image="/assets/team/running" />
+      </div>
+      <div className="container">
+        <div className="content wrapper">
+          <Carousel settings={settings} >
+            {teamList.map(({ img, url,  name, twitter, position, description }, index) => {
               return (
-                <li className="team-card" key={name}>
+                <div className="team-card" key={index}>
                   <div className="img-wrapper">
-                    <picture>
-                      <source srcSet={img.webp} type="image/webp" />
-                      <img src={img.png} alt={position} />
-                    </picture>
+                    <img src={img} alt={name} />
                   </div>
                   <p className="name">
                     {name}
-                    <a href="https://twitter.com/racingsocialnft" target='_blank'>
-                      <Icon name="twitter" color={theme.colors.white} />
+                    {twitter &&
+                    <a
+                      href={twitter}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      <Icon name="twitter" color={theme.colors.white} size={24} />
                     </a>
+                    }
                   </p>
                   <p className="position">{position}</p>
-                </li>
-              )
+                  <p className='description'>{description}</p>
+                </div>
+              );
             })}
-            <li className="team-card">
+            <div className="team-card">
               <div className="img-wrapper">
-                <picture>
-                  <source srcSet="/assets/team/team4.webp" type="image/webp" />
-                  <img src="/assets/team/team4.png" alt="" />
-                </picture>
+                <img src="/assets/team/nft-stack.jpg" alt="" />
               </div>
               <div className="name">
                 <img src="/assets/NFTstack-logo.svg" alt="NFTstack" />
@@ -91,8 +112,9 @@ const Team = forwardRef(({ onScreen }, ref) => {
                 </a>
               </div>
               <p className="position">Art & Smart Contract</p>
-            </li>
-          </ul>
+              <p className='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis felis pretium leo egestas, id vehicula ligula auctor. Duis dui odio, aliquam eget lacinia scelerisque, vestibulum nec massa.</p>
+            </div>
+          </Carousel>
         </div>
       </div>
     </TeamStyle>

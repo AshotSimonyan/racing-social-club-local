@@ -6,10 +6,10 @@ export const ProgressStyle = styled.div`
   width: 100%;
   background: ${({ theme }) => theme.colors.white};
 
-  .filled {
+  >div {
     //transform: skewX(-48deg);
     transition: 0.3s;
-    background: ${({ theme }) => theme.colors.primaryGradient};
-    height: 100%;
+    // background: ${({ theme }) => theme.colors.primaryGradient} !important;
+    height: 100% !important;
   }
 `

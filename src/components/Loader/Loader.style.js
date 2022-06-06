@@ -15,10 +15,10 @@ export const LoaderStyle = styled.div`
 
   &.hide-loader {
     transition: 1s 1s ease-in-out;
-    transform: translateX(-100%);
+    transform: translateY(-100%);
 
     .progress {
-      transform: translateX(-1000px);
+      transform: translateY(-1000px);
     }
   }
 

@@ -126,30 +126,4 @@ export const Carousel2Style = styled.div`
     width: 100%;
   }
 
-  @media (max-height: 840px) {
-    width: 328px;
-  }
-
-  @media (max-height: 640px) {
-    height: 100%;
-    width: 240px;
-    .slick-next,
-    .slick-prev {
-      .arrow-text {
-        font-size: 16px;
-      }
-    }
-  }
-  @media (max-height: 480px) {
-    width: 170px;
-
-    .slick-next,
-    .slick-prev {
-      width: 40px;
-
-      &:hover {
-        width: 52px;
-      }
-    }
-  }
 `
