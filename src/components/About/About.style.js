@@ -27,8 +27,27 @@ export const AboutStyle = styled.section`
     img {
       width: 100%;
       object-fit: cover;
+      object-position: left;
       display: block;
       max-height: 400px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
+      height: 369px;
+
+      img {height: 369px}
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+      height: 236px;
+
+      img {height: 236px}
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
+      height: 213px;
+
+      img {height: 213px}
     }
   }
 `

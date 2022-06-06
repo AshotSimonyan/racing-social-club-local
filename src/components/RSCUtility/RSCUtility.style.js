@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const RSCUtilityStyle = styled.section`
-  padding-block: 120px;
   border-top: 10px solid ${({ theme }) => theme.colors.white};
 
   .container-title {
@@ -37,6 +36,14 @@ export const RSCUtilityStyle = styled.section`
         flex-direction: column;
         gap: 32px;
         padding-left: 64px;
+
+        @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+            padding-left: 36px;
+        }
+
+        @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+          padding-left: 64px;
+        }
 
         .block {
           h4 {

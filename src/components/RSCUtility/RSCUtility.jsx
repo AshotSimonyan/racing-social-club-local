@@ -4,17 +4,18 @@ import Spinner from '../UIKit/Spinner/Spinner'
 
 const RscUtility = forwardRef(({ onScreen }, ref) => {
   return (
-    <RSCUtilityStyle>
+    <RSCUtilityStyle className="wrapper">
       <div className="container-title container-md">
         <div className="content text-center">
           <h1>RSC UTILITY</h1>
 
           <p>
             We, at Racing Social Club, consider our community as top priority.
-            We aim to provide as much value as we can, and therefore our utility
-            contains multiple layers. The first form of utility we offer are the
-            Membership Utilities, and the second form of utility we offer are
-            the Trait-Based Utilities.
+            We aim to provide as much value as we can, therefore our utility
+            contains multiple layers. We have divided the utility in two
+            different forms. The first form of utility we offer, are Membership
+            utilities, and the second form of utility we offer are Trait
+            Utilities.
           </p>
         </div>
       </div>
@@ -32,28 +33,30 @@ const RscUtility = forwardRef(({ onScreen }, ref) => {
                 <div className="block">
                   <h4>Metaracing</h4>
 
-                  <p>Metaracing is an online event which is available for ALL RSC
-                     NFT holders. This event is filled with, games, tournaments,
-                     entertainment and prizes
+                  <p>
+                    Metaracing is an online event which is available for all RSC
+                    NFT holders. This event will be filled with games,
+                    tournaments, entertainment and various prizes.
                   </p>
                 </div>
 
                 <div className="block">
                   <h4>RSC Race</h4>
 
-                  <p>The RSC Race will be one of a kind. We will have fast cars
-                     and real racers on a racetrack! This event is for the real
-                     speed devils. An exclusive event that is available to some of
-                     the RSC NFT holders.
+                  <p>
+                    The RSC Race will be one of a kind. Hosted on a real
+                    racetrack, there will be fast cars, real racing drivers and
+                    multiple giveaways.
                   </p>
                 </div>
 
                 <div className="block">
                   <h4>RSC Meet-up</h4>
 
-                  <p>The community meetup of RSC will be available for every RSC
-                     NFT holder. Besides some nice cars, we will also have music,
-                     public speakers, entertainment, good food and more!
+                  <p>
+                    The community meet-up will be available for all RSC NFT
+                    holders. Besides some nice cars, we will also have music,
+                    public speakers, good food and more!
                   </p>
                 </div>
               </div>
@@ -72,8 +75,9 @@ const RscUtility = forwardRef(({ onScreen }, ref) => {
                   dynamic. We will announce some of the trait utilities before
                   mint, but we also will announce some after mint. In the future
                   we might even transfer the utility from one trait category to
-                  another one… We will change the game, people will be blown away
-                  by this new, innovative way of providing value to holders.
+                  another one… We will change the game, people will be blown
+                  away by this new, innovative way of providing value to
+                  holders.
                 </p>
               </div>
             </div>

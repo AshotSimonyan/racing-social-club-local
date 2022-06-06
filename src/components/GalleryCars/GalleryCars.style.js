@@ -5,11 +5,14 @@ export const GalleryCarsStyle = styled.section`
   column-gap: 5px;
 
   .wrapper-members {
-    padding: 120px;
     border-top: 5px solid ${({ theme }) => theme.colors.white};
 
     .container {
       max-width: 818px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+          max-width: calc(756px + 40px * 2);
+      }
     }
 
     .content {
@@ -18,6 +21,7 @@ export const GalleryCarsStyle = styled.section`
 
       .title {
         position: relative;
+        margin-top: 24px;
         padding-bottom: 24px;
 
         &:after {
