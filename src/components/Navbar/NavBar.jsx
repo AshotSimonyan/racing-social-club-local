@@ -7,31 +7,28 @@ import { Button, Icon } from "../UIKit"
 import { useLockedBody } from "../../hooks/useLockedBody"
 import { navList } from "./config"
 import Progress from "./Progress/Progress"
-import useWindowSize from "../../hooks/useWindowSize";
 
 const NavBar = ({ onLinkClick, progress, touchDevice }) => {
     const [drawerOpened, setDrawerOpened] = useState(false)
-    const [, setLocked] = useLockedBody()
-    const [, height] = useWindowSize();
-
+    const [locked, setLocked] = useLockedBody()
     const handleDrawerToggle = () => {
         setDrawerOpened(!drawerOpened)
-        // setLocked(false)
+        setLocked(!locked)
     }
 
     const handleMenuLinkClick = to => {
         if (drawerOpened) {
             setDrawerOpened(false)
-            // setLocked(false)
+            setLocked(false)
         }
         onLinkClick(to)
     }
 
     return (
-        <NavBarStyle height={height} className={drawerOpened ? "open" : ""}>
+        <NavBarStyle className={drawerOpened ? "open" : ""}>
             <div className="navbar-content">
                 <div className="logo-wrapper">
-                    <div className="logo" onClick={() => handleMenuLinkClick("#about")}>
+                    <div className="logo" onClick={() => handleMenuLinkClick("#hero")}>
                         <picture>
                             <source media="(max-width: 991px)" srcSet={LogoIcon} />
                             <img src={Logo} alt="Racing Social Club" />

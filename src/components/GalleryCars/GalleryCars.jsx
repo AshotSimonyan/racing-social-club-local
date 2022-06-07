@@ -27,30 +27,23 @@ function GalleryCars(props) {
       slidesToScroll: 1,
       speed: 600,
       centerMode: true,
-      centerPadding: "20px",
+      centerPadding: "40px",
       focusOnSelect: true,
-      nextArrow: <Arrow direction={"right"} color={theme.colors.white} />,
-      prevArrow: <Arrow direction={"left"} color={theme.colors.white} />,
+      nextArrow: <Arrow direction={"next"} color={theme.colors.white} />,
+      prevArrow: <Arrow direction={"prev"} color={theme.colors.white} />,
       responsive: [
         {
-          breakpoint: theme.breakpoints.xl,
+          breakpoint: 1199,
           settings: {
-            slidesToShow: 2,
-            centerPadding: "10px",
+            slidesToShow: 1,
+            centerPadding: "80px",
           },
         },
         {
-          breakpoint: theme.breakpoints.md,
+          breakpoint: 767,
           settings: {
             slidesToShow: 1,
-            centerPadding: "140px",
-          },
-        },
-        {
-          breakpoint: theme.breakpoints.sm,
-          settings: {
-            slidesToShow: 1,
-            centerPadding: "40px",
+            centerPadding: "60px",
           },
         },
       ],

@@ -44,31 +44,13 @@ export const Carousel1Style = styled.div`
     }
   }
 
-  @media (max-height: ${({ theme }) => theme.breakpoints.md}px) {
+  @media (max-height: ${({ theme }) => theme.breakpoints.md}) {
     .progress-wrapper {
       top: 40px;
-      right: 20px;
+      right: 40px;
     }
     .progress {
       height: 180px;
-    }
-  }
-
-  @media (max-height: 840px) {
-    .slick-slide {
-      img {
-        //object-position: center;
-        //object-fit: contain;
-      }
-    }
-  }
-
-  @media (max-height: 480px) {
-    .slick-slide {
-      img {
-        //object-position: center;
-        //object-fit: contain;
-      }
     }
   }
 `

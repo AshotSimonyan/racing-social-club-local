@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, {forwardRef, useState} from 'react';
 import { FAQStyle } from './FAQ.style'
 import Collapsible from 'react-collapsible'
 import { Fade } from 'react-awesome-reveal'
 import data from './data-faq'
 
-function Faq(props) {
+const Faq = forwardRef((props , ref) => {
   const [openPosition, setOpenPosition] = useState(null)
 
   const handleTriggerClick = position => {
@@ -16,7 +16,7 @@ function Faq(props) {
   }
 
   return (
-    <FAQStyle>
+    <FAQStyle ref={ref}>
       <div className="container">
         <div className="content">
           <div className="title">
@@ -57,6 +57,6 @@ function Faq(props) {
       </div>
     </FAQStyle>
   )
-}
+})
 
 export default Faq

@@ -1,7 +1,6 @@
 import styled from "styled-components"
 
 export const Carousel2Style = styled.div`
-  height: auto;
   width: 468px;
   margin-left: auto;
   pointer-events: none;
@@ -32,7 +31,7 @@ export const Carousel2Style = styled.div`
     pointer-events: all;
     height: 36px;
     &:hover {
-      width: 120px;
+      width: 80px;
     }
 
     .icon-wrapper {
@@ -105,24 +104,25 @@ export const Carousel2Style = styled.div`
     font-weight: 700;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
-    height: 382px;
-    width: 328px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    width: 444px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    margin-inline: auto;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     .slick-next,
     .slick-prev {
-      width: 48px;
 
       &:hover {
-        width: 64px;
+        width: 80px;
       }
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xs}px) {
-    height: 100%;
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
     width: 100%;
   }
 

@@ -2,6 +2,9 @@ import styled from 'styled-components'
 
 export const RoadmapStyle = styled.section`
   margin-top: 24px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 40px solid ${({ theme }) => theme.colors.white};
 
   .running-text-wrapper {
     border-top: 10px solid ${({ theme }) => theme.colors.white};

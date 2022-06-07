@@ -52,13 +52,13 @@ const Team = forwardRef(({ onScreen }, ref) => {
       prevArrow: <Arrow direction={"prev"} color={theme.colors.white} />,
       responsive: [
         {
-          breakpoint: theme.breakpoints.md,
+          breakpoint: 767,
           settings: {
             slidesToShow: 2,
           },
         },
         {
-          breakpoint: theme.breakpoints.sm,
+          breakpoint: 575,
           settings: {
             slidesToShow: 1,
           },

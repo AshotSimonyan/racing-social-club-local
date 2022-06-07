@@ -20,10 +20,11 @@ function App() {
   const [loaded, setLoaded] = useState(false)
   const [scrollTo, setScrollTo] = useState(null)
   const faqRef = useRef(null)
+  const heroRef = useRef(null)
   const aboutRef = useRef(null)
   const teamRef = useRef(null)
   const roadMapRef = useRef(null)
-  const [, setLocked] = useLockedBody(false)
+  const [, setLocked] = useLockedBody(true)
 
 
   useEffect(() => {
@@ -35,6 +36,7 @@ function App() {
       scrollIntoView(refMapping[scrollTo]?.current, {
         align: {
           top: 0,
+          topOffset: 60
         },
       })
       setScrollTo(false)
@@ -42,12 +44,11 @@ function App() {
   }, [scrollTo])
 
   const refMapping = {
-    // "#hero": heroRef,
-    // "#about": aboutRef,
-    // "#roadmap": roadmapRef,
-    // "#utilities": utilitiesRef,
+    "#hero": heroRef,
+    "#about": aboutRef,
+    "#roadMap": roadMapRef,
     "#team": teamRef,
-    // "#faq": faqRef,
+    "#faq": faqRef,
   }
 
   const handleLinkClick = to => {
@@ -56,6 +57,7 @@ function App() {
 
   const handleLoad = () => {
       setLoaded(true)
+      setLocked(false)
   }
 
   return (
@@ -63,35 +65,18 @@ function App() {
       <Loader onLoad={handleLoad} />
       <NavBar
           onLinkClick={handleLinkClick}
-          // progress={progress}
-          // onScroll={handleScroll}
-          // touchDevice={touchDevice}
       />
       <div className="main-wrapper">
-        <Hero />
-        <About />
-        <Roadmap />
+        <Hero ref={heroRef} />
+        <About ref={aboutRef} />
+        <Roadmap ref={roadMapRef} />
         <Driver />
         <RSCFunds />
         <Legendaries />
         <RscUtility />
         <Team ref={teamRef}/>
-        <FAQ />
-        {/*<GalleryCars />*/}
-
-
-        {/*<HorizontalScroll*/}
-        {/*    reverseScroll*/}
-        {/*    className="parent"*/}
-        {/*    config={{ stiffness: 50 }}*/}
-        {/*    ref={parentRef}*/}
-        {/*    animValues={animValues}*/}
-        {/*>*/}
-        {/*    <About ref={aboutRef} onScreen={aboutScreen && loaded} />*/}
-        {/*    <RoadMap ref={roadMapRef} />*/}
-        {/*    <Team ref={teamRef} />*/}
-        {/*    <FAQ ref={faqRef} />*/}
-        {/*</HorizontalScroll>*/}
+        <FAQ ref={faqRef}/>
+        <GalleryCars />
       </div>
     </>
   )

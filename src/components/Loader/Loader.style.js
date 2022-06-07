@@ -23,6 +23,7 @@ export const LoaderStyle = styled.div`
   }
 
   .progress {
+    font-family: ${({theme}) => theme.fonts.primary};
     color: ${({ theme }) => theme.colors.white};
     font-size: 200px;
     -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
@@ -38,12 +39,12 @@ export const LoaderStyle = styled.div`
 }
 
 
-@media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
+@media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
   .progress {
     font-size: 160px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     .progress {
       font-size: 160px;
 
@@ -53,7 +54,7 @@ export const LoaderStyle = styled.div`
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xs}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
     .progress {
       font-size: 80px;
     }

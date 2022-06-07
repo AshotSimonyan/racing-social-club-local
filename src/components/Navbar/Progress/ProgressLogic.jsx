@@ -1,12 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { theme } from "../../../styles/theme"
 const ProgressBar = ({
-                       color = "#E8C66C",
                        height = '100%',
-                       direction = "right",
                        position = "top",
-                       gradient = false,
-                       gradientColor = "#BB8A4F"
                      }) => {
   const [scroll, setScroll] = useState(0);
   const ticking = useRef(false);
@@ -36,7 +32,7 @@ const ProgressBar = ({
       top: position === "top" ? 0 : "unset",
       bottom: position === "bottom" ? 0 : "unset",
       background: theme.colors.primaryGradient,
-      width: `${scroll}%`,
+      width: `${scroll > 98 ? 100 : scroll}%`,
       transition: '3.s'
     }}/>
   )

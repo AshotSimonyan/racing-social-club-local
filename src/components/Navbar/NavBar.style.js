@@ -9,10 +9,11 @@ export const NavBarStyle = styled.nav`
   right: 0;
   z-index: 99;
   border-top: 1px solid ${({ theme }) => theme.colors.white};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.white};
 
   &.open {
     .header-nav {
-      height: calc((${({height}) => height}px) - 60px);
+      height: calc(100vh - 60px);
     }
   }
 
@@ -54,7 +55,7 @@ export const NavBarStyle = styled.nav`
 
   .header-nav {
     position: fixed;
-    top: 61px;
+    top: 60px;
     right: 0;
     left: 0;
     overflow-y: auto;
@@ -66,7 +67,7 @@ export const NavBarStyle = styled.nav`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: calc((${({height}) => height}px) - 60px);
+      height: calc(100vh - 60px);
       padding-top: 120px;
     }
 
@@ -75,10 +76,11 @@ export const NavBarStyle = styled.nav`
       flex-direction: column;
       padding: 0 20px;
       align-items: flex-start;
+      font-family: ${({theme}) => theme.fonts.primary};
 
       > li {
         cursor: pointer;
-        font-weight: 700;
+        font-weight: 500;
         line-height: 1;
         position: relative;
         font-size: ${({ theme }) => theme.titleSizes.h1};
@@ -110,13 +112,14 @@ export const NavBarStyle = styled.nav`
     li {
       &:last-child {
         .social-btn {
-          width: 172px;
+          width: 245px;
           border-left: 1px solid ${({ theme }) => theme.colors.white};
+          font-family: ${({theme}) => theme.fonts.primary};
 
           span {
             margin-left: 8px;
             font-size: ${({ theme }) => theme.fontSizes.md};
-            font-weight: 700;
+            font-weight: 500;
           }
         }
       }
@@ -173,7 +176,7 @@ export const NavBarStyle = styled.nav`
     display: none;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     .header-nav {
       .header-nav-inner {
         padding-top: 100px;
@@ -192,13 +195,13 @@ export const NavBarStyle = styled.nav`
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     .logo-wrapper {
       width: 62px;
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     .header-nav {
       .header-nav-inner {
         padding-top: 40px;
@@ -239,7 +242,7 @@ export const NavBarStyle = styled.nav`
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xs}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
     .header-nav {
       .header-nav-list {
         > li {

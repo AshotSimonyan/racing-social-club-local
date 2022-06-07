@@ -22,8 +22,9 @@ export const TeamStyle = styled.section`
       transition: width 0.5s;
       pointer-events: all;
       height: 36px;
+      margin: 0 12px;
       &:hover {
-        width: 100px;
+        width: 80px;
       }
 
       :before {
@@ -59,7 +60,7 @@ export const TeamStyle = styled.section`
     }
 
     .slick-next {
-      left: 52%;
+      left: 50%;
       right: inherit;
       text-align: left;
 
@@ -78,7 +79,7 @@ export const TeamStyle = styled.section`
 
     .slick-prev {
       left: inherit;
-      right: 52%;
+      right: 50%;
       text-align: right;
 
       .arrow-text {
@@ -118,6 +119,10 @@ export const TeamStyle = styled.section`
 
   .position {
     margin-bottom: 8px;
+    font-size: ${({theme}) => theme.fontSizes.sm};
+  }
+
+  .description {
     font-size: ${({theme}) => theme.fontSizes.sm};
   }
 

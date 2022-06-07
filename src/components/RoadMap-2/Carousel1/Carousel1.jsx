@@ -33,7 +33,7 @@ const Carousel1 = () => {
               <picture>
                 <source
                   media="(max-width: 575px)"
-                  srcSet={`/assets/carousel/mobile${index + 1}.jpg`}
+                  srcSet={`/assets/carousel/${index + 1}-mobile.jpg`}
                 />
                 <img src={`/assets/carousel/${index + 1}.jpg`} alt="racing" />
               </picture>

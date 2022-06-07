@@ -1,4 +1,4 @@
-const baseImgUrl = "/assets/carousel/"
+const baseImgUrl = "/assets/gallery-cars/"
 
 export const projImgList = [
   `${baseImgUrl}1.jpg`,
