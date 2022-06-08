@@ -1,7 +1,7 @@
 import React from 'react';
 import Spinner from "../UIKit/Spinner/Spinner";
 import {Fade} from "react-awesome-reveal";
-import Carousel2 from "../RoadMap-2/Carousel2/Carousel2";
+import Carousel2 from "../Carousel2/Carousel2";
 import {LegendariesStyle} from "./Legendaries.style";
 
 const Legendaries = () => {

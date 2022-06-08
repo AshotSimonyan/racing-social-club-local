@@ -21,7 +21,7 @@ const ProgressBar = ({
     }
     ticking.current = true;
   };
-  console.log(scroll)
+  // console.log(scroll)
   return (
     <div style={{
       position: "fixed",

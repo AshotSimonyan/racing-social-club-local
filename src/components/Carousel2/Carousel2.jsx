@@ -1,7 +1,7 @@
 import React, { memo, useMemo, useState } from "react"
 import { Carousel2Style } from "./Carousel2.style"
-import {Arrow, Carousel, Icon} from "../../UIKit"
-import { theme } from "../../../styles/theme"
+import {Arrow, Carousel, Icon} from "../UIKit"
+import { theme } from "../../styles/theme"
 
 const Carousel2 = () => {
   const [current, setCurrent] = useState(1)

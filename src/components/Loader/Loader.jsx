@@ -1,44 +1,51 @@
 import { LoaderStyle } from "./Loader.style"
 import { Fade } from "react-awesome-reveal"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
-const number = "100"
-const duration = "8.5"
-const Loader = ({ className }) => {
-  const [count, setCount] = useState("0")
+const Loader = ({ onLoad, loaded }) => {
+  const [value, setValue] = useState(0)
+  const counter = useRef(0)
+
   useEffect(() => {
-    let start = 0
-    const end = parseInt(number.substring(0, 4))
-    if (start === end) return
+    let images = document.querySelectorAll("img")
+    images.forEach(img => {
+      if (img.complete) {
+        incrementCounter(images.length)
+      } else {
+        img.addEventListener("load", () => incrementCounter(images.length))
+      }
+    })
+    return () => {
+      setValue(0)
+      counter.current = 0
+    }
+  }, [])
 
-    let totalMilSecDur = parseInt(duration)
-    let incrementTime = (totalMilSecDur / end) * 1000
-    let timer
+  function incrementCounter(len) {
+    counter.current++
+    if (counter.current === len) {
+      setValue(100)
+      setTimeout(() => {
+        onLoad()
+      }, 500)
+    } else {
+      setValue((100 / len) * counter.current)
+    }
+  }
 
-    setTimeout(
-      () =>
-        (timer = setInterval(() => {
-          start += 4
-          setCount(String(start) + number.substring(3))
-          if (start === end) clearInterval(timer)
-        }, incrementTime)),
-      1000
-    )
-  }, [number, duration])
   return (
-    <LoaderStyle className={className}>
+    <LoaderStyle className={loaded ? "hide-loader" : ""}>
       <div className="progress">
         <Fade
           triggerOnce
           cascade
-          direction={"right"}
+          direction={"up"}
           fraction={0.5}
           delay={400}
           duration={600}
           damping={2}
         >
-          {/*<div className="progress">049%</div>*/}
-          <p>{count === number || count === "0" ? count : `0${count}`}%</p>
+          <p>{value.toFixed()}%</p>
         </Fade>
       </div>
     </LoaderStyle>

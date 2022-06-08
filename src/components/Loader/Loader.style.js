@@ -14,7 +14,7 @@ export const LoaderStyle = styled.div`
   background-color: ${({ theme }) => theme.colors.black};
 
   &.hide-loader {
-    transition: 1s 1s ease-in-out;
+    transition: 0.8s 0s ease-in-out;
     transform: translateY(-100%);
 
     .progress {

@@ -1,7 +1,6 @@
-import { useEffect, useState, useRef, useCallback, useMemo } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import About from 'components/About/About'
-import { useOnScreen } from './hooks/useOnScreen'
-import Loader from './components/Loader/LoaderCopy'
+import Loader from './components/Loader/Loader'
 import { useLockedBody } from './hooks/useLockedBody'
 import Team from './components/Team/Team'
 import NavBar from './components/Navbar/NavBar'
@@ -27,6 +26,7 @@ function App() {
 
 
   useEffect(() => {
+
     window.history.scrollRestoration = "manual"
   }, [])
 
@@ -41,6 +41,7 @@ function App() {
       setScrollTo(false)
     }
   }, [scrollTo])
+
 
   const refMapping = {
     "#hero": heroRef,
@@ -61,7 +62,7 @@ function App() {
 
   return (
     <>
-      <Loader onLoad={handleLoad} />
+      <Loader onLoad={handleLoad} loaded={loaded} />
       <NavBar
           onLinkClick={handleLinkClick}
       />

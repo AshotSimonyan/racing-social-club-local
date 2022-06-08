@@ -1,7 +1,7 @@
 import React from 'react';
 import Spinner from "../UIKit/Spinner/Spinner";
 import {Fade} from "react-awesome-reveal";
-import Carousel1 from "../RoadMap-2/Carousel1/Carousel1";
+import Carousel1 from "../Carousel1/Carousel1";
 import {DriverStyle} from "./Driver.style";
 
 const Driver = () => {

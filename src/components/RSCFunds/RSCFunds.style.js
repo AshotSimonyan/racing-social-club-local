@@ -8,12 +8,12 @@ export const RSCFundsStyle = styled.section`
     .content {
       color: ${({ theme }) => theme.colors.black};
 
-      > p {
+      p {
         margin-top: 40px;
         font-size: ${({ theme }) => theme.fontSizes.lg};
       }
 
-      > a {
+      a {
         margin-top: 32px;
       }
     }
