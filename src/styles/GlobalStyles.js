@@ -133,14 +133,14 @@ export const GlobalStyle = createGlobalStyle`
 
   .text-shadow {
     -webkit-text-stroke: 1px ${({ theme }) => theme.colors.black};
-    text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
+    text-shadow: 0 0 12px ${({ theme }) => theme.colors.white};
   }
 
   h1, .h1 {
     font-size: ${({ theme }) => theme.titleSizes.h1};
     font-weight: 500;
     -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
-    text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
+    text-shadow: 0 0 12px ${({ theme }) => theme.colors.white};
     line-height: 1.1;
   }
 

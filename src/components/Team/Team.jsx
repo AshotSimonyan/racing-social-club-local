@@ -9,28 +9,24 @@ const teamList = [
     name: "Jeroen",
     position: "Business Director",
     img: "/assets/team/1.jpg",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis felis pretium leo egestas, id vehicula ligula auctor. Duis dui odio, aliquam eget lacinia scelerisque, vestibulum nec massa.",
     twitter: '#'
   },
   {
     name: "Luuk",
     position: "Creative Director",
     img: "/assets/team/2.jpg",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis felis pretium leo egestas, id vehicula ligula auctor. Duis dui odio, aliquam eget lacinia scelerisque, vestibulum nec massa.",
     twitter: '#'
   },
   {
     name: "JP",
     position: "Development Director",
     img: "/assets/team/3.jpg",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis felis pretium leo egestas, id vehicula ligula auctor. Duis dui odio, aliquam eget lacinia scelerisque, vestibulum nec massa.",
     twitter: '#'
   },
   {
     name: "Anri",
     position: "Marketing Director",
     img: "/assets/team/4.jpg",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis felis pretium leo egestas, id vehicula ligula auctor. Duis dui odio, aliquam eget lacinia scelerisque, vestibulum nec massa.",
     twitter: '#'
   }
 ]
@@ -93,7 +89,6 @@ const Team = forwardRef(({ onScreen }, ref) => {
                     }
                   </p>
                   <p className="position">{position}</p>
-                  <p className='description'>{description}</p>
                 </div>
               );
             })}
@@ -112,7 +107,6 @@ const Team = forwardRef(({ onScreen }, ref) => {
                 </a>
               </div>
               <p className="position">Art & Smart Contract</p>
-              <p className='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis felis pretium leo egestas, id vehicula ligula auctor. Duis dui odio, aliquam eget lacinia scelerisque, vestibulum nec massa.</p>
             </div>
           </Carousel>
         </div>
