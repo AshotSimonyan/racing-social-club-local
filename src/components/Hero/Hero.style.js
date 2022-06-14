@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components"
+import styled, { keyframes } from 'styled-components'
 
 export const HeroStyle = styled.section`
   width: 100%;
@@ -9,21 +9,61 @@ export const HeroStyle = styled.section`
   }
 
   .content {
-    background-image: url('/assets/hero/hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     width: 100%;
     display: flex;
     justify-content: center;
-    height: calc(100vh - 96px);
     position: relative;
-    padding-left: 40px;
-    padding-right: 40px;
 
-    a {
-      position: absolute;
-      bottom: 120px;
+
+    .banner {
+      &-desktop, &-mobile {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+      }
+
+      &-desktop {
+        display: block
+      }
+
+      &-mobile {
+        display: none
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+        &-desktop {
+          display: none;
+        }
+
+        &-mobile {
+          display: block;
+        }
+      }
+    }
+  }
+
+  a {
+    position: absolute;
+    bottom: 120px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
+      bottom: 104px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+      bottom: 62px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+      bottom: 75px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+      bottom: 50px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
+      bottom: 25px;
     }
   }
 `
