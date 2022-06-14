@@ -129,24 +129,26 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.2;
     text-transform: uppercase;
     font-family: ${({ theme }) => theme.fonts.primary};
+    font-weight: 500;
   }
 
   .text-shadow {
-    -webkit-text-stroke: 1px ${({ theme }) => theme.colors.black};
-    text-shadow: 0 0 12px ${({ theme }) => theme.colors.white};
+    &-h4 {
+      -webkit-text-stroke: 1px ${({ theme }) => theme.colors.black};
+      filter: drop-shadow(0 0 6px ${({ theme }) => theme.colors.white});
+    }
   }
 
   h1, .h1 {
     font-size: ${({ theme }) => theme.titleSizes.h1};
     font-weight: 500;
-    -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
-    text-shadow: 0 0 12px ${({ theme }) => theme.colors.white};
+    -webkit-text-stroke: 1px ${({ theme }) => theme.colors.black};
+    filter: drop-shadow(0 0 7px ${({ theme }) => theme.colors.white});
     line-height: 1.1;
   }
 
   h2, .h2 {
     font-size: ${({ theme }) => theme.titleSizes.h2};
-    font-weight: 500;
   }
 
   h4, .h4 {

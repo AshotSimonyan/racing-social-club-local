@@ -9,6 +9,10 @@
 package-lock.json
 yarn.lock
 
+.firebaserc
+firebase.json
+.firebase
+
 # testing
 /coverage
 

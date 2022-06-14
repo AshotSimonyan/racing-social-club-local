@@ -19,7 +19,7 @@ const Driver = () => {
               duration={1000}
               delay={100}
             >
-              <h4 className="title text-shadow">YOUR DRIVER</h4>
+              <h4 className="title text-shadow-h4">YOUR DRIVER</h4>
               <div className="text">
                 <p>
                   Once all drivers are revealed, you can finally rock the NFT as your profile picture. We like to see all the different Racers across the socials and show the world what the RSC community is made off.

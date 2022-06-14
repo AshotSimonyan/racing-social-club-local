@@ -12,7 +12,7 @@ const Hero = forwardRef(({ onScreen }, ref) => {
 
       <div className="content">
         <img src="/assets/hero/hero-banner.jpg" alt="RACING SOCIAL CLUB" className="banner-desktop"/>
-        <img src="/assets/hero/hero-banner-mobile.jpeg" alt="RACING SOCIAL CLUB" className="banner-mobile"/>
+        <img src="/assets/hero/hero-banner-mobile.jpg" alt="RACING SOCIAL CLUB" className="banner-mobile"/>
 
         <Button
           variant="primary"
