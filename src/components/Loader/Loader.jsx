@@ -45,7 +45,7 @@ const Loader = ({ onLoad, loaded }) => {
           duration={600}
           damping={2}
         >
-          <p>{value.toFixed()}%</p>
+          <p className="fw-bold">{value.toFixed()}%</p>
         </Fade>
       </div>
     </LoaderStyle>

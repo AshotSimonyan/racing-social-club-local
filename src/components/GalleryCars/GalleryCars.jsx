@@ -1,12 +1,10 @@
-import React, {useEffect, useMemo, useState} from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { GalleryCarsStyle } from './GalleryCars.style'
 import { Fade } from 'react-awesome-reveal'
-import {Button, Carousel, Icon} from '../UIKit'
-import { theme } from "../../styles/theme"
-import {Arrow} from "../UIKit";
-import {projImgList} from  "./data"
-
-
+import { Button, Carousel, Icon } from '../UIKit'
+import { theme } from '../../styles/theme'
+import { Arrow } from '../UIKit'
+import { projImgList } from './data'
 
 
 function GalleryCars(props) {
@@ -27,26 +25,26 @@ function GalleryCars(props) {
       slidesToScroll: 1,
       speed: 600,
       centerMode: true,
-      centerPadding: "40px",
+      centerPadding: '40px',
       focusOnSelect: true,
-      nextArrow: <Arrow direction={"next"} color={theme.colors.white} />,
-      prevArrow: <Arrow direction={"prev"} color={theme.colors.white} />,
+      nextArrow: <Arrow direction={'next'} color={theme.colors.white} />,
+      prevArrow: <Arrow direction={'prev'} color={theme.colors.white} />,
       responsive: [
         {
           breakpoint: 1199,
           settings: {
             slidesToShow: 1,
-            centerPadding: "80px",
-          },
+            centerPadding: '80px'
+          }
         },
         {
           breakpoint: 767,
           settings: {
             slidesToShow: 1,
-            centerPadding: "60px",
-          },
-        },
-      ],
+            centerPadding: '60px'
+          }
+        }
+      ]
     }
   }, [])
 
@@ -56,7 +54,7 @@ function GalleryCars(props) {
       <div className="wrapper wrapper-carousel">
         <Carousel
           settings={settings}
-          className='carousel'
+          className="carousel"
         >
           {projImgList.map((img, index) => {
             return (
@@ -78,13 +76,13 @@ function GalleryCars(props) {
               fraction={0.5}
               duration={1000}
             >
-              <p className="lt-0">JOIN TO DISCORD COMMUNITY</p>
+              <p className="ls-10 fw-bold">JOIN TO DISCORD COMMUNITY</p>
 
               <h1 className="title">{members || '29603'}MEMBER</h1>
 
               <p className="text text-center">
-                Racing Social Club will have a loyal and strong community,
-                heading in to a very important part of the race.
+                Racing Social Club builds a loyal and strong community. Become a
+                part of it, and we will show you what the brand is all about.
               </p>
 
               <Button

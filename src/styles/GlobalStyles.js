@@ -107,16 +107,19 @@ export const GlobalStyle = createGlobalStyle`
 
   /*global*/
   body {
-    font-family: ${({ theme }) => theme.fonts.secondary};
+    font-family: ${({ theme }) => theme.fonts.primary};
     font-size: ${({ theme }) => theme.fontSizes.md};
     color: ${({ theme }) => theme.colors.white};
     background-color: ${({ theme }) => theme.colors.black};
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.4;
     position: relative;
     height: 100%;
     letter-spacing: 0.04em;
   }
+
+  ${fontFace('fonts/D-DINCondensed-Bold', 'D-DINCondensed', 700)}
+  ${fontFace('fonts/D-DINCondensed', 'D-DINCondensed', 400)}
 
   .main-wrapper {
     padding-top: 60px;
@@ -129,7 +132,7 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.2;
     text-transform: uppercase;
     font-family: ${({ theme }) => theme.fonts.primary};
-    font-weight: 500;
+    font-weight: 700;
   }
 
   .text-shadow {
@@ -141,7 +144,6 @@ export const GlobalStyle = createGlobalStyle`
 
   h1, .h1 {
     font-size: ${({ theme }) => theme.titleSizes.h1};
-    font-weight: 500;
     -webkit-text-stroke: 1px ${({ theme }) => theme.colors.black};
     filter: drop-shadow(0 0 7px ${({ theme }) => theme.colors.white});
     line-height: 1.1;
@@ -170,7 +172,6 @@ export const GlobalStyle = createGlobalStyle`
   .fw-medium {
     font-weight: 500;
   }
-
 
   /*animations*/
   .animated {
@@ -223,9 +224,9 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
-  .lt {
-    &-0 {
-      letter-spacing: 0;
+  .ls {
+    &-10 {
+      letter-spacing: 0.1em;
     }
   }
 

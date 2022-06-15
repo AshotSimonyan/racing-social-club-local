@@ -41,7 +41,7 @@ const Faq = forwardRef((props , ref) => {
                       duration={800}
                     >
                       <div className="trigger-inner">
-                        <p>{q.question}</p>
+                        <p className="fw-bold">{q.question}</p>
                       </div>
                     </Fade>
                   }

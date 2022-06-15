@@ -14,7 +14,7 @@ export const fontFace = (
                url('${fontPath}.woff2') format('woff2'),
                url('${fontPath}.woff') format('woff'),
                url('${fontPath}.ttf') format('truetype'),
-               url('${fontPath}.eot') format('embedded-opentype');
+               url('${fontPath}.otf') format('opentype');
         }
     `
 }

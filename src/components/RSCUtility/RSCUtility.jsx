@@ -22,11 +22,9 @@ const RscUtility = forwardRef(({ onScreen }, ref) => {
             <p>
               We, at Racing Social Club, consider our community as top priority.
               We aim to provide as much value as we can, therefore our utility
-              contains multiple layers. We have divided the utility in two
-              different forms. The first form of utility we offer, are
-              Membership
-              utilities, and the second form of utility we offer are Trait
-              Utilities.
+              contains multiple layers. We have divided the utilities in two
+              different forms. The first form of utilities we offer, are
+              Membership utilities, and the second form are Trait Utilities.
             </p>
           </Fade>
         </div>
@@ -55,10 +53,11 @@ const RscUtility = forwardRef(({ onScreen }, ref) => {
                     <h4>Metaracing</h4>
 
                     <p>
-                      Metaracing is an online event which is available for all
-                      RSC
-                      NFT holders. This event will be filled with games,
-                      tournaments, entertainment and various prizes.
+                      Meta Racing is an initiative started by RSC to host
+                      eSports races exclusively available to holders. During
+                      these events there will be prizes to win and a
+                      professional broadcasting to follow the races even when
+                      you are not participating.
                     </p>
                   </div>
 
@@ -66,10 +65,10 @@ const RscUtility = forwardRef(({ onScreen }, ref) => {
                     <h4>RSC Race</h4>
 
                     <p>
-                      The RSC Race will be one of a kind. Hosted on a real
-                      racetrack, there will be fast cars, real racing drivers
-                      and
-                      multiple giveaways.
+                      The RSC Race is an event hosted by RSC exclusively to
+                      holders. This event will consist of kart races, where
+                      holders can race each other (and professional racing
+                      drivers) in go-karts.
                     </p>
                   </div>
 
@@ -103,17 +102,13 @@ const RscUtility = forwardRef(({ onScreen }, ref) => {
                 <div className="text">
                   <p>
                     The trait utilities are introduced by RSC as a very unique
-                    way
-                    to provide utility. This way of providing utility will be
-                    very
-                    dynamic. We will announce some of the trait utilities before
-                    mint, but we also will announce some after mint. In the
-                    future
-                    we might even transfer the utility from one trait category
-                    to
-                    another one… We will change the game, people will be blown
-                    away by this new, innovative way of providing value to
-                    holders.
+                    way to provide utility. This way of providing utility will
+                    be very dynamic. We will announce some of the trait
+                    utilities before mint, but we will also announce some after
+                    mint. In the future we might even transfer the utility from
+                    one trait category to another… We will change the game,
+                    people will be blown away by this new, innovative way of
+                    providing value to holders.
                   </p>
                 </div>
               </Fade>

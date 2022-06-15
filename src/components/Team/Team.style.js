@@ -111,6 +111,7 @@ export const TeamStyle = styled.section`
     display: flex;
     font-size: ${({theme}) => theme.fontSizes.lg};
     margin-bottom: 8px;
+    font-weight: 700;
 
     .icon {
       margin-left: 8px;

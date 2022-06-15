@@ -21,10 +21,10 @@ const RscFunds = forwardRef(({ onScreen }, ref) => {
             <p>
               The RSC fund is an initiative started by RSC, in order to create
               more attention for the financial hurdle that exists in racing. A
-              lot
-              of talented racers struggle with this during their career. We want
-              to create attention, raise money and give money from the project
-              back to the racers with this fund.
+              lot of talented racers struggle with this during their career. We
+              want to raise awareness and will therefore reserve 30% of all
+              royalties for our own RSC fund, that will be given to racers
+              chosen by our community.
             </p>
 
             <Button>

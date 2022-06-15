@@ -27,27 +27,26 @@ const Roadmap = forwardRef(({ onScreen }, ref) => {
                 duration={1000}
                 delay={100}
               >
-                <h1>FREE PRACTICE</h1>
+                <h1>Pre-season</h1>
 
                 <div className="text">
                   <p>
-                    Racing Social Club aims to take an exclusive place in the
-                    NFT
-                    and racing industry. The goal is to build a likeminded
-                    community of racing fans and NFT enthusiasts. We will build
-                    the RSC brand by adding partnerships with professional
-                    racers
-                    and growing our network in the industry.
+                    Racing Social Club (RSC) is established.
                   </p>
 
                   <p>
-                    We will build up the momentum to prepare for the
-                    qualification
-                    as best as we can. Growing the community during the free
-                    practice will be done by adding real value and getting the
-                    right attention. This will be done through events like crazy
-                    marketing stunts, professional content, giveaways, AMA’s and
-                    many more!
+                    RSC aims to take an exclusive place in the Web3 space and
+                    Racing industry, by building a community of racing fans and
+                    NFT enthusiasts. Strategic partnerships are being
+                    established to support the growth of a strong community.
+                  </p>
+
+                  <p>
+                    RSC will show the community their plans for online and IRL
+                    racing events, exclusive merchandise, community meetups and
+                    the RSC fund. Unique 3D NFT’s are generated and ready to
+                    race. The iconic collection of racers is finalized and shown
+                    to the public in the months prior to the mint.
                   </p>
                 </div>
               </Fade>
@@ -70,31 +69,26 @@ const Roadmap = forwardRef(({ onScreen }, ref) => {
                 duration={1000}
                 delay={100}
               >
-                <h1>IT’S TIME FOR QUALIFICATION</h1>
+                <h1>Qualification</h1>
 
                 <div className="text">
                   <p>
-                    To start the race in pole position, we need to qualify as
-                    best
-                    as we can. We have been working very hard to create an
-                    outstanding collection of 7878 racers.
+                    We have been working hard on our collection of 3333 racers.
+                    In this phase before the mint, we grow the community by
+                    doing different activities, hosting events and doing
+                    giveaways of F1 GP tickets, merchandise and free NFT’s.
                   </p>
 
                   <p>
-                    Each racer has its own unique characteristics. We focused on
-                    the smallest details in order to make each Racer top notch.
-                    The traits are the center focus for one of our unique
-                    utility
-                    forms.
+                    Development on the latest smart contract is completed to
+                    efficiently fuel your racers and reduce the gas fees
+                    (ERC-721A). We have whitelisted members to ensure they will
+                    be the first to get their hands on one of our racers.
                   </p>
 
                   <p>
-                    During the qualification, each RSC member has two
-                    opportunities for a flawless lap, which will put them in the
-                    best position for the race. A Rookie can qualify itself, by
-                    earning a WL spot or by participating in the raffle before
-                    the
-                    race starts.
+                    Furthermore big collaborations and partnerships are achieved
+                    to raise awareness for the Racing Social Club brand.
                   </p>
                 </div>
               </Fade>
@@ -125,26 +119,21 @@ const Roadmap = forwardRef(({ onScreen }, ref) => {
                 duration={1000}
                 delay={100}
               >
-                <h1>RACEDAY</h1>
+                <h1>RACE DAY</h1>
 
                 <div className="text">
                   <p>
-                    After a successful qualification, the only thing left, is to
-                    win the race! To become a real Racer, our Rookies can mint
-                    one
-                    of the RSC NFT’s and gain access to all benefits of the
-                    Racing
-                    Social Club brand. After the launch, the Racers only have to
-                    wait for the Podium Ceremony, where all Racers will be
-                    revealed.
+                    It is time to mint! After a long period of building, it is
+                    finally gametime. We will launch our collection for a
+                    reasonable price, to make our utilities accessible for as
+                    many people as possible.
                   </p>
 
                   <p>
-                    Some racers might end up being lucky, since some traits will
-                    be directly connected to certain benefits. So make sure you
-                    don’t lose patience. Holding your Racer will be the only
-                    right
-                    decision to make.
+                    We will continue to build the brand and realize the
+                    utilities we offer. We are looking to plan our first
+                    in-real-life event in 2022. We will also launch our official
+                    merchandise which will be available for all.
                   </p>
                 </div>
               </Fade>
@@ -165,27 +154,16 @@ const Roadmap = forwardRef(({ onScreen }, ref) => {
                 duration={1000}
                 delay={100}
               >
-                <h1>PODIUM CEREMONY</h1>
+                <h1>Championship</h1>
 
                 <div className="text">
                   <p>
-                    We started the season with an amazing victory in style. It
-                    is
-                    time for a celebration. Soon we will organize the first
-                    real-life race event hosted by RSC. Also we will start the
-                    first online event, where we will create competitions, and
-                    prizes can be won. Besides that, we will organize the first
-                    meet-up where EVERY holder gains access to. This is where
-                    the
-                    fun starts.
-                  </p>
-
-                  <p>
-                    However, there are many more races to come. Racing Social
-                    Club
-                    is only getting started. As we organize multiple events, and
-                    keep partnering up with a variety of Racers and racing
-                    companies, we will turn eyes and grow the brand globally.
+                    2023, We will grow the Racing Social Club brand as big as
+                    possible now the project has an established name in the
+                    space. More racers, more partners and more exciting
+                    utilities. As the brand and our community grow, we will have
+                    more ways for new people to join the Racing Social Club
+                    Ecosystem.
                   </p>
                 </div>
               </Fade>

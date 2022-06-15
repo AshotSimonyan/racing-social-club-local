@@ -2,7 +2,7 @@ import styled, { css } from "styled-components"
 
 export const ButtonStyle = styled.a`
   padding: 0 16px;
-  font-weight: 500;
+  font-weight: 700;
   color: ${({ theme }) => theme.colors.white};
   transition: 0.5s;
   cursor: pointer;

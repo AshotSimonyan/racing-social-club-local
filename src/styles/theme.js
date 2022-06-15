@@ -8,8 +8,7 @@ export const theme = {
     white: "#ffffff",
   },
   fonts: {
-    primary: "'Fira Sans', sans-serif",
-    secondary: "'Montserrat', sans-serif"
+    primary: "'D-DINCondensed', sans-serif",
   },
   titleSizes: {
     h1: "80px",

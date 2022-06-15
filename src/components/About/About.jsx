@@ -1,6 +1,6 @@
 import { AboutStyle } from './About.style'
 import { forwardRef, useEffect, useState } from 'react'
-import {Fade} from 'react-awesome-reveal'
+import { Fade } from 'react-awesome-reveal'
 
 const About = forwardRef(({ onScreen }, ref) => {
   return (
@@ -16,28 +16,23 @@ const About = forwardRef(({ onScreen }, ref) => {
               duration={1000}
               delay={100}
             >
-              <h1>7,878 Unique Racers Are Waiting For You </h1>
+              <h1>3333 unique racers are waiting for you</h1>
 
               <div className="content__text">
                 <p>
-                  Racing Social Club is a collection of 7878 Racers who are
-                  randomly generated on the Ethereum blockchain. The community
-                  of
-                  racing fans and NFT enthusiasts will gain access to our most
-                  exclusive events, which we will organize multiple times a
-                  year.
-                  The events will give our Rookies the opportunity to feel like
-                  a
-                  real Racer. This includes fast cars, race weekends, eSports
-                  events, entertainment, VIP experiences, giveaways and more!
+                  Racing Social Club is a collection of 3333 Racers who are
+                  randomly generated on the Ethereum blockchain. The NFT comes
+                  with access to different utilities. These utilities include
+                  race weekends, eSports events, entertainment, VIP experiences,
+                  voting rights for our fund, giveaways and more!
                 </p>
 
                 <p>
-                  The Rookies in our community can gain access to the Racing
-                  Social Club benefits, by holding one of the unique NFT’s. We
-                  prioritize the quality of both the artworks and utilities of
-                  the
-                  Racing Social Club brand.
+                  We will organize different events and partner up with the best
+                  racers, to grow the Racing Social Club brand and get the most
+                  exclusive benefits for our community. We are building the
+                  biggest Web3 racing brand, and we take our Racers on this
+                  journey.
                 </p>
               </div>
             </Fade>

@@ -80,14 +80,14 @@ export const NavBarStyle = styled.nav`
 
       > li {
         cursor: pointer;
-        font-weight: 500;
+        font-weight: 700;
         line-height: 1;
         position: relative;
         font-size: ${({ theme }) => theme.titleSizes.h1};
         width: 100%;
         text-align: center;
-        -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
-        text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
+        -webkit-text-stroke: 1px ${({ theme }) => theme.colors.black};
+        filter: drop-shadow(0 0 7px ${({ theme }) => theme.colors.white});
 
         &:not(:first-child) {
           margin-top: 24px;
@@ -119,7 +119,7 @@ export const NavBarStyle = styled.nav`
           span {
             margin-left: 8px;
             font-size: ${({ theme }) => theme.fontSizes.md};
-            font-weight: 500;
+            font-weight: 700;
           }
         }
       }
