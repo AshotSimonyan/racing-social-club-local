@@ -39,7 +39,7 @@ const Team = forwardRef(({ onScreen }, ref) => {
       pauseOnHover: false,
       speed: 500,
       autoplaySpeed: 2000,
-      autoplay: false,
+      autoplay: true,
       nextArrow: <Arrow direction={"next"} color={theme.colors.white} />,
       prevArrow: <Arrow direction={"prev"} color={theme.colors.white} />,
       responsive: [
