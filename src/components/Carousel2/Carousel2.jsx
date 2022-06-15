@@ -27,26 +27,22 @@ const Carousel2 = () => {
   return (
     <Carousel2Style>
       <Carousel settings={settings} beforeChange={handleBeforeChange}>
-        {[...Array(10)].map((item, index) => {
+        {[...Array(2)].map((item, index) => {
           return (
             <div className="carousel-item" key={`carousel-${index}`}>
               <picture>
-                <source
-                  // srcSet={`/assets/carousel/carousel${index + 1}.webp`}
-                  srcSet={`/assets/carousel/carousel-default.webp`}
-                  type="image/webp"
-                />
-                <img
-                  // src={`/assets/carousel/carousel${index + 1}.png`}
-                  src={`/assets/carousel/carousel-default.png`}
-                  alt="racing"
-                />
+                {/*<source*/}
+                {/*  media="(max-width: 575px)"*/}
+                {/*  srcSet={`/assets/carousel/standard-${index + 1}.jpg`}*/}
+                {/*/>*/}
+
+                <img src={`/assets/carousel/legendary-${index + 1}.jpg`} alt="racing" />
               </picture>
             </div>
           )
         })}
       </Carousel>
-      <div className="count">{current} / 10</div>
+      <div className="count">{current} / 2</div>
     </Carousel2Style>
   )
 }

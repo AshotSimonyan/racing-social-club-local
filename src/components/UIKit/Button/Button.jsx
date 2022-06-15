@@ -1,17 +1,17 @@
-import * as React from "react"
-import { ButtonStyle } from "./Button.style"
-import { theme } from "../../../styles/theme"
-import { Icon } from "../Icons/Icon"
+import * as React from 'react'
+import { ButtonStyle } from './Button.style'
+import { theme } from '../../../styles/theme'
+import { Icon } from '../Icons/Icon'
 
 export const Button = ({
-  className,
-  children,
-  variant,
-  onClick,
-  iconName = "discord",
-                           withIcon= true,
-  ...props
-}) => {
+                         className,
+                         children,
+                         variant,
+                         onClick,
+                         iconName = 'discord',
+                         withIcon = true,
+                         ...props
+                       }) => {
   return (
     <ButtonStyle
       variant={variant}
@@ -20,7 +20,7 @@ export const Button = ({
       rel="noreferrer"
       {...props}
     >
-        {withIcon && <Icon name={iconName} color={theme.colors.white} />}
+      {withIcon && <Icon name={iconName} color={theme.colors.white} />}
       {children}
     </ButtonStyle>
   )

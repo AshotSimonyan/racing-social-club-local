@@ -33,9 +33,9 @@ const Carousel1 = () => {
               <picture>
                 <source
                   media="(max-width: 575px)"
-                  srcSet={`/assets/carousel/${index + 1}-mobile.jpg`}
+                  srcSet={`/assets/carousel/standard-${index + 1}.jpg`}
                 />
-                <img src={`/assets/carousel/${index + 1}.jpg`} alt="racing" />
+                <img src={`/assets/carousel/standard-${index + 1}.jpg`} alt="racing" />
               </picture>
             </div>
           )

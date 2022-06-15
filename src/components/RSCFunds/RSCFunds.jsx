@@ -27,7 +27,11 @@ const RscFunds = forwardRef(({ onScreen }, ref) => {
               chosen by our community.
             </p>
 
-            <Button>
+            <Button
+              target="_blank"
+              rel="noreferrer"
+              href="https://discord.com/invite/racingsocialclubnft"
+            >
               JOIN OUR DISCORD
             </Button>
           </Fade>

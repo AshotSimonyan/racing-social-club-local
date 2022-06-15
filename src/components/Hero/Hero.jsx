@@ -16,6 +16,9 @@ const Hero = forwardRef(({ onScreen }, ref) => {
 
         <Button
           variant="primary"
+          target="_blank"
+          rel="noreferrer"
+          href="https://discord.com/invite/racingsocialclubnft"
         > JOIN OUR DISCORD </Button>
       </div>
     </HeroStyle>
