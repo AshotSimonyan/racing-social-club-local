@@ -114,7 +114,7 @@ export const TeamStyle = styled.section`
     font-weight: 700;
 
     &.nft-stack {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
 
       a {
         display: flex;
