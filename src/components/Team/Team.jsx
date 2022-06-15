@@ -9,25 +9,21 @@ const teamList = [
     name: "Jeroen",
     position: "Business Director",
     img: "/assets/team/1.jpg",
-    twitter: '#'
   },
   {
     name: "Luuk",
     position: "Creative Director",
     img: "/assets/team/2.jpg",
-    twitter: '#'
   },
   {
     name: "JP",
     position: "Development Director",
     img: "/assets/team/3.jpg",
-    twitter: '#'
   },
   {
     name: "Anri",
     position: "Marketing Director",
     img: "/assets/team/4.jpg",
-    twitter: '#'
   }
 ]
 
@@ -43,7 +39,7 @@ const Team = forwardRef(({ onScreen }, ref) => {
       pauseOnHover: false,
       speed: 500,
       autoplaySpeed: 2000,
-      autoplay: true,
+      autoplay: false,
       nextArrow: <Arrow direction={"next"} color={theme.colors.white} />,
       prevArrow: <Arrow direction={"prev"} color={theme.colors.white} />,
       responsive: [
@@ -96,13 +92,14 @@ const Team = forwardRef(({ onScreen }, ref) => {
               <div className="img-wrapper">
                 <img src="/assets/team/nft-stack.jpg" alt="" />
               </div>
-              <div className="name">
-                <img src="/assets/NFTstack-logo.svg" alt="NFTstack" />
+              <div className="name nft-stack">
                 <a
                   href="https://www.nftstack.info/"
                   rel="noreferrer"
                   target="_blank"
                 >
+                  <img src="/assets/NFTstack-logo.svg" alt="NFTstack" />
+
                   <Icon name="link" color={theme.colors.white} size={24} />
                 </a>
               </div>

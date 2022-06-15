@@ -113,6 +113,14 @@ export const TeamStyle = styled.section`
     margin-bottom: 8px;
     font-weight: 700;
 
+    &.nft-stack {
+      margin-bottom: 20px;
+
+      a {
+        display: flex;
+      }
+    }
+
     .icon {
       margin-left: 8px;
     }
