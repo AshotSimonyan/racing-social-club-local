@@ -6,44 +6,32 @@ export const AppStyle = styled.main`
   text-align: center;
   
   header {
-    height: 190px;
-    padding-top: 48px;
+    padding-top: 52px;
     position: relative;
-    margin-bottom: 16px;
     
-    &:after {
+    &:before {
       content: '';
-      height: 10px;
+      height: 20px;
       position: absolute;
-      bottom: 0;
+      top: 16px;
       left: 0;
       width: 100%;
       background: ${({theme}) => theme.colors.primaryGradient}
     }
   }
+
+  .running-text-wrapper {
+    border-top: 6px solid ${({ theme }) => theme.colors.white};
+    border-bottom: 6px solid ${({ theme }) => theme.colors.white};
+  }
+  
   section {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    
-    &:after, &:before {
-      content: '';
-      position: absolute;
-      background: ${({theme}) => theme.colors.primaryGradient};
-      left: 0;
-      right: 0;
-    }
-    
-    &:before {
-      top: 0;
-      height: 20px;
-    }
-    &:after {
-      bottom: 0;
-      height: 15px;
-    }
+
     .content  {
       max-width: 720px;
       
@@ -52,11 +40,26 @@ export const AppStyle = styled.main`
   }
   
   footer {
-    height: 130px;
+    height: 160px;
+    background: url('assets/race.jpg') repeat-x center;
+    position: relative;
     
-    img {
-      display: block;
+    &:after, &:before {
+      content: '';
+      height: 19px;
       width: 100%;
+      background: linear-gradient(270deg, #BB8A4F 19.74%, #E9B471 44.23%, #E9B471 68.98%, #E8C66C 100%);
+      position: absolute;
+      left: 0;
+      
+    }
+
+    &:before {
+      top: 0;
+    }
+
+    &:after {
+      bottom: 0;
     }
   }
   
@@ -98,6 +101,7 @@ export const AppStyle = styled.main`
       &.disabled {
         opacity: 0.4;
         cursor: default;
+        pointer-events: none;
       }
     }
   }
@@ -109,40 +113,19 @@ export const AppStyle = styled.main`
     font-size: ${({theme}) => theme.fontSizes.md};
     padding-top: 16px;
   }
+
   
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
     header {
-      height: 96px;
-      padding-top: 24px;
-      
-      img {
-        width: 104px;
-      }
-    }
-    footer {
-      height: 80px;
+      //padding-top: 24px;
+
     }
   }
 
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xs}px) {
-    header {
-      height: 96px;
-      &:after {
-        bottom: 0;
-        height: 5px;
-      }
-    }
+
     
-    section {
-      &:before {
-        bottom: 0;
-        height: 10px;
-      }
-    }
-    footer {
-      height: 64px;
-    }
   }
 `

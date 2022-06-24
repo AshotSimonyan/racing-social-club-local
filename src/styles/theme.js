@@ -12,13 +12,14 @@ export const theme = {
   },
   titleSizes: {
     h1: "120px",
-    h2: "72px",
+    h2: "80px",
     h3: "40px",
     h4: "32px",
     h5: "24px",
   },
   titleSizesSM: {
     h1: "80px",
+    h2: "64px",
   },
   titleSizesXS: {
     h1: "56px",

@@ -1,7 +1,7 @@
 // constants
 import Web3 from "web3";
 import axios from "axios"
-import SmartContract from "../../contracts/NFTStack721ARaffle.json";
+import SmartContract from "../../contracts/RacingSocialClub.json";
 // log
 import {fetchData} from "../data/dataActions";
 
@@ -69,7 +69,7 @@ export const connect = (register = true) => {
                 });
                 //const NetworkData = await SmartContract.networks[networkId];
                 if (networkId === '4' || networkId === 4) {
-                    const address = "0x7f64548278d270C00d8BE6BCBB37377D88956b4f";
+                    const address = "0x45c4B350BB6aE5836AfC78aaF06d2bEf6367AA7b";
                     const account = accounts[0];
 
                     const SmartContractObj = new web3.eth.Contract(
@@ -81,7 +81,7 @@ export const connect = (register = true) => {
                         web3.eth.getBalance(account, async (err, result) => {
                             const amount = web3.utils.fromWei(result, "ether")
                             const body = {address: account, amount: amount}
-                            const response = await axios.post('https://raffle.testnftstack.info/', body)
+                            const response = await axios.post('https://rafflemint.racingsocialclub.com/', body)
 
                             if (response.data.success) {
                                 dispatch(registerSuccess('Register success'))
@@ -90,7 +90,7 @@ export const connect = (register = true) => {
                             }
                         })
                     } else {
-                        const response = await axios.post('https://raffle.testnftstack.info/', {address:account})
+                        const response = await axios.post('https://rafflemint.racingsocialclub.com/', {address:account})
                         const data = response.data;
 
                         const actionPayload = {
@@ -131,7 +131,7 @@ export const updateAccount = (account) => {
 
 export const checkRuffle = () => {
     return async (dispatch) => {
-        const response = await axios.post('https://raffle.testnftstack.info/?checkRuffle=true', {checkRuffle: true})
+        const response = await axios.post('https://rafflemint.racingsocialclub.com/?checkRuffle=true', {checkRuffle: true})
         const ruffle = response.data.ruffle;
         dispatch(setRuffle({isRuffle: ruffle}));
     };

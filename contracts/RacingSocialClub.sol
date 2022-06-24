@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 // Made by: NFT Stack
 //          https://nftstack.info
+//
 
 pragma solidity ^0.8.1;
 
@@ -8,17 +9,18 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 import "./ERC721A.sol";
 
-contract NFTStack721ARaffle is ERC721A, Ownable {
+contract RacingSocialClub is ERC721A, Ownable {
   using MerkleProof for bytes32[];
 
   bytes32 public root;
 
   uint256 public mintPrice = 0.2 ether;
-  uint256 public preSaleMintPrice = 0.2 ether;
-  uint256 public raffleMintPrice = 0.2 ether;
+  uint256 public preSaleMintPrice = 0.18 ether;
+  uint256 public raffleMintPrice = 0.18 ether;
+
   uint256 private reserveAtATime = 50;
   uint256 private reservedCount = 0;
-  uint256 private maxReserveCount = 200;
+  uint256 private maxReserveCount = 150;
 
   string _baseTokenURI;
 
@@ -28,16 +30,17 @@ contract NFTStack721ARaffle is ERC721A, Ownable {
   bool public isClosedMintForever = false;
   bool public isSellOpen = false;
 
-  uint256 public maximumMintSupply = 10000;
-  uint256 public maximumAllowedTokensPerPurchase = 10;
-  uint256 public maximumAllowedTokensPerWallet = 10;
-  uint256 public allowListMaxMint = 10;
+  uint256 public maximumMintSupply = 3333;
+  uint256 public maximumAllowedTokensPerPurchase = 3333;
+  uint256 public maximumAllowedTokensPerWallet = 3333;
+  uint256 public allowListMaxMint = 3;
   uint256 public immutable maxPerAddressDuringMint;
 
-  address private OtherAddress = 0x9DbF14C79847D1566419dCddd5ad35DAf0382E05;
+  address private OtherAddress = 0xbc5f78e02Dc124d0Ef5A6207B1C6384f826B413F;
 
   mapping(address => bool) private _allowList;
   mapping(address => uint256) private _allowListClaimed;
+  mapping(address => uint256) private _publicMintClaimed;
 
   event AssetMinted(uint256 tokenId, address sender);
   event SaleActivation(bool isMintActive);
@@ -46,7 +49,7 @@ contract NFTStack721ARaffle is ERC721A, Ownable {
     string memory baseURI,
     uint256 maxBatchSize_,
     uint256 collectionSize_
-  ) ERC721A("NFT Stack Test", "NFTS", maxBatchSize_, collectionSize_) {
+  ) ERC721A("Racing Social Club", "RSC", maxBatchSize_, collectionSize_) {
     setBaseURI(baseURI);
     maxPerAddressDuringMint = maxBatchSize_;
   }
@@ -123,6 +126,11 @@ contract NFTStack721ARaffle is ERC721A, Ownable {
     return _allowListClaimed[owner];
   }
 
+  function publicMintClaimed(address owner) external view returns (uint256){
+    require(owner != address(0), 'Zero address not on Allow List');
+    return _publicMintClaimed[owner];
+  }
+
   function setReserveAtATime(uint256 val) public onlyAuthorized {
     reserveAtATime = val;
   }
@@ -175,16 +183,6 @@ contract NFTStack721ARaffle is ERC721A, Ownable {
     root = _root;
   }
 
-  function setApprovalForAll(address operator, bool approved) public virtual override {
-    require(operator != _msgSender(), "ERC721A: approve to caller");
-    if (msg.sender != owner()) {
-      require(isSellOpen, "Sell is not active currently.");
-    }
-
-    _operatorApprovals[_msgSender()][operator] = approved;
-    emit ApprovalForAll(_msgSender(), operator, approved);
-  }
-
   function getReserveAtATime() external view returns (uint256) {
     return reserveAtATime;
   }
@@ -207,26 +205,18 @@ contract NFTStack721ARaffle is ERC721A, Ownable {
 
   function reserveNft() public onlyAuthorized {
     require(reservedCount <= maxReserveCount, "Max Reserves taken already!");
-    uint256 supply = totalSupply();
-    uint256 i;
+    require(totalSupply() + reserveAtATime <= maximumMintSupply, "Total supply exceeded.");
+    require(totalSupply() <= maximumMintSupply, "Total supply spent.");
 
-    for (i = 0; i < reserveAtATime; i++) {
-      emit AssetMinted(supply + i, msg.sender);
-      _safeMint(msg.sender, supply + i);
-      reservedCount++;
-    }
+    reservedCount += reserveAtATime;
+    _safeMint(msg.sender, reserveAtATime);
   }
 
   function reserveToCustomWallet(address _walletAddress, uint256 _count) public onlyAuthorized {
-    require(reservedCount <= maxReserveCount, "Max Reserves taken already!");
+    require(totalSupply() + _count <= maximumMintSupply, "Total supply exceeded.");
+    require(totalSupply() <= maximumMintSupply, "Total supply spent.");
 
-    uint256 supply = totalSupply();
-    uint256 i;
-
-    for (i = 0; i < _count; i++) {
-      emit AssetMinted(supply + i, _walletAddress);
-      _safeMint(_walletAddress, totalSupply());
-    }
+    _safeMint(_walletAddress, _count);
   }
 
   function mint(address _to, uint256 _count) public payable saleIsOpen callerIsUser {
@@ -238,6 +228,7 @@ contract NFTStack721ARaffle is ERC721A, Ownable {
       require(balanceOf(_to) + _count <= maximumAllowedTokensPerWallet, "Max holding cap reached.");
     }
 
+    require(_publicMintClaimed[msg.sender] + _count <= maximumAllowedTokensPerWallet, "Purchase exceeds max allowed");
     require(totalSupply() + _count <= maximumMintSupply, "Total supply exceeded.");
     require(totalSupply() <= maximumMintSupply, "Total supply spent.");
     require(
@@ -249,9 +240,9 @@ contract NFTStack721ARaffle is ERC721A, Ownable {
       "can not mint this many"
     );
     require(!isClosedMintForever, "Mint Closed Forever");
-
     require(msg.value >= mintPrice * _count, "Insuffient ETH amount sent.");
 
+    _publicMintClaimed[msg.sender] += _count;
     _safeMint(_to, _count);
   }
 
@@ -265,6 +256,7 @@ contract NFTStack721ARaffle is ERC721A, Ownable {
     require(_allowListClaimed[msg.sender] + _count <= allowListMaxMint, "Purchase exceeds max allowed");
     require(msg.value >= raffleMintPrice * _count, "Insuffient ETH amount sent.");
     require(!isClosedMintForever, "Mint Closed Forever");
+    _allowListClaimed[msg.sender] += _count;
 
     _safeMint(msg.sender, _count);
   }
@@ -277,6 +269,7 @@ contract NFTStack721ARaffle is ERC721A, Ownable {
     require(_allowListClaimed[msg.sender] + _count <= allowListMaxMint, 'Purchase exceeds max allowed');
     require(msg.value >= preSaleMintPrice * _count, 'Insuffient ETH amount sent.');
     require(!isClosedMintForever, 'Mint Closed Forever');
+    _allowListClaimed[msg.sender] += _count;
 
     _safeMint(msg.sender, _count);
   }

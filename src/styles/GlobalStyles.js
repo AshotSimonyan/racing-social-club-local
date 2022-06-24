@@ -134,22 +134,22 @@ export const GlobalStyle = createGlobalStyle`
     white-space: nowrap;
     font-size: ${({ theme }) => theme.titleSizes.h1};
     font-weight: 700;
-    -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
-    text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
+    -webkit-text-stroke: 1px ${({ theme }) => theme.colors.black};
+    filter: drop-shadow(0 0 7px ${({ theme }) => theme.colors.white});
   }
 
   h2, .h2 {
     font-size: ${({ theme }) => theme.titleSizes.h2};
     font-weight: 700;
-    -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
-    text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
+    -webkit-text-stroke: 1px ${({ theme }) => theme.colors.black};
+    filter: drop-shadow(0 0 7px ${({ theme }) => theme.colors.white});
   }
 
   h3, .h3 {
     font-size: ${({ theme }) => theme.titleSizes.h3};
     font-weight: 700;
-    -webkit-text-stroke: 2px ${({ theme }) => theme.colors.black};
-    text-shadow: 0 0 18px ${({ theme }) => theme.colors.white};
+    -webkit-text-stroke: 1px ${({ theme }) => theme.colors.black};
+    filter: drop-shadow(0 0 7px ${({ theme }) => theme.colors.white});
   }
 
   h4, .h4 {
@@ -194,6 +194,10 @@ export const GlobalStyle = createGlobalStyle`
 
     h1, .h1 {
       font-size: ${({ theme }) => theme.titleSizesSM.h1};
+    }
+
+    h2, .h2 {
+      font-size: ${({ theme }) => theme.titleSizesSM.h2};
     }
     
   }
