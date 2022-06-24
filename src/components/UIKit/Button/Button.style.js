@@ -73,6 +73,10 @@ export const ButtonStyle = styled.a`
   ${({isLoading}) =>
           isLoading && css`
             pointer-events: none;
+            &:hover {
+              background-color: ${({theme}) => theme.colors.white};
+              color: ${({theme}) => theme.colors.black};
+            }
           `
   }
   .lds-ring {
